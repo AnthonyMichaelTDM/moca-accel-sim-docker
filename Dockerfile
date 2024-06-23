@@ -47,9 +47,7 @@ RUN sh cuda_11.7.0_515.43.04_linux.run --silent --toolkit \
 ADD accel-sim-framework /accel-sim/accel-sim-framework
 
 # add some environment variables to .bashrc
-RUN echo "source /accel-sim/accel-sim-framework/gpu-simulator/setup_environment.sh" > "/root/.bashrc" \
-&& echo "export PATH=$CUDA_INSTALL_PATH/bin:$PATH" >> "/root/.bashrc" \
-&& echo "export LD_LIBRARY_PATH=$CUDA_INSTALL_PATH/lib64:$LD_LIBRARY_PATH" >> "/root/.bashrc"
+ADD .bashrc /root/.bashrc
 
 WORKDIR /accel-sim/accel-sim-framework
 

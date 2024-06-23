@@ -7,6 +7,12 @@
 	"build": {
 		"dockerfile": "../Dockerfile"
 	},
+	"containerEnv": {
+		"NVIDIA_VISIBLE_DEVICES": "0"
+	},
+	"runArgs": [
+		"--gpus=all"
+	],
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	
 	// Features to add to the dev container. More info: https://containers.dev/features.
