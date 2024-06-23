@@ -78,6 +78,3 @@ RUN export PATH=$CUDA_INSTALL_PATH/bin:$PATH \
 && make -j -C ./gpu-app-collection/src data \
 && rm gpucomputingsdk_4.2.9_linux.run \
 && rm -rf 4.2
-
-# install pytorch
-RUN pip3 install torch --index-url https://download.pytorch.org/whl/cu117
