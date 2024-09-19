@@ -9,6 +9,12 @@ else
     echo "Docker image already exists"
 fi
 
+# if previous command failed, run the following command:
+if [ $? -ne 0 ]; then
+    echo "Failed to build the docker image"
+    exit 1
+fi
+
 # if nvidia-container-toolkit is installed, run the container with GPU support
 if [ "$(command -v nvidia-container-toolkit)" != "" ]; then
     echo "Running the container with GPU support"
