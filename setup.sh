@@ -6,7 +6,7 @@
 if [ -d "accel-sim-framework" ]; then
     echo "Directory accel-sim-framework already exists. Skipping git clone."
 else
-    git clone https://github.com/accel-sim/accel-sim-framework.git
+    git clone https://github.com/AnthonyMichaelTDM/accel-sim-framework.git
 fi
 
 # get the cuda 11.7 installer (if it doesn't already exist)
