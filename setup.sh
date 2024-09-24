@@ -7,6 +7,11 @@ if [ -d "accel-sim-framework" ]; then
     echo "Directory accel-sim-framework already exists. Skipping git clone."
 else
     git clone https://github.com/AnthonyMichaelTDM/accel-sim-framework.git
+    if ! [ -d "accel-sim-framework/gpu-simulator/gpgpu-sim" ]; then
+        cd accel-sim-framework/gpu-simulator
+        git clone https://github.com/accel-sim/gpgpu-sim_distribution.git gpgpu-sim
+        cd -
+    fi
 fi
 
 # get the cuda 11.7 installer (if it doesn't already exist)
