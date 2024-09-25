@@ -32,7 +32,7 @@ RUN apt-get update \
 && apt-get install -y wget build-essential xutils-dev bison zlib1g-dev flex \
       libglu1-mesa-dev git g++ libssl-dev libxml2-dev libboost-all-dev git g++ \
       libxml2-dev vim python-setuptools python3 python3-pip cmake \
-      bc \
+      bc gdb \
 && apt-get clean \
 && pip3 install pyyaml plotly psutil
 # install cuda 11.7
