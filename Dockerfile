@@ -79,3 +79,7 @@ RUN export PATH=$CUDA_INSTALL_PATH/bin:$PATH \
 && make -j -C ./gpu-app-collection/src data \
 && rm gpucomputingsdk_4.2.9_linux.run \
 && rm -rf 4.2
+
+# add a script to setup the environment
+RUN echo "source /accel-sim/accel-sim-framework/gpu-simulator/setup_environment.sh" > setup_environment.sh \
+&& echo "export LD_LIBRARY_PATH=/accel-sim/accel-sim-framework/gpu-simulator/gpgpu-sim/lib/gcc-/cuda-11070/release/:$LD_LIBRARY_PATH" >> setup_environment.sh \
