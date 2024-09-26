@@ -3,3 +3,4 @@
 !.gitignore
 !gpgpusim.config
 !trace.config
+!traces_tensorcore_bert_base.tar.bz2
