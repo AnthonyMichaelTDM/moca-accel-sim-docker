@@ -4,3 +4,6 @@
 !gpgpusim.config
 !trace.config
 !traces_tensorcore_bert_base.tar.bz2
+!model_pool_finetuned.py
+!bench_trace_bert.sh
+!trace_bert.sh
