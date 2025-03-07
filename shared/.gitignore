@@ -9,3 +9,6 @@
 !trace_bert.sh
 !visualize_results.py
 !simulation_results.ods
+!organized_sim_results.csv
+!plots/
+!plots/*
