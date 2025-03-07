@@ -85,6 +85,7 @@ kernels_to_keep = [
     "fmha_cutlassF_f32_aligned_64x64_rf_sm80",
     # "model_pool_finetuned.py/…ampere_sgemm_32x32_sliced1x4_tn",
     "indexSelectSmallIndex",
+    "vectorized_layer_norm_kernel",
     "elementwise_kernel<128, 2, …>",
     # "vectorized_elementwise_kernel<4, AunaryFunctor<…>, _>",
     "vectorized_elementwise_kernel<4, CUDAFunctor_add<…>, _>",
