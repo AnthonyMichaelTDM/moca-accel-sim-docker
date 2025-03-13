@@ -133,16 +133,6 @@ def violin_plot(df, metric):
     plt.tight_layout()
 
 
-# def show_violin_plot(df, metric):
-#     plt.figure(figsize=(20, 10))
-#     violin_plot(df, metric)
-#     plt.show()
-#     plt.close("all")
-
-
-# show_violin_plot(df, "gpu_tot_sim_insn")
-
-
 def save_violin_plot(df, metric, filename):
     plt.figure(figsize=(20, 10))
     violin_plot(df, metric)
@@ -150,5 +140,45 @@ def save_violin_plot(df, metric, filename):
     plt.close("all")
 
 
+def line_plot(df, metric) -> None:
+    """
+    Plot the performance of the kernels over time
+    """
+    for clean_kernel_name in df["clean_names"].unique():
+        df2 = df[df["clean_names"] == clean_kernel_name].copy()
+        df2["id"] = (
+            0
+            if (split := df2["kernel_name"].str.split("--")).empty
+            else split.str[1].astype(int)
+        )
+        # Normalize the id column to range [0,1]
+        df2["normalized_id"] = (df2["id"] - df2["id"].min()) / (
+            df2["id"].max() - df2["id"].min()
+        )
+
+        df2 = df2.sort_values("id")
+        sns.lineplot(
+            x="normalized_id",
+            y=metric,
+            data=df2,
+            legend="brief",
+            label=f"{clean_kernel_name} ({len(df2)} launches)",
+        )
+    plt.xlabel("Kernel Launch")
+    plt.ylabel(metric)
+    plt.title(f"{metric} Over Time")
+    # hide x-axis ticks
+    plt.xticks([])
+    plt.tight_layout()
+
+
+def save_line_plot(df, metric, filename):
+    plt.figure(figsize=(20, 10))
+    line_plot(df, metric)
+    plt.savefig(filename)
+    plt.close("all")
+
+
 for metric in metrics_to_plot:
     save_violin_plot(df, metric, f"plots/{metric}_violin_plot.png")
+    save_line_plot(df, metric, f"plots/{metric}_line_plot.png")
