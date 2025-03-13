@@ -12,3 +12,4 @@
 !organized_sim_results.csv
 !plots/
 !plots/*
+!instruction_count.py
