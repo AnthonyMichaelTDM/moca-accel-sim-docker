@@ -23,15 +23,16 @@ from collections import defaultdict
 import pandas as pd
 
 
-def count_instructions(directory: str, pattern: str) -> dict[str, float]:
-    # first is the aggregate count of instructions for each kernel,
-    # second is the number of times we've seen that kernel
-    instruction_counts: dict[str, list[int]] = defaultdict(lambda: [0, 0])
+def count_instructions(directory: str, patterns: list[str]) -> pd.DataFrame:
+    # first is the number of times we've seen that kernel
+    # the is the aggregate count of instructions of each pattern for each kernel
+    df = pd.DataFrame(columns=["kernel_name"] + patterns)
+    instruction_counts = defaultdict(lambda: [0] + [0] * len(patterns))
 
     # Iterate over all files in the given directory
     for filename in os.listdir(directory):
         if filename.startswith("kernel-") and filename.endswith(".traceg"):
-            print(f"Processing {filename}")
+            # print(f"Processing {filename}")
             file_path: str = os.path.join(directory, filename)
 
             # the kernel name is in the first line of the file,
@@ -42,7 +43,7 @@ def count_instructions(directory: str, pattern: str) -> dict[str, float]:
                 kernel_name = next(lines).strip().split()[-1]
 
                 # increment the count for this kernel
-                instruction_counts[kernel_name][1] += 1
+                instruction_counts[kernel_name][0] += 1
 
                 # now we skip to the start of the actual instruction traces
 
@@ -56,47 +57,55 @@ def count_instructions(directory: str, pattern: str) -> dict[str, float]:
                 # traces format = [line_num] PC mask dest_num [reg_dests] opcode src_num [reg_srcs] mem_width [adrrescompress?] [mem_addresses] [immediate]
 
                 while (line := next(lines, None)) is not None:
-                    if pattern in line:
-                        # if matcher.match(line):
-                        instruction_counts[kernel_name][0] += 1
+                    for i, pattern in enumerate(patterns):
+                        if pattern in line:
+                            instruction_counts[kernel_name][i + 1] += 1
 
     # turn our instruction counts into average counts
-    average_counts = {
-        kernel_name: count[0] / count[1]
-        for kernel_name, count in instruction_counts.items()
-    }
-
-    return average_counts
-
-
-KERNEL_COLUMN_NAME = "kernel_name"
-COUNT_COLUMN_NAME = "average count"
-
-
-def print_instruction_counts(instruction_counts: dict[str, float]):
-    # Convert the dictionary to a DataFrame for better formatting
-    df = pd.DataFrame(
-        list(instruction_counts.items()),
-        columns=[KERNEL_COLUMN_NAME, COUNT_COLUMN_NAME],
+    df = pd.DataFrame.from_dict(
+        instruction_counts,
+        orient="index",
+        columns=["count"] + ["avg. # of " + pattern for pattern in patterns],
     )
+    df.reset_index(inplace=True)
+    df.rename(columns={"index": "kernel_name"}, inplace=True)
+    df.set_index("kernel_name", inplace=True)
+    # calculate the average count for each kernel
+    df = df.div(df["count"], axis=0)
+    df.drop(columns=["count"], inplace=True)
 
-    # Sort by count in descending order
-    df = df.sort_values(by=COUNT_COLUMN_NAME, ascending=False)
+    return df
 
-    # reorder so that the count is first
-    df = df[[COUNT_COLUMN_NAME, KERNEL_COLUMN_NAME]]
 
-    # Print the DataFrame
-    print(df.to_string(index=False))
+PRINT_CSV = True
+
+
+def print_instruction_counts(instruction_counts: pd.DataFrame):
+    # Convert the dictionary to a DataFrame for better formatting
+    df = instruction_counts.reset_index()
+
+    # # reorder so that the kernel name is last
+    # df = df.melt(id_vars=["kernel_name"], var_name="pattern", value_name="count")
+    # df = df.pivot(index="kernel_name", columns="pattern", values="count").reset_index()
+    # df.columns.name = None  # Remove the columns name
+    # df = df.rename_axis(None, axis=1)  # Remove the index name
+    # df = df.fillna(0)  # Fill NaN values with 0
+    df = df.sort_values(by="kernel_name")  # Sort by kernel name
+
+    # Print the DataFrame as a csv table
+    if PRINT_CSV:
+        print(df.to_csv(index=False, sep=",", header=True))
+    else:
+        print(df.to_string(index=False))
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) < 2:
         print("Usage: ./instruction_count.py <directory> <pattern>")
         sys.exit(1)
 
     directory = sys.argv[1]
-    pattern = sys.argv[2]
+    patterns = sys.argv[2:]
 
-    instruction_counts = count_instructions(directory, pattern)
+    instruction_counts = count_instructions(directory, patterns)
     print_instruction_counts(instruction_counts)
