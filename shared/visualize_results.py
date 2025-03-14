@@ -179,6 +179,32 @@ def save_line_plot(df, metric, filename):
     plt.close("all")
 
 
+def correlation_matrix(df):
+    plt.figure(figsize=(20, 20))
+    correlation_matrix = df[metrics_to_plot].corr()
+    sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
+    plt.title("Correlation Matrix")
+    plt.tight_layout()
+    plt.savefig("plots/correlation_matrix.png")
+    plt.close("all")
+
+
+def correlation_matrix_kernel(df, kernel_name):
+    plt.figure(figsize=(20, 20))
+    df_kernel = df[df["clean_names"] == kernel_name]
+    correlation_matrix = df_kernel[metrics_to_plot].corr()
+    sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
+    plt.title(f"Correlation Matrix for {kernel_name}")
+    plt.tight_layout()
+    plt.savefig(f"plots/correlation_matrix_{kernel_name}.png")
+    plt.close("all")
+
+
+correlation_matrix(df)
+
+for kernel in kernels_to_keep:
+    correlation_matrix_kernel(df, kernel)
+
 for metric in metrics_to_plot:
     save_violin_plot(df, metric, f"plots/{metric}_violin_plot.png")
     save_line_plot(df, metric, f"plots/{metric}_line_plot.png")
