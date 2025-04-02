@@ -1,0 +1,11 @@
+[submodule "shared/models"]
+	path = shared/models
+	url = git@github.com:Lin-Mao/models.git
+
+[submodule "gpu-app-collection"]
+	path = gpu-app-collection
+	url = https://github.com/accel-sim/gpu-app-collection.git
+
+[submodule "accel-sim-framework"]
+	path = accel-sim-framework
+	url = git@github.com:AnthonyMichaelTDM/accel-sim-framework.git
