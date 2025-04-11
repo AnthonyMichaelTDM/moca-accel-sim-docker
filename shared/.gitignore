@@ -11,7 +11,7 @@
 !simulation_results.ods
 !organized_sim_results.csv
 !plots/
-!plots/*
+!plots/**/*
 !instruction_count.py
 !models/
 !organize_sim_stats.py
