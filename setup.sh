@@ -14,13 +14,6 @@ else
     fi
 fi
 
-# get the cuda 11.7 installer (if it doesn't already exist)
-if [ -f "cuda_11.7.0_515.43.04_linux.run" ]; then
-    echo "File cuda_11.7.0_515.43.04_linux.run already exists. Skipping download."
-else
-    wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda_11.7.0_515.43.04_linux.run
-fi
-
 # get some stuff for the traces (if they don't already exist)
 if [ -f "1.1.0.trace.summary.txt" ]; then
     echo "File 1.1.0.trace.summary.txt already exists. Skipping download."
