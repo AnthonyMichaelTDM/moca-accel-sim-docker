@@ -1,8 +1,8 @@
 # ignore everything in this directory, except for this file
 *
 !.gitignore
-!gpgpusim.config
-!trace.config
+!NVIDIA_GeForce_RTX_3060_Ti/
+!NVIDIA_GeForce_RTX_3060_Ti/*
 !traces_tensorcore_bert_base.tar.bz2
 !model_pool_finetuned.py
 !bench_trace_bert.sh
