@@ -55,7 +55,8 @@ pip install -r requirements.txt
 2. generate traces
 
 ```bash
-# modify /accel-sim/accel-sim-framework/util/job_launching/apps/define-moca-apps.yml to configure what workloads you want to trace
+# modify /accel-sim/accel-sim-framework/util/job_launching/apps/define-moca-apps.yml to 
+# configure what workloads you want to trace
 
 # set up the tracer
 cd /accel-sim-framework/util/tracer_nvbit
@@ -65,13 +66,16 @@ make
 # generate the traces
 ./run_hw_trace.py -B moca
 
-# this will output traces in `/accel-sim/accel-sim-framework/hw_run/traces/device-0/12.8/...`, but you may want to move them to the `/shared` directory so you can access them from outside the container
+# this will output traces in `/accel-sim/accel-sim-framework/hw_run/traces/device-0/12.8/...`, 
+# but you may want to move them to the `/shared` directory so you can access them from outside 
+# the container
 ```
 
 3. running in the simulator and collecting stats
 
 ```bash
-# modify /accel-sim/accel-sim-framework/util/job_launching/apps/define-moca-apps.yml to configure what workloads you want to simulate
+# modify /accel-sim/accel-sim-framework/util/job_launching/apps/define-moca-apps.yml to
+# configure what workloads you want to simulate
 
 # set up environment
 cd /accel-sim-framework/
