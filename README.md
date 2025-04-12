@@ -106,3 +106,16 @@ though before running the `visualize_results.py` script you'll want to modify th
 `organized_sim_results.py` will give you the demangled kernel names in its output and will print the list of unique names, so you don't need to worry about that.
 
 the `instructions_count.py` script operates on the raw traces, not the stats, so you can run it before and w/o actually running the simulator.
+
+## Getting a debug build of AccelSim
+
+if you want to get a debug build of AccelSim in the container, you can do so by running the following commands:
+
+```bash
+cd /accel-sim-framework/
+source gpu-simulator/setup_environment.sh
+
+cmake -S gpu-simulator -B gpu-simulator/build -DCMAKE_BUILD_TYPE=Debug
+cmake --build ./gpu-simulator/build
+cmake --install ./gpu-simulator/build
+```
