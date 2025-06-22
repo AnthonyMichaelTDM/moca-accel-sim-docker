@@ -15,3 +15,5 @@
 !instruction_count.py
 !models/
 !organize_sim_stats.py
+!organized_stats/
+!organized_stats/*
