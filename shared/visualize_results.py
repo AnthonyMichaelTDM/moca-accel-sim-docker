@@ -73,7 +73,7 @@ kernel_names = {
     "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::BinaryOpListAlphaFunctor<float, 2, 2, 0>, std::plus<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::BinaryOpListAlphaFunctor<float, 2, 2, 0>, std::plus<float>, float)": "multi_tensor_apply_kernel<TensorListMetadata<2>, …>",
     # from newer tests (on older library versions)
     "void gemv2T_kernel_val<int, int, float, float, float, 128, 16, 4, 4, false, false, cublasGemvParams<cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float> >(cublasGemvParams<cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float>, float, float)": "gemv2T_kernel_val",
-    "void at::native::vectorized_elementwise_kernel<4, at::native::threshold_kernel_impl<float>(at::TensorIterator&, float, float)::{lambda(float, float)#1}, at::detail::Array<char*, 3> >(int, at::native::threshold_kernel_impl<float>(at::TensorIterator&, float, float)::{lambda(float, float)#1}, at::detail::Array<char*, 3>)": "vectorized_elementwise_kernel<4, threshold_kernel_impl<float>(…), _>",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::threshold_kernel_impl<float>(at::TensorIterator&, float, float)::{lambda(float, float)#1}, at::detail::Array<char*, 3> >(int, at::native::threshold_kernel_impl<float>(at::TensorIterator&, float, float)::{lambda(float, float)#1}, at::detail::Array<char*, 3>)": "vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>",
     "void dot_kernel<float, 128, 0, cublasDotParams<cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float> > >(cublasDotParams<cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float> >)": "dot_kernel",
     "void reduce_1Block_kernel<float, 128, 7, cublasGemvTensorStridedBatched<float>, cublasGemvTensorStridedBatched<float> >(float const*, float, cublasGemvTensorStridedBatched<float>, int, float const*, float, cublasGemvTensorStridedBatched<float>, cublasPointerMode_t, cublasLtEpilogue_t, cublasGemvTensorStridedBatched<biasType<cublasGemvTensorStridedBatched<float>::value_type, float>::type const>)": "reduce_1Block_kernel",
     "void (anonymous namespace)::softmax_warp_forward<float, float, float, 4, true>(float*, float const*, int, int, int)": "softmax_warp_forward",
@@ -190,7 +190,7 @@ kernels_to_keep = [
     "multi_tensor_apply_kernel<TensorListMetadata<2>, …>",
     # from newer tests (on older library versions) #
     "gemv2T_kernel_val",
-    "vectorized_elementwise_kernel<4, threshold_kernel_impl<float>(…), _>",
+    "vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>",
     "dot_kernel",
     "reduce_1Block_kernel",
     "softmax_warp_forward",
@@ -247,6 +247,74 @@ kernels_to_keep = [
     "volta_sgemm_32x128_tn",
     "cunn_SpatialSoftMaxForward",
 ]
+
+# groups of kernels to keep together in the plots
+kernel_groups: dict[str, list[str]] = {
+    # gemm kernels
+    "group-gemm": [
+        "ampere_sgemm_32x32_sliced1x4_tn",
+        "volta_sgemm_32x128_tn",
+        "volta_sgemm_64x32_sliced1x4_tn",
+        "volta_sgemm_64x64_nn",
+        "volta_sgemm_128x32_tn",
+        "volta_sgemm_128x32_nn",
+        "volta_sgemm_128x32_sliced1x4_nn",
+        "volta_sgemm_128x64_tn",
+        "volta_sgemm_128x64_nn",
+        "gemmk1_kernel",
+    ],
+    # cutlass kernels
+    "group-cutlass": [
+        "fmha_cutlassF_f32_aligned_64x64_rf_sm80",
+        "cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4",
+        "cutlass_80_tensorop_s1688gemm_128x64_16x6_tn_align4",
+    ],
+    # gemv kernels
+    "group-gemv": [
+        "gemv2T_kernel_val",
+        "gemvNSP_kernel",
+        "gemvx kernel type 1",
+        "gemvx kernel type 2",
+        "gemvx kernel type 3",
+    ],
+    # vectorized elementwise kernels
+    "group-vectorized_elementwise": [
+        "vectorized_elementwise_kernel<4, AunaryFunctor<…>, _>",
+        "vectorized_elementwise_kernel<4, CUDAFunctor_add<…>, _>",
+        "vectorized_elementwise_kernel<4, GeluCUDAKernelImpl(…), _>",
+        "vectorized_elementwise_kernel<4, launch_clamp_scalar(…), _>",
+        "vectorized_elementwise_kernel<4, FillFunctor<float>, _>",
+        "vectorized_elementwise_kernel<4, FillFunctor<long>, _>",
+        "vectorized_elementwise_kernel<4, BinaryFunctor<…>, …>",
+        "vectorized_elementwise_kernel<4, AddFunctor<float>, _>",
+        "vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>",
+        "vectorized_elementwise_kernel<4, BUnaryFunctor<CompareGTFunctor<long>,_>, _>",
+        "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>",
+        "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>",
+        "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>",
+        "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>",
+        "vectorized_elementwise_kernel<4, MulFunctor<float>, _>",
+    ],
+    # unrolled elementwise kernels
+    "group-unrolled_elementwise": [
+        "unrolled_elementwise_kernel<copy_device_to_device(…), _> (bool)",
+        "unrolled_elementwise_kernel<copy_device_to_device(…), _> (float)",
+        "unrolled_elementwise_kernel<AddFunctor<float>, _>",
+        "unrolled_elementwise_kernel<MulFunctor<float>, _>",
+        "unrolled_elementwise_kernel<DivFunctor<float>, _>",
+        "unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>",
+    ],
+    # reduction kernels
+    "group-reduction": [
+        "reduce_kernel<256, 2, …>",
+        "reduce_kernel<128, 4, …>",
+        "reduce_kernel<512, 1, MeanOps<…> >",
+        "reduce_kernel<512, 1, WelfordOps<…> >",
+        "reduce_1Block_kernel",
+        "splitKreduce_kernel<32, 16, …>",
+        "splitKreduce_kernel",
+    ],
+}
 
 
 def violin_plot(df, metric):
@@ -335,6 +403,7 @@ def correlation_matrix_kernel(df, kernel_name, output_dir: str = "plots"):
 class Config:
     input_file: str
     output_dir: str
+    group: bool = False
 
     @classmethod
     def from_args(cls):
@@ -351,6 +420,11 @@ class Config:
             default="plots",
             help="Path to the output directory.",
         )
+        parser.add_argument(
+            "--group",
+            action="store_true",
+            help="Group similar kernels in the plots.",
+        )
         args = parser.parse_args()
         if not os.path.exists(args.input_file):
             raise FileNotFoundError(f"Input file {args.input_file} does not exist.")
@@ -360,7 +434,7 @@ class Config:
             os.makedirs(args.output_dir)
         if args.output_dir and not os.path.isdir(args.output_dir):
             raise ValueError(f"Output directory {args.output_dir} is not a directory.")
-        return cls(args.input_file, args.output_dir)
+        return cls(args.input_file, args.output_dir, args.group)
 
 
 def main():
@@ -381,6 +455,17 @@ def main():
     # remove the unwanted kernels
     df = df[df["clean_names"].isin(kernels_to_keep)]
 
+    # optionally group similar kernels
+    if config.group:
+
+        def map_to_group(name: str) -> str:
+            for group_name, group_kernels in kernel_groups.items():
+                if name in group_kernels:
+                    return group_name
+            return "other"
+
+        df["clean_names"] = df["clean_names"].apply(map_to_group)
+
     # # print the columns and kernels
     # print("\nColumns:")
     # print(df.columns)
@@ -395,8 +480,10 @@ def main():
 
     correlation_matrix(df, config.output_dir)
 
-    for kernel in kernels_to_keep:
-        if kernel in df["clean_names"].unique():
+    for kernel in df["clean_names"].unique():
+        if kernel in kernels_to_keep or (
+            config.group and kernel in kernel_groups.keys()
+        ):
             correlation_matrix_kernel(df, kernel, config.output_dir)
 
     for metric in metrics_to_plot:
