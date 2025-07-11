@@ -338,12 +338,15 @@ class Config:
         parser.add_argument("input_file", type=str, help="Path to the input CSV file.")
         parser.add_argument(
             "--output_dir",
+            "-o",
+            "--output-dir",
             type=str,
             default="plots",
             help="Path to the output directory.",
         )
         parser.add_argument(
             "--group",
+            "-g",
             action="store_true",
             help="Group similar kernels in the plots.",
         )
