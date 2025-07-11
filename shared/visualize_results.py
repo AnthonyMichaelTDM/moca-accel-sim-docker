@@ -225,6 +225,62 @@ correlation_matrix_kernel_groups: dict[str, list[str]] = {
     ],
 }
 
+# groups of kernels to keep together in the line and violin plots
+# Goal: classify kernels into two groups:
+# 1. kernels whose metrics remain more or less constant over time
+# 2. kernels whose metrics oscillate periodically
+#
+# Note, this behavior may be different for different metrics, so for now we focus on the behavior in the
+# gpu_ipc metric.
+# The preliminary classification will be done automatically by comparing the min and max values of the metric
+# for each kernel, and assigning that kernel to the appropriate group based on how much it varies compared to
+# other kernels (or some threshold).
+kernel_behavior_groups: dict[str, list[str]] = {
+    "group-constant": [],
+    "group-oscillating": [],
+}
+BEHAVIOR_CLASSIFICATION_THRESHOLD: float = 0.1
+
+
+def classify_kernels_by_behavior(
+    df: pd.DataFrame, metric: str, threshold: float = 0.1
+) -> None:
+    """
+    Classify kernels into two groups based on the variation of the specified metric.
+    Kernels with a variation less than the threshold are classified as 'constant',
+    while those with a variation greater than or equal to the threshold are classified as 'oscillating'.
+    """
+    global kernel_behavior_groups
+    kernel_behavior_groups["group-constant"] = []
+    kernel_behavior_groups["group-oscillating"] = []
+
+    for kernel in df["clean_names"].unique():
+        df_kernel = df[df["clean_names"] == kernel]
+        # min should be the smallest value greater then 0
+        min_value = df_kernel[metric].min()
+        max_value = df_kernel[metric].max()
+        variation = (
+            (max_value - min_value) / min_value if min_value != 0 else float("inf")
+        )
+
+        if variation < threshold:
+            kernel_behavior_groups["group-constant"].append(kernel)
+        else:
+            kernel_behavior_groups["group-oscillating"].append(kernel)
+
+
+def print_behavior_groups(metric: str) -> None:
+    """
+    Print the kernel behavior groups.
+    """
+    global kernel_behavior_groups
+    print(f"Kernel Behavior Groups for '{metric}':")
+    for group, kernels in kernel_behavior_groups.items():
+        print(f"{group}:")
+        for kernel in kernels:
+            print(f'    "{kernel}",')
+    print()
+
 
 def prune_kernels_with_too_few_launches(
     df: pd.DataFrame, min_launches: int = 2
@@ -325,6 +381,9 @@ class Config:
     input_file: str
     output_dir: str
     group: bool = False
+    group_behavior: bool = False
+    print_behavior_groups: bool = False
+    behavior_metric: str = ""
     minimum_launches: int = 2
 
     @classmethod
@@ -351,6 +410,25 @@ class Config:
             help="Group similar kernels in the plots.",
         )
         parser.add_argument(
+            "--group_behavior",
+            "--group-behavior",
+            action="store_true",
+            help="Group kernels by their behavior in the plots.",
+        )
+        parser.add_argument(
+            "--print_behavior_groups",
+            "--print-behavior-groups",
+            action="store_true",
+            help="Print the kernel behavior groups.",
+        )
+        parser.add_argument(
+            "--behavior_metric",
+            "--behavior-metric",
+            type=str,
+            default="",
+            help="Metric to use for classifying kernel behavior. If not set, will reclassify kernels for each metric in metrics_to_plot.",
+        )
+        parser.add_argument(
             "--minimum_launches",
             "--minimum-launches",
             "--min_launches",
@@ -369,6 +447,18 @@ class Config:
             os.makedirs(args.output_dir)
         if args.output_dir and not os.path.isdir(args.output_dir):
             raise ValueError(f"Output directory {args.output_dir} is not a directory.")
+        if args.group and args.group_behavior:
+            raise ValueError(
+                "Cannot use both --group and --group_behavior at the same time."
+            )
+        if args.behavior_metric and not args.group_behavior:
+            raise ValueError(
+                "If --behavior_metric is set, --group_behavior must also be set."
+            )
+        if args.behavior_metric and args.behavior_metric not in metrics_to_plot:
+            raise ValueError(
+                f"Behavior metric {args.behavior_metric} is not in the list of metrics to plot."
+            )
         if args.minimum_launches < 1:
             raise ValueError(
                 f"Minimum launches must be at least 1, got {args.minimum_launches}."
@@ -377,6 +467,9 @@ class Config:
             args.input_file,
             args.output_dir,
             args.group,
+            args.group_behavior,
+            args.print_behavior_groups,
+            args.behavior_metric,
             args.minimum_launches,
         )
 
@@ -427,8 +520,36 @@ def main():
     for kernel in df["clean_names"].unique():
             correlation_matrix_kernel(df, kernel, config.output_dir)
 
+    if config.behavior_metric:
+        # classify kernels by behavior for the specified metric
+        classify_kernels_by_behavior(
+            df, config.behavior_metric, threshold=BEHAVIOR_CLASSIFICATION_THRESHOLD
+        )
+        if config.print_behavior_groups:
+            # print the kernel behavior groups for the specified metric
+            print_behavior_groups(config.behavior_metric)
+
     for metric in metrics_to_plot:
-        save_violin_plot(df, metric, f"{config.output_dir}/{metric}_violin_plot.png")
+        if config.group_behavior:
+            if not config.behavior_metric:
+                classify_kernels_by_behavior(
+                    df, metric, threshold=BEHAVIOR_CLASSIFICATION_THRESHOLD
+                )
+                if config.print_behavior_groups:
+                    print_behavior_groups(metric)
+
+            for behavior_group, kernels in kernel_behavior_groups.items():
+                df_group = df[df["clean_names"].isin(kernels)]
+
+                save_line_plot(
+                    df_group,
+                    metric,
+                    f"{config.output_dir}/{metric}_line_plot_{behavior_group}.png",
+                )
+        else:
+            save_violin_plot(
+                df, metric, f"{config.output_dir}/{metric}_violin_plot.png"
+            )
         save_line_plot(df, metric, f"{config.output_dir}/{metric}_line_plot.png")
 
 
