@@ -358,6 +358,8 @@ group-oscillating:
     "unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>", min: 3964.0, max: 5180.0, variation: 30.68%, launches: 12
     "kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>", min: 0.0, max: 8.0, variation: inf%, launches: 12
 
+Skipping metric 'gpgpu_n_shmem_bkconflict' as it is not in the DataFrame.
+Skipping metric 'gpgpu_n_l1cache_bkconflict' as it is not in the DataFrame.
 Kernel Behavior Groups for 'gpu_ipc':
 group-constant:
     "reduce_kernel<512, 1, MeanOps<…> >", min: 274.8644, max: 281.0266, variation: 2.24%, launches: 24

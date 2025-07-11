@@ -148,8 +148,8 @@ metrics_to_plot = [
     "gpgpu_n_tot_w_icount",
     "total_dram_reads",
     "total_dram_writes",
-    # "gpgpu_n_shmem_bkconflict",
-    # "gpgpu_n_l1cache_bkconflict",
+    "gpgpu_n_shmem_bkconflict",
+    "gpgpu_n_l1cache_bkconflict",
     "gpu_ipc",
     "gpgpu_simulation_rate_instructions",
     "gpgpu_simulation_rate_cycles",
@@ -561,6 +561,11 @@ def main():
             print_behavior_groups(config.behavior_metric)
 
     for metric in metrics_to_plot:
+        # skip the metric if it is not in the DataFrame
+        if metric not in df.columns:
+            print(f"Skipping metric '{metric}' as it is not in the DataFrame.")
+            continue
+
         if config.group_behavior:
             if not config.behavior_metric:
                 classify_kernels_by_behavior(
