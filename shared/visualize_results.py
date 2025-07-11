@@ -225,6 +225,16 @@ correlation_matrix_kernel_groups: dict[str, list[str]] = {
     ],
 }
 
+
+@dataclass
+class KernelBehaviorInfo:
+    name: str
+    min_value: float
+    max_value: float
+    variation: float
+    launches: int = 0
+
+
 # groups of kernels to keep together in the line and violin plots
 # Goal: classify kernels into two groups:
 # 1. kernels whose metrics remain more or less constant over time
@@ -235,7 +245,7 @@ correlation_matrix_kernel_groups: dict[str, list[str]] = {
 # The preliminary classification will be done automatically by comparing the min and max values of the metric
 # for each kernel, and assigning that kernel to the appropriate group based on how much it varies compared to
 # other kernels (or some threshold).
-kernel_behavior_groups: dict[str, list[str]] = {
+kernel_behavior_groups: dict[str, list[KernelBehaviorInfo]] = {
     "group-constant": [],
     "group-oscillating": [],
 }
@@ -256,17 +266,25 @@ def classify_kernels_by_behavior(
 
     for kernel in df["clean_names"].unique():
         df_kernel = df[df["clean_names"] == kernel]
-        # min should be the smallest value greater then 0
+        launches = len(df_kernel)
         min_value = df_kernel[metric].min()
         max_value = df_kernel[metric].max()
         variation = (
             (max_value - min_value) / min_value if min_value != 0 else float("inf")
         )
 
+        kernel_behavior_info = KernelBehaviorInfo(
+            name=kernel,
+            min_value=min_value,
+            max_value=max_value,
+            variation=variation,
+            launches=launches,
+        )
+
         if variation < threshold:
-            kernel_behavior_groups["group-constant"].append(kernel)
+            kernel_behavior_groups["group-constant"].append(kernel_behavior_info)
         else:
-            kernel_behavior_groups["group-oscillating"].append(kernel)
+            kernel_behavior_groups["group-oscillating"].append(kernel_behavior_info)
 
 
 def print_behavior_groups(metric: str) -> None:
@@ -275,10 +293,12 @@ def print_behavior_groups(metric: str) -> None:
     """
     global kernel_behavior_groups
     print(f"Kernel Behavior Groups for '{metric}':")
-    for group, kernels in kernel_behavior_groups.items():
-        print(f"{group}:")
+    for group_name, kernels in kernel_behavior_groups.items():
+        print(f"{group_name}:")
         for kernel in kernels:
-            print(f'    "{kernel}",')
+            print(
+                f'    "{kernel.name}", min: {kernel.min_value}, max: {kernel.max_value}, variation: {kernel.variation:.2%}, launches: {kernel.launches}'
+            )
     print()
 
 
@@ -550,7 +570,8 @@ def main():
                     print_behavior_groups(metric)
 
             for behavior_group, kernels in kernel_behavior_groups.items():
-                df_group = df[df["clean_names"].isin(kernels)]
+                names = [k.name for k in kernels]
+                df_group = df[df["clean_names"].isin(names)]
 
                 save_line_plot(
                     df_group,
