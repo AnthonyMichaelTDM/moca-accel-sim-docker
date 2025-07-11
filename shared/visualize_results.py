@@ -525,9 +525,10 @@ def main():
     #     print(f"\n{metric}:")
     #     print(df.groupby("clean_names")[metric].describe())
 
-    correlation_matrix(df, config.output_dir)
+    if not config.group_behavior:
+        correlation_matrix(df, config.output_dir)
 
-    for kernel in df["clean_names"].unique():
+        for kernel in df["clean_names"].unique():
             correlation_matrix_kernel(df, kernel, config.output_dir)
 
     if config.behavior_metric:
