@@ -156,100 +156,9 @@ metrics_to_plot = [
     "gpu_tot_ipc",
 ]
 
-# which kernels to keep
-kernels_to_keep = [
-    # model_pool_finetuned.py #
-    "fmha_cutlassF_f32_aligned_64x64_rf_sm80",
-    # "ampere_sgemm_32x32_sliced1x4_tn",
-    "indexSelectSmallIndex",
-    "vectorized_layer_norm_kernel",
-    "elementwise_kernel<128, 2, …>",
-    # "vectorized_elementwise_kernel<4, AunaryFunctor<…>, _>",
-    "vectorized_elementwise_kernel<4, CUDAFunctor_add<…>, _>",
-    "vectorized_elementwise_kernel<4, GeluCUDAKernelImpl(…), _>",
-    "splitKreduce_kernel<32, 16, …>",
-    "cutlass_80_tensorop_s1688gemm_128x64_16x6_tn_align4",
-    "cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4",
-    # mnist #
-    "gemvx kernel type 1",
-    "splitKreduce_kernel<32, 16, …>",
-    "epilogue::impl::globalKernel<8, 32, …>",
-    "vectorized_elementwise_kernel<4, launch_clamp_scalar(…), _>",
-    "gemv2T_kernel_val",
-    "softmax_warp_forward",
-    "nll_loss_forward_reduce_cuda_kernel_2d",
-    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>",
-    "nll_loss_backward_reduce_cuda_kernel_2d",
-    "softmax_warp_backward",
-    "vectorized_elementwise_kernel<4, BinaryFunctor<…>, …>",
-    "gemvx kernel type 2",
-    "gemmk1_kernel",
-    "reduce_kernel<256, 2, …>",
-    "gemvx kernel type 3",
-    "reduce_kernel<128, 4, …>",
-    "multi_tensor_apply_kernel<TensorListMetadata<2>, …>",
-    # from newer tests (on older library versions) #
-    "gemv2T_kernel_val",
-    "vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>",
-    "dot_kernel",
-    "reduce_1Block_kernel",
-    "softmax_warp_forward",
-    "cunn_ClassNLLCriterion_updateOutput_kernel",
-    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>",
-    "cunn_ClassNLLCriterion_updateGradInput_kernel",
-    "softmax_warp_backward",
-    "gemvNSP_kernel",
-    "gemmk1_kernel",
-    "reduce_kernel<256, 2, …>",
-    "splitKreduce_kernel",
-    "reduce_kernel<128, 4, …>",
-    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>",
-    # alexnet #
-    "kernelPointwiseApply1",
-    "gemmk1_kernel",
-    "im2col_kernel",
-    "volta_sgemm_128x64_nn",
-    "vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>",
-    "max_pool_forward_nchw",
-    "volta_sgemm_128x32_tn",
-    "volta_sgemm_128x32_nn",
-    "volta_sgemm_128x32_sliced1x4_nn",
-    "adaptive_average_pool",
-    "fused_dropout_kernel_vec",
-    "gemv2T_kernel_val",
-    "dot_kernel",
-    "reduce_1Block_kernel",
-    "softmax_warp_forward",
-    # bert #
-    "vectorized_elementwise_kernel<4, FillFunctor<long>, _>",
-    "vectorized_elementwise_kernel<4, BUnaryFunctor<CompareGTFunctor<long>,_>, _>",
-    "unrolled_elementwise_kernel<copy_device_to_device(…), _> (bool)",
-    "indexSelectLargeIndex",
-    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>",
-    "fused_dropout_kernel_vec",
-    "reduce_kernel<512, 1, MeanOps<…> >",
-    "reduce_kernel<512, 1, WelfordOps<…> >",
-    "unrolled_elementwise_kernel<AddFunctor<float>, _>",
-    "unrolled_elementwise_kernel<MulFunctor<float>, _>",
-    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>",
-    "unrolled_elementwise_kernel<DivFunctor<float>, _>",
-    "volta_sgemm_64x32_sliced1x4_tn",
-    "unrolled_elementwise_kernel<copy_device_to_device(…), _> (float)",
-    "volta_sgemm_64x64_nn",
-    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>",
-    "unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>",
-    "kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>",
-    "softmax_warp_forward",
-    "volta_sgemm_128x64_tn",
-    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>",
-    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>",
-    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>",
-    "volta_sgemm_32x128_tn",
-    "cunn_SpatialSoftMaxForward",
-]
 
-# groups of kernels to keep together in the plots
-kernel_groups: dict[str, list[str]] = {
+# groups of kernels to keep together in correlation plots
+correlation_matrix_kernel_groups: dict[str, list[str]] = {
     # gemm kernels
     "group-gemm": [
         "ampere_sgemm_32x32_sliced1x4_tn",
@@ -315,6 +224,18 @@ kernel_groups: dict[str, list[str]] = {
         "splitKreduce_kernel",
     ],
 }
+
+
+def prune_kernels_with_too_few_launches(
+    df: pd.DataFrame, min_launches: int = 2
+) -> pd.DataFrame:
+    """
+    Remove kernels with fewer than `min_launches` launches from the DataFrame.
+    """
+    kernel_counts = df["clean_names"].value_counts()
+    kernels_to_keep = kernel_counts[kernel_counts >= min_launches].index
+    pruned_df = df[df["clean_names"].isin(kernels_to_keep)].copy()
+    return pruned_df
 
 
 def violin_plot(df, metric):
@@ -404,6 +325,7 @@ class Config:
     input_file: str
     output_dir: str
     group: bool = False
+    minimum_launches: int = 2
 
     @classmethod
     def from_args(cls):
@@ -425,6 +347,16 @@ class Config:
             action="store_true",
             help="Group similar kernels in the plots.",
         )
+        parser.add_argument(
+            "--minimum_launches",
+            "--minimum-launches",
+            "--min_launches",
+            "--min-launches",
+            "-m",
+            type=int,
+            default=10,
+            help="Minimum number of launches for a kernel to be included in the plots.",
+        )
         args = parser.parse_args()
         if not os.path.exists(args.input_file):
             raise FileNotFoundError(f"Input file {args.input_file} does not exist.")
@@ -434,7 +366,16 @@ class Config:
             os.makedirs(args.output_dir)
         if args.output_dir and not os.path.isdir(args.output_dir):
             raise ValueError(f"Output directory {args.output_dir} is not a directory.")
-        return cls(args.input_file, args.output_dir, args.group)
+        if args.minimum_launches < 1:
+            raise ValueError(
+                f"Minimum launches must be at least 1, got {args.minimum_launches}."
+            )
+        return cls(
+            args.input_file,
+            args.output_dir,
+            args.group,
+            args.minimum_launches,
+        )
 
 
 def main():
@@ -452,14 +393,14 @@ def main():
     # map kernel names to more readable names
     df["clean_names"] = df["demangled_name"].map(kernel_names)
 
-    # remove the unwanted kernels
-    df = df[df["clean_names"].isin(kernels_to_keep)]
+    # remove the unwanted kernels (kernels with fewer than minimum_launches launches)
+    df = prune_kernels_with_too_few_launches(df, config.minimum_launches)
 
     # optionally group similar kernels
     if config.group:
 
         def map_to_group(name: str) -> str:
-            for group_name, group_kernels in kernel_groups.items():
+            for group_name, group_kernels in correlation_matrix_kernel_groups.items():
                 if name in group_kernels:
                     return group_name
             return "other"
@@ -481,9 +422,6 @@ def main():
     correlation_matrix(df, config.output_dir)
 
     for kernel in df["clean_names"].unique():
-        if kernel in kernels_to_keep or (
-            config.group and kernel in kernel_groups.keys()
-        ):
             correlation_matrix_kernel(df, kernel, config.output_dir)
 
     for metric in metrics_to_plot:
