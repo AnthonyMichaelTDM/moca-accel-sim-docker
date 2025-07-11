@@ -316,7 +316,7 @@ def save_violin_plot(df, metric, filename):
     plt.close("all")
 
 
-def line_plot(df, metric) -> None:
+def line_plot(df, metric, log_scale: bool = False) -> None:
     """
     Plot the performance of the kernels over time
     """
@@ -342,15 +342,17 @@ def line_plot(df, metric) -> None:
         )
     plt.xlabel("Kernel Launch")
     plt.ylabel(metric)
+    if log_scale:
+        plt.yscale("log")
     plt.title(f"{metric} Over Time")
     # hide x-axis ticks
     plt.xticks([])
     plt.tight_layout()
 
 
-def save_line_plot(df, metric, filename):
+def save_line_plot(df, metric, filename, log_scale: bool = False) -> None:
     plt.figure(figsize=(20, 10))
-    line_plot(df, metric)
+    line_plot(df, metric, log_scale=log_scale)
     plt.savefig(filename)
     plt.close("all")
 
@@ -385,6 +387,7 @@ class Config:
     print_behavior_groups: bool = False
     behavior_metric: str = ""
     minimum_launches: int = 2
+    log_scale: bool = False
 
     @classmethod
     def from_args(cls):
@@ -438,6 +441,12 @@ class Config:
             default=10,
             help="Minimum number of launches for a kernel to be included in the plots.",
         )
+        parser.add_argument(
+            "--log_scale",
+            "--log-scale",
+            action="store_true",
+            help="Use logarithmic scale for the y-axis in the line plots.",
+        )
         args = parser.parse_args()
         if not os.path.exists(args.input_file):
             raise FileNotFoundError(f"Input file {args.input_file} does not exist.")
@@ -471,6 +480,7 @@ class Config:
             args.print_behavior_groups,
             args.behavior_metric,
             args.minimum_launches,
+            args.log_scale,
         )
 
 
@@ -545,12 +555,18 @@ def main():
                     df_group,
                     metric,
                     f"{config.output_dir}/{metric}_line_plot_{behavior_group}.png",
+                    log_scale=config.log_scale,
                 )
         else:
             save_violin_plot(
                 df, metric, f"{config.output_dir}/{metric}_violin_plot.png"
             )
-        save_line_plot(df, metric, f"{config.output_dir}/{metric}_line_plot.png")
+            save_line_plot(
+                df,
+                metric,
+                f"{config.output_dir}/{metric}_line_plot.png",
+                log_scale=config.log_scale,
+            )
 
 
 if __name__ == "__main__":
