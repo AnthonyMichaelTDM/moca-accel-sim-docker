@@ -5,6 +5,10 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+
+DEFAULT_MINIMUM_LAUNCHES = 2
+
+
 # map column names to more readable names
 metrics = {
     "Kernel Name": "kernel_name",
@@ -35,6 +39,13 @@ metrics = {
     "gpgpu_simulation_rate\\s+=\\s+(.*)\\s+\\(cycle\\/sec\\)": "gpgpu_simulation_rate_cycles",
     "gpgpu_silicon_slowdown\\s*=\\s*(.*)x": "gpgpu_silicon_slowdown",
     "gpu_tot_ipc\\s*=\\s*(.*)": "gpu_tot_ipc",
+    "gpu_stall_dramfull\\s*=\\s*(.*)": "gpu_stall_dramfull",
+    "gpu_stall_icnt2sh\\s*=\\s*(.*)": "gpu_stall_icnt2sh",
+    "Stall:([0-9]+)\\s*W0_Idle:[0-9]+\\s*W0_Scoreboard:[0-9]+.*": "Stall",
+    "Stall:[0-9]+\\s*W0_Idle:([0-9]+)\\s*W0_Scoreboard:[0-9]+.*": "Stall_W0_Idle",
+    "Stall:[0-9]+\\s*W0_Idle:[0-9]+\\s*W0_Scoreboard:([0-9]+).*": "Stall_W0_Scoreboard",
+    "max_icnt2mem_latency\\s*=\\s*(.*)": "max_icnt2mem_latency",
+    "averagemflatency\\s*=\\s*(.*)": "average_mflatency",
 }
 
 
@@ -154,6 +165,13 @@ metrics_to_plot = [
     "gpgpu_simulation_rate_instructions",
     "gpgpu_simulation_rate_cycles",
     "gpu_tot_ipc",
+    "gpu_stall_dramfull",
+    "gpu_stall_icnt2sh",
+    "Stall",
+    "Stall_W0_Idle",
+    "Stall_W0_Scoreboard",
+    "max_icnt2mem_latency",
+    "average_mflatency",
 ]
 
 
@@ -303,7 +321,7 @@ def print_behavior_groups(metric: str) -> None:
 
 
 def prune_kernels_with_too_few_launches(
-    df: pd.DataFrame, min_launches: int = 2
+    df: pd.DataFrame, min_launches: int = DEFAULT_MINIMUM_LAUNCHES
 ) -> pd.DataFrame:
     """
     Remove kernels with fewer than `min_launches` launches from the DataFrame.
@@ -408,7 +426,7 @@ class Config:
     group_behavior: bool = False
     print_behavior_groups: bool = False
     behavior_metric: str = ""
-    minimum_launches: int = 2
+    minimum_launches: int = DEFAULT_MINIMUM_LAUNCHES
     log_scale: bool = False
 
     @classmethod
@@ -460,7 +478,7 @@ class Config:
             "--min-launches",
             "-m",
             type=int,
-            default=10,
+            default=DEFAULT_MINIMUM_LAUNCHES,
             help="Minimum number of launches for a kernel to be included in the plots.",
         )
         parser.add_argument(
