@@ -379,7 +379,8 @@ def save_line_plot(df, metric, filename, log_scale: bool = False) -> None:
 
 def correlation_matrix(df, output_dir: str = "plots") -> None:
     plt.figure(figsize=(20, 20))
-    correlation_matrix = df[metrics_to_plot].corr()
+    present_metrics = [metric for metric in metrics_to_plot if metric in df.columns]
+    correlation_matrix = df[present_metrics].corr()
     sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
     plt.title("Correlation Matrix")
     plt.tight_layout()
@@ -390,7 +391,8 @@ def correlation_matrix(df, output_dir: str = "plots") -> None:
 def correlation_matrix_kernel(df, kernel_name, output_dir: str = "plots"):
     plt.figure(figsize=(20, 20))
     df_kernel = df[df["clean_names"] == kernel_name]
-    correlation_matrix = df_kernel[metrics_to_plot].corr()
+    present_metrics = [metric for metric in metrics_to_plot if metric in df.columns]
+    correlation_matrix = df_kernel[present_metrics].corr()
     sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
     plt.title(f"Correlation Matrix for {kernel_name}")
     plt.tight_layout()
