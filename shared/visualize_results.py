@@ -572,14 +572,22 @@ class Config:
             help="Use logarithmic scale for the y-axis in the line plots.",
         )
         args = parser.parse_args()
-        if not os.path.exists(args.input_file):
+        if not args.input_file:
+            raise ValueError("Input file must be specified.")
+        elif not os.path.exists(args.input_file):
             raise FileNotFoundError(f"Input file {args.input_file} does not exist.")
-        if not os.path.isfile(args.input_file):
+        elif not os.path.isfile(args.input_file):
             raise ValueError(f"Input file {args.input_file} is not a file.")
+        elif not args.input_file.endswith(".csv"):
+            raise ValueError(
+                f"Input file {args.input_file} must be a CSV file (ending with .csv)."
+            )
+
         if args.output_dir and not os.path.exists(args.output_dir):
             os.makedirs(args.output_dir)
         if args.output_dir and not os.path.isdir(args.output_dir):
             raise ValueError(f"Output directory {args.output_dir} is not a directory.")
+
         if args.group and args.group_behavior:
             raise ValueError(
                 "Cannot use both --group and --group_behavior at the same time."
@@ -592,19 +600,21 @@ class Config:
             raise ValueError(
                 f"Behavior metric {args.behavior_metric} is not in the list of metrics to plot."
             )
+
         if args.minimum_launches < 1:
             raise ValueError(
                 f"Minimum launches must be at least 1, got {args.minimum_launches}."
             )
+
         return cls(
-            args.input_file,
-            args.output_dir,
-            args.group,
-            args.group_behavior,
-            args.print_behavior_groups,
-            args.behavior_metric,
-            args.minimum_launches,
-            args.log_scale,
+            input_file=args.input_file,
+            output_dir=args.output_dir,
+            group=args.group,
+            group_behavior=args.group_behavior,
+            print_behavior_groups=args.print_behavior_groups,
+            behavior_metric=args.behavior_metric,
+            minimum_launches=args.minimum_launches,
+            log_scale=args.log_scale,
         )
 
 
