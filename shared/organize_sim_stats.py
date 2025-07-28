@@ -63,6 +63,24 @@ def extract_kernel_name(kernel: str) -> str:
     return "--".join([parts[-2], parts[-1]])
 
 
+CHUNK_SIZE: int = 100  # number of kernels to demangle at once
+
+
+def demangle_kernels(kernels: list[str]) -> list[str]:
+    """
+    convert a list of mangled kernel names to their unmangled equivalents using the c++filt command
+    """
+
+    demangled = []
+    chunks = (kernels[i : i + CHUNK_SIZE] for i in range(0, len(kernels), CHUNK_SIZE))
+
+    for chunk in chunks:
+        args = " ".join(chunk)
+        demangled += os.popen(f"c++filt {args}").read().strip().split("\n")
+
+    return demangled
+
+
 def job_stat_dict_to_dataframe(
     dict_df: dict[str, dict[str, float]], stats: list[str]
 ) -> pd.DataFrame:
@@ -78,8 +96,9 @@ def job_stat_dict_to_dataframe(
     # to do this we need to run the demangler on each kernel name
 
     # get the demangled kernel name
-    args = " ".join(df.index.map(lambda kernel: kernel.split("--")[0]))
-    demangled_kernel_names = os.popen(f"c++filt {args}").read().strip().split("\n")
+    demangled_kernel_names = demangle_kernels(
+        df.index.map(lambda k: k.split("--")[0]).tolist()
+    )
     # add the demangled kernel name to the dataframe
     df["Kernel Name (Demangled)"] = demangled_kernel_names
 
