@@ -655,6 +655,10 @@ def main():
         for kernel in df["clean_names"].unique():
             correlation_matrix_kernel(df, kernel, config.output_dir)
 
+    if config.group:
+        # grouping makes less sense for violin and line plots, so we skip them when grouping is enabled
+        return
+
     if config.behavior_metric:
         # classify kernels by behavior for the specified metric
         classify_kernels_by_behavior(
