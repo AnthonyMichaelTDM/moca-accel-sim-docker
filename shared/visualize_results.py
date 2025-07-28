@@ -67,7 +67,7 @@ kernel_names = {
     # from old tests (on newer nvbit version)
     "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float>)": "gemvx kernel type 1",
     "void cublasLt::splitKreduce_kernel<32, 16, int, float, float, float, float, true, false, false>(cublasLt::cublasSplitKParams<float>, float const*, float const*, float*, float const*, float const*, float const*, float const*, float*, void*, long, float*, int*)": "splitKreduce_kernel<32, 16, …>",
-    "void cublasLt::epilogue::impl::globalKernel<8, 32, float, float, float, true, true, 1>(int, int, long, float*, cublasLtEpilogue_t, int, float*, long, void*, long, long, long, float*, long, int*)": "epilogue::impl::globalKernel<8, 32, …>",
+    "void cublasLt::epilogue::impl::globalKernel<8, 32, float, float, float, true, true, 1>(int, int, long, float*, cublasLtEpilogue_t, int, float*, long, void*, long, long, long, float*, long, int*)": "epilogue::impl::globalKernel<8, 32, …>(…,cublasLtEpilogue_t,…)",
     "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)": "vectorized_elementwise_kernel<4, launch_clamp_scalar(…), _>",
     "void gemv2T_kernel_val<int, int, float, float, float, float, 128, 16, 2, 2, false, true, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float>, float, float)": "gemv2T_kernel_val",
     "void (anonymous namespace)::softmax_warp_forward<float, float, float, 4, true, false>(float*, float const*, int, int, int, bool const*, int, bool)": "softmax_warp_forward",
@@ -140,6 +140,48 @@ kernel_names = {
     "void at::native::vectorized_elementwise_kernel<4, at::native::MulFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::MulFunctor<float>, at::detail::Array<char*, 3>)": "vectorized_elementwise_kernel<4, MulFunctor<float>, _>",
     "volta_sgemm_32x128_tn": "volta_sgemm_32x128_tn",
     "void at::native::(anonymous namespace)::cunn_SpatialSoftMaxForward<float, float, float, at::native::(anonymous namespace)::LogSoftMaxForwardEpilogue>(float*, float*, unsigned int, unsigned int, unsigned int)": "cunn_SpatialSoftMaxForward",
+    # gpt-2
+    "void (anonymous namespace)::elementwise_kernel_with_index<int, at::native::arange_cuda_out(at::Tensor&, c10::Scalar, c10::Scalar, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda()#1}::operator()() const::{lambda(long)#1}>(int, at::native::arange_cuda_out(at::Tensor&, c10::Scalar, c10::Scalar, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda()#1}::operator()() const::{lambda(long)#1}, function_traits<at::native::arange_cuda_out(at::Tensor&, c10::Scalar, c10::Scalar, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#6}::operator()() const::{lambda()#1}::operator()() const::{lambda(long)#1}>::result_type*)": "elementwise_kernel_with_index",
+    "void at::native::(anonymous namespace)::indexSelectLargeIndex<float, unsigned int, 2, 2, -2, true>(at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<float, unsigned int>, at::cuda::detail::TensorInfo<long, unsigned int>, int, int, unsigned int, unsigned int, long)": "indexSelectLargeIndex",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::AddFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>)": "vectorized_elementwise_kernel<4, AddFunctor<float>, _>",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2> >(int, at::native::BUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2>)": "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>",
+    "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::MeanOps<float, float>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::MeanOps<float, float>, unsigned int, float, 4>)": "reduce_kernel<512, 1, MeanOps<…> >",
+    "void at::native::unrolled_elementwise_kernel<at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::AddFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)": "unrolled_elementwise_kernel<AddFunctor<float>, _>",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIterator&, float)::{lambda(float)#2}, at::detail::Array<char*, 2> >(int, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIterator&, float)::{lambda(float)#2}, at::detail::Array<char*, 2>)": "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::sqrt_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::sqrt_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)": "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>",
+    "void at::native::unrolled_elementwise_kernel<at::native::DivFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::DivFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)": "unrolled_elementwise_kernel<DivFunctor<float>, _>",
+    "void at::native::unrolled_elementwise_kernel<at::native::MulFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::MulFunctor<float>, at::detail::Array<char*, 3>, OffsetCalculator<2, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)": "unrolled_elementwise_kernel<MulFunctor<float>, _>",
+    "void at::native::unrolled_elementwise_kernel<at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::copy_device_to_device(at::TensorIterator&, bool)::{lambda()#2}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)": "unrolled_elementwise_kernel<copy_device_to_device(…), _>",
+    "volta_sgemm_128x32_nn": "volta_sgemm_128x32_nn",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2> >(int, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>)": "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>",
+    "void at::native::unrolled_elementwise_kernel<at::native::AUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::AUnaryFunctor<at::native::AddFunctor<float> >, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)": "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>",
+    "void (anonymous namespace)::softmax_warp_forward<float, float, float, 7, false>(float*, float const*, int, int, int)": "softmax_warp_forward",
+    "volta_sgemm_64x32_sliced1x4_nn": "volta_sgemm_64x32_sliced1x4_nn",
+    "void splitKreduce_kernel<float, float, float, float>(cublasSplitKParams<float>, float const*, float const*, float*, float const*, float const*, float const*)": "splitKreduce_kernel",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIterator&, float)::{lambda(float)#3}, at::detail::Array<char*, 2> >(int, at::native::(anonymous namespace)::pow_tensor_scalar_kernel_impl<float, float>(at::TensorIterator&, float)::{lambda(float)#3}, at::detail::Array<char*, 2>)": "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::tanh_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::tanh_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)": "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::MulFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::MulFunctor<float>, at::detail::Array<char*, 3>)": "vectorized_elementwise_kernel<4, MulFunctor<float>, _>",
+    "volta_sgemm_128x128_tn": "volta_sgemm_128x128_tn",
+    "void at::native::(anonymous namespace)::cunn_SoftMaxForward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxForwardEpilogue>(float*, float*, int)": "cunn_SoftMaxForward",
+    "void cunn_ClassNLLCriterion_updateOutput_kernel<float, float>(float*, float*, float*, long*, float*, int, int, int, int, long)": "cunn_ClassNLLCriterion_updateOutput_kernel",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, at::detail::Array<char*, 1> >(int, at::native::FillFunctor<float>, at::detail::Array<char*, 1>)": "vectorized_elementwise_kernel<4, FillFunctor<float>, _>",
+    "void cunn_ClassNLLCriterion_updateGradInput_kernel<float>(float*, float*, long*, float*, float*, int, int, int, int, long)": "cunn_ClassNLLCriterion_updateGradInput_kernel",
+    "void at::native::(anonymous namespace)::cunn_SoftMaxBackward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxBackwardEpilogue>(float*, float*, float*, int)": "cunn_SoftMaxBackward",
+    "volta_sgemm_128x64_nt": "volta_sgemm_128x64_nt",
+    "volta_sgemm_128x32_sliced1x4_nn": "volta_sgemm_128x32_sliced1x4_nn",
+    "void at::native::reduce_kernel<128, 4, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)": "reduce_kernel<128, 4, …>",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::neg_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2> >(int, at::native::neg_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float)#1}, at::detail::Array<char*, 2>)": "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>",
+    "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4>)": "reduce_kernel<512, 4, …>",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::DivFunctor<float>, at::detail::Array<char*, 3> >(int, at::native::DivFunctor<float>, at::detail::Array<char*, 3>)": "vectorized_elementwise_kernel<4, DivFunctor<float>, _>",
+    "void at::native::unrolled_elementwise_kernel<at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::MulScalarFunctor<float, float>, at::detail::Array<char*, 2>, OffsetCalculator<1, unsigned int>, OffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)": "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>",
+    "volta_sgemm_128x32_nt": "volta_sgemm_128x32_nt",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::tanh_backward_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda()#1}::operator()() const::{lambda(float, float)#1}, at::detail::Array<char*, 3> >(int, at::native::tanh_backward_kernel_cuda(at::TensorIterator&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda()#1}::operator()() const::{lambda(float, float)#1}, at::detail::Array<char*, 3>)": "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>",
+    "volta_sgemm_64x32_sliced1x4_tn": "volta_sgemm_64x32_sliced1x4_tn",
+    "volta_sgemm_128x32_tn": "volta_sgemm_128x32_tn",
+    "void (anonymous namespace)::softmax_warp_backward<float, float, float, 7, false>(float*, float const*, float const*, int, int, int)": "softmax_warp_backward",
+    "void at::native::(anonymous namespace)::embedding_backward_feature_kernel<float, float>(long*, float const*, float*, int, long, int)": "embedding_backward_feature_kernel",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::addcmul_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4> >(int, at::native::addcmul_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4>)": "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::addcdiv_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4> >(int, at::native::addcdiv_cuda_kernel(at::TensorIterator&, c10::Scalar)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(float, float, float)#1}, at::detail::Array<char*, 4>)": "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>",
 }
 
 # Select interesting metrics to plot
@@ -182,12 +224,16 @@ correlation_matrix_kernel_groups: dict[str, list[str]] = {
         "ampere_sgemm_32x32_sliced1x4_tn",
         "volta_sgemm_32x128_tn",
         "volta_sgemm_64x32_sliced1x4_tn",
+        "volta_sgemm_64x32_sliced1x4_nn",
         "volta_sgemm_64x64_nn",
         "volta_sgemm_128x32_tn",
         "volta_sgemm_128x32_nn",
         "volta_sgemm_128x32_sliced1x4_nn",
         "volta_sgemm_128x64_tn",
+        "volta_sgemm_128x128_tn",
         "volta_sgemm_128x64_nn",
+        "volta_sgemm_128x32_nt",
+        "volta_sgemm_128x64_nt",
         "gemmk1_kernel",
     ],
     # cutlass kernels
@@ -221,6 +267,13 @@ correlation_matrix_kernel_groups: dict[str, list[str]] = {
         "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>",
         "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>",
         "vectorized_elementwise_kernel<4, MulFunctor<float>, _>",
+        "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>",
+        "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>",
+        "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)",
+        "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>",
+        "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>",
+        "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>",
+        "vectorized_elementwise_kernel<4, DivFunctor<float>, _>",
     ],
     # unrolled elementwise kernels
     "group-unrolled_elementwise": [
@@ -230,6 +283,9 @@ correlation_matrix_kernel_groups: dict[str, list[str]] = {
         "unrolled_elementwise_kernel<MulFunctor<float>, _>",
         "unrolled_elementwise_kernel<DivFunctor<float>, _>",
         "unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>",
+        "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>",
+        "unrolled_elementwise_kernel<copy_device_to_device(…), _>",
+        "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>",
     ],
     # reduction kernels
     "group-reduction": [
@@ -240,6 +296,34 @@ correlation_matrix_kernel_groups: dict[str, list[str]] = {
         "reduce_1Block_kernel",
         "splitKreduce_kernel<32, 16, …>",
         "splitKreduce_kernel",
+        "nll_loss_forward_reduce_cuda_kernel_2d",
+        "nll_loss_backward_reduce_cuda_kernel_2d",
+        "reduce_kernel<512, 4, …>",
+    ],
+    # other kernels
+    "group-other": [
+        "indexSelectSmallIndex",
+        "epilogue::impl::globalKernel<8, 32, …>(…,cublasLtEpilogue_t,…)",
+        "softmax_warp_forward",
+        "softmax_warp_backward",
+        "multi_tensor_apply_kernel<TensorListMetadata<2>, …>",
+        "dot_kernel",
+        "elementwise_kernel<128, 2, …>",
+        "embedding_backward_feature_kernel",
+        "elementwise_kernel_with_index",
+        "max_pool_forward_nchw",
+        "cunn_SoftMaxBackward",
+        "vectorized_layer_norm_kernel",
+        "cunn_SpatialSoftMaxForward",
+        "fused_dropout_kernel_vec",
+        "kernelPointwiseApply1",
+        "im2col_kernel",
+        "cunn_SoftMaxForward",
+        "cunn_ClassNLLCriterion_updateGradInput_kernel",
+        "adaptive_average_pool",
+        "cunn_ClassNLLCriterion_updateOutput_kernel",
+        "indexSelectLargeIndex",
+        "kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>",
     ],
 }
 
@@ -570,6 +654,10 @@ def main():
 
         for kernel in df["clean_names"].unique():
             correlation_matrix_kernel(df, kernel, config.output_dir)
+
+    if config.group:
+        # grouping makes less sense for violin and line plots, so we skip them when grouping is enabled
+        return
 
     if config.behavior_metric:
         # classify kernels by behavior for the specified metric

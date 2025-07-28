@@ -23,14 +23,15 @@
 #
 # The first 2 sections, `Accel-Sim-build` and `GPGPU-Sim-build` are ignored.
 
-from attr import dataclass
-import pandas as pd
-import os
-import sys
-import re
 import argparse
-import numpy as np
 import csv
+import os
+import re
+import sys
+
+import numpy as np
+import pandas as pd
+from attr import dataclass
 
 
 def extract_job_name(kernel: str) -> str:
@@ -63,6 +64,24 @@ def extract_kernel_name(kernel: str) -> str:
     return "--".join([parts[-2], parts[-1]])
 
 
+CHUNK_SIZE: int = 100  # number of kernels to demangle at once
+
+
+def demangle_kernels(kernels: list[str]) -> list[str]:
+    """
+    convert a list of mangled kernel names to their unmangled equivalents using the c++filt command
+    """
+
+    demangled = []
+    chunks = (kernels[i : i + CHUNK_SIZE] for i in range(0, len(kernels), CHUNK_SIZE))
+
+    for chunk in chunks:
+        args = " ".join(chunk)
+        demangled += os.popen(f"c++filt {args}").read().strip().split("\n")
+
+    return demangled
+
+
 def job_stat_dict_to_dataframe(
     dict_df: dict[str, dict[str, float]], stats: list[str]
 ) -> pd.DataFrame:
@@ -78,8 +97,9 @@ def job_stat_dict_to_dataframe(
     # to do this we need to run the demangler on each kernel name
 
     # get the demangled kernel name
-    args = " ".join(df.index.map(lambda kernel: kernel.split("--")[0]))
-    demangled_kernel_names = os.popen(f"c++filt {args}").read().strip().split("\n")
+    demangled_kernel_names = demangle_kernels(
+        df.index.map(lambda k: k.split("--")[0]).tolist()
+    )
     # add the demangled kernel name to the dataframe
     df["Kernel Name (Demangled)"] = demangled_kernel_names
 
@@ -90,6 +110,7 @@ def job_stat_dict_to_dataframe(
 class StatsParser:
     input_file: str
     output_dir: str
+    quiet: bool = False
 
     dfs: dict[str, pd.DataFrame] = {}
 
@@ -169,10 +190,11 @@ class StatsParser:
                     value = float(row[1])
                 except ValueError:
                     # if the value is not a float, skip it
-                    print(
-                        f"Value {row[1]} is not a float, skipping row: {row}",
-                        file=sys.stderr,
-                    )
+                    if not self.quiet:
+                        print(
+                            f"Value {row[1]} is not a float, skipping row: {row}",
+                            file=sys.stderr,
+                        )
                     df[kernel][current_stat] = np.nan
                     continue
                 # add the value to the dataframe
@@ -203,6 +225,12 @@ class StatsParser:
             type=str,
             help="Path to of directory to output organized CSV file.",
         )
+        parser.add_argument(
+            "--quiet",
+            "-q",
+            action="store_true",
+            help="If set, suppresses output messages.",
+        )
 
         args = parser.parse_args()
         if not os.path.exists(args.input_file):
@@ -220,7 +248,7 @@ class StatsParser:
                 # organized_<input_file_name without extension
                 "organized_" + os.path.splitext(os.path.basename(args.input_file))[0],
             )
-        return cls(args.input_file, args.output_dir)
+        return cls(args.input_file, args.output_dir, args.quiet)
 
 
 def main() -> None:
