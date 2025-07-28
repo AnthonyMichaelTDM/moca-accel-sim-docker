@@ -8,6 +8,7 @@
 !bench_trace_bert.sh
 !trace_bert.sh
 !visualize_results.py
+!visualize_results_test.py
 !simulation_results.ods
 !organized_sim_results.csv
 !plots/

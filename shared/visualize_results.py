@@ -416,6 +416,20 @@ def prune_kernels_with_too_few_launches(
     return pruned_df
 
 
+def prune_outliers(s: pd.Series, threshold: float = 3.0) -> pd.Series:
+    """
+    Remove outliers from the Series and replace them with NaN in-place.
+    Outliers are defined as values that are more than `threshold` standard deviations away from the mean.
+    """
+    mean = s.mean()
+    std_dev = s.std()
+    lower_bound = mean - threshold * std_dev
+    upper_bound = mean + threshold * std_dev
+    pruned_s = s.copy()
+    pruned_s[(pruned_s < lower_bound) | (pruned_s > upper_bound)] = float("nan")
+    return pruned_s
+
+
 def violin_plot(df, metric):
     sns.violinplot(
         y="clean_names",
@@ -438,12 +452,12 @@ def save_violin_plot(df, metric, filename):
     plt.close("all")
 
 
-def line_plot(df, metric, log_scale: bool = False) -> None:
+def line_plot(df: pd.DataFrame, metric: str, log_scale: bool = False) -> None:
     """
     Plot the performance of the kernels over time
     """
     for clean_kernel_name in df["clean_names"].unique():
-        df2 = df[df["clean_names"] == clean_kernel_name].copy()
+        df2 = df[(df["clean_names"] == clean_kernel_name) & df[metric].notnull()].copy()
         df2["id"] = (
             0
             if (split := df2["kernel_name"].str.split("--")).empty
@@ -512,6 +526,8 @@ class Config:
     behavior_metric: str = ""
     minimum_launches: int = DEFAULT_MINIMUM_LAUNCHES
     log_scale: bool = False
+    do_prune_outliers: bool = False
+    outlier_threshold: float | None = 3.0
 
     @classmethod
     def from_args(cls):
@@ -571,6 +587,16 @@ class Config:
             action="store_true",
             help="Use logarithmic scale for the y-axis in the line plots.",
         )
+        parser.add_argument(
+            "--prune_outliers",
+            "--prune-outliers",
+            type=float,
+            const=3.0,
+            default=None,
+            metavar="threshold",
+            nargs="?",
+            help="Prune outliers from the data based on the specified metric, you can optionally provide a threshold as well.",
+        )
         args = parser.parse_args()
         if not args.input_file:
             raise ValueError("Input file must be specified.")
@@ -615,6 +641,10 @@ class Config:
             behavior_metric=args.behavior_metric,
             minimum_launches=args.minimum_launches,
             log_scale=args.log_scale,
+            do_prune_outliers=args.prune_outliers is not None,
+            outlier_threshold=(
+                args.prune_outliers if args.prune_outliers is not None else None
+            ),
         )
 
 
@@ -635,6 +665,12 @@ def main():
 
     # remove the unwanted kernels (kernels with fewer than minimum_launches launches)
     df = prune_kernels_with_too_few_launches(df, config.minimum_launches)
+
+    # optionally prune outliers
+    if config.do_prune_outliers and config.outlier_threshold is not None:
+        for metric in metrics_to_plot:
+            if metric in df.columns:
+                df[metric] = prune_outliers(df[metric], config.outlier_threshold)
 
     # optionally group similar kernels
     if config.group:
