@@ -1,0 +1,938 @@
+Kernel Behavior Groups for 'gpu_tot_sim_insn':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 693900.0, max: 693900.0, variation: 0.00%, launches: 50
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 6652800.0, max: 6652800.0, variation: 0.00%, launches: 100
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 591276.0, max: 591276.0, variation: 0.00%, launches: 12
+    "softmax_warp_forward", min: 8858520.0, max: 8858520.0, variation: 0.00%, launches: 12
+    "splitKreduce_kernel", min: 7941338.0, max: 8194778.0, variation: 3.19%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 1858560.0, max: 1858560.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 5700276.0, max: 5701036.0, variation: 0.01%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 380160.0, max: 380160.0, variation: 0.00%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 711710.0, max: 711710.0, variation: 0.00%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 5822.0, max: 5822.0, variation: 0.00%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 4118400.0, max: 4118400.0, variation: 0.00%, launches: 50
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 2112000.0, max: 2112000.0, variation: 0.00%, launches: 12
+    "softmax_warp_backward", min: 2249280.0, max: 2249280.0, variation: 0.00%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 2434.0, max: 202636224.0, variation: 8325135.17%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 2260.0, max: 183337536.0, variation: 8112180.35%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 4583040.0, max: 7878672.0, variation: 71.91%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 380160.0, max: 1520640.0, variation: 300.00%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 4328.0, max: 873525952.0, variation: 20183031.98%, launches: 173
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 4583040.0, max: 10056672.0, variation: 119.43%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 4033920.0, max: 16135680.0, variation: 300.00%, launches: 180
+    "volta_sgemm_128x32_nn", min: 20727168.0, max: 389655536.0, variation: 1779.93%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 2196.0, max: 173688192.0, variation: 7909198.36%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 118540800.0, max: 418019328.0, variation: 252.64%, launches: 36
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 443520.0, max: 1774080.0, variation: 300.00%, launches: 135
+    "volta_sgemm_128x128_tn", min: 372541616.0, max: 5803263540.0, variation: 1457.75%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 583.0, max: 144740160.0, variation: 24826685.59%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 369792.0, max: 1479168.0, variation: 300.00%, launches: 98
+    "volta_sgemm_128x32_nt", min: 16593792.0, max: 398573568.0, variation: 2301.94%, launches: 72
+    "volta_sgemm_64x32_sliced1x4_tn", min: 120900096.0, max: 421212672.0, variation: 248.40%, launches: 36
+    "volta_sgemm_128x32_tn", min: 21329280.0, max: 33963456.0, variation: 59.23%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 5376.0, max: 270181632.0, variation: 5025600.00%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 19584.0, max: 2315017390.0, variation: 11820862.98%, launches: 148
+
+Kernel Behavior Groups for 'gpgpu_simulation_time':
+group-constant:
+    "softmax_warp_forward", min: 11.0, max: 12.0, variation: 9.09%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 11.0, max: 12.0, variation: 9.09%, launches: 12
+    "softmax_warp_backward", min: 8.0, max: 8.0, variation: 0.00%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 3.0, max: 4670.0, variation: 155566.67%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 3.0, max: 2306.0, variation: 76766.67%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 5.0, max: 6.0, variation: 20.00%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 6.0, max: 10.0, variation: 66.67%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 5.0, max: 17.0, variation: 240.00%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 3.0, max: 2222.0, variation: 73966.67%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 7.0, max: 9.0, variation: 28.57%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 9.0, max: 11.0, variation: 22.22%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 6.0, max: 17.0, variation: 183.33%, launches: 180
+    "volta_sgemm_128x32_nn", min: 17.0, max: 251.0, variation: 1376.47%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 3.0, max: 2228.0, variation: 74166.67%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 4.0, max: 5.0, variation: 25.00%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 76.0, max: 277.0, variation: 264.47%, launches: 36
+    "splitKreduce_kernel", min: 13.0, max: 17.0, variation: 30.77%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 9.0, max: 10.0, variation: 11.11%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 5.0, max: 21.0, variation: 320.00%, launches: 135
+    "volta_sgemm_128x128_tn", min: 233.0, max: 3491.0, variation: 1398.28%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 3.0, max: 642.0, variation: 21300.00%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 5.0, max: 9.0, variation: 80.00%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 4.0, max: 5.0, variation: 25.00%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 5.0, max: 6.0, variation: 20.00%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 3.0, max: 4.0, variation: 33.33%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 5.0, max: 6.0, variation: 20.00%, launches: 50
+    "volta_sgemm_128x32_nt", min: 19.0, max: 263.0, variation: 1284.21%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 19.0, max: 24.0, variation: 26.32%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 82.0, max: 297.0, variation: 262.20%, launches: 36
+    "volta_sgemm_128x32_tn", min: 18.0, max: 28.0, variation: 55.56%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 3.0, max: 4799.0, variation: 159866.67%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 3.0, max: 6347.0, variation: 211466.67%, launches: 148
+
+Kernel Behavior Groups for 'gpu_tot_sim_cycle':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 7981.0, max: 8146.0, variation: 2.07%, launches: 50
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 6184.0, max: 6358.0, variation: 2.81%, launches: 12
+    "softmax_warp_forward", min: 8825.0, max: 9320.0, variation: 5.61%, launches: 12
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 7448.0, max: 7555.0, variation: 1.44%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 7501.0, max: 7627.0, variation: 1.68%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 5847.0, max: 5908.0, variation: 1.04%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 8034.0, max: 8183.0, variation: 1.85%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 5923.0, max: 6113.0, variation: 3.21%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 6303.0, max: 6324.0, variation: 0.33%, launches: 50
+    "softmax_warp_backward", min: 6947.0, max: 7042.0, variation: 1.37%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 5489.0, max: 1081435.0, variation: 19601.86%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 5486.0, max: 613910.0, variation: 11090.48%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 6583.0, max: 8216.0, variation: 24.81%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 5851.0, max: 11263.0, variation: 92.50%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 5540.0, max: 586210.0, variation: 10481.41%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 6982.0, max: 7790.0, variation: 11.57%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 7524.0, max: 8342.0, variation: 10.87%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 6314.0, max: 9751.0, variation: 54.43%, launches: 180
+    "volta_sgemm_128x32_nn", min: 11412.0, max: 86292.0, variation: 656.15%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 5484.0, max: 612560.0, variation: 11069.95%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 28357.0, max: 95313.0, variation: 236.12%, launches: 36
+    "splitKreduce_kernel", min: 8909.0, max: 10229.0, variation: 14.82%, launches: 60
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 6096.0, max: 10884.0, variation: 78.54%, launches: 135
+    "volta_sgemm_128x128_tn", min: 91378.0, max: 1069706.0, variation: 1070.64%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 5242.0, max: 260880.0, variation: 4876.73%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 8482.0, max: 9654.0, variation: 13.82%, launches: 98
+    "volta_sgemm_128x32_nt", min: 16643.0, max: 81196.0, variation: 387.87%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 10392.0, max: 12311.0, variation: 18.47%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 30636.0, max: 93547.0, variation: 205.35%, launches: 36
+    "volta_sgemm_128x32_tn", min: 12187.0, max: 16355.0, variation: 34.20%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 5552.0, max: 1097188.0, variation: 19662.03%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 5954.0, max: 1501463.0, variation: 25117.72%, launches: 148
+
+Kernel Behavior Groups for 'L2_cache_global_read_hit':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 50
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 1575.0, max: 1575.0, variation: 0.00%, launches: 12
+    "softmax_warp_forward", min: 18150.0, max: 18150.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 26.0, max: 26.0, variation: 0.00%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 326.0, max: 330.0, variation: 1.23%, launches: 50
+    "softmax_warp_backward", min: 36300.0, max: 36300.0, variation: 0.00%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.0, max: 98304.0, variation: inf%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.0, max: 98304.0, variation: inf%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 10886.0, max: 36588.0, variation: 236.10%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 0.0, max: 10560.0, variation: inf%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.0, max: 98304.0, variation: inf%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 279.0, max: 10890.0, variation: 3803.23%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 17881.0, max: 32593.0, variation: 82.28%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 0.0, max: 84480.0, variation: inf%, launches: 180
+    "volta_sgemm_128x32_nn", min: 46200.0, max: 709187.0, variation: 1435.04%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.0, max: 98304.0, variation: inf%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 214242.0, max: 1087948.0, variation: 407.81%, launches: 36
+    "splitKreduce_kernel", min: 0.0, max: 10560.0, variation: inf%, launches: 60
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 0.0, max: 84480.0, variation: inf%, launches: 135
+    "volta_sgemm_128x128_tn", min: 237576.0, max: 3666741.0, variation: 1443.40%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 0.0, max: 40536.0, variation: inf%, launches: 98
+    "volta_sgemm_128x32_nt", min: 33672.0, max: 966257.0, variation: 2769.62%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 18008.0, max: 28252.0, variation: 56.89%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 229157.0, max: 1105282.0, variation: 382.33%, launches: 36
+    "volta_sgemm_128x32_tn", min: 9240.0, max: 19316.0, variation: 109.05%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 0.0, max: 99428.0, variation: inf%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 0.0, max: 63096.0, variation: inf%, launches: 148
+
+Kernel Behavior Groups for 'L2_cache_global_read_total_access':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 50
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 10890.0, max: 10890.0, variation: 0.00%, launches: 100
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 1575.0, max: 1575.0, variation: 0.00%, launches: 12
+    "softmax_warp_forward", min: 18150.0, max: 18150.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 28.0, max: 28.0, variation: 0.00%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 330.0, max: 330.0, variation: 0.00%, launches: 50
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 84480.0, max: 84480.0, variation: 0.00%, launches: 12
+    "softmax_warp_backward", min: 36300.0, max: 36300.0, variation: 0.00%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 28.0, max: 9649344.0, variation: 34461842.86%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 10890.0, max: 36591.0, variation: 236.01%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 173
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 18240.0, max: 37053.0, variation: 103.14%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 7680.0, max: 84480.0, variation: 1000.00%, launches: 180
+    "volta_sgemm_128x32_nn", min: 46200.0, max: 1024766.0, variation: 2118.11%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 368928.0, max: 1633824.0, variation: 342.86%, launches: 36
+    "splitKreduce_kernel", min: 31680.0, max: 42240.0, variation: 33.33%, launches: 60
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 21120.0, max: 84480.0, variation: 300.00%, launches: 135
+    "volta_sgemm_128x128_tn", min: 531216.0, max: 8429513.0, variation: 1486.83%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 98
+    "volta_sgemm_128x32_nt", min: 43464.0, max: 1023336.0, variation: 2254.45%, launches: 72
+    "volta_sgemm_64x32_sliced1x4_tn", min: 368928.0, max: 1633824.0, variation: 342.86%, launches: 36
+    "volta_sgemm_128x32_tn", min: 46200.0, max: 59292.0, variation: 28.34%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 192.0, max: 9649344.0, variation: 5025600.00%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 288.0, max: 14474016.0, variation: 5025600.00%, launches: 148
+
+Kernel Behavior Groups for 'L2_cache_global_write_hit':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 96.0, max: 96.0, variation: 0.00%, launches: 50
+    "softmax_warp_forward", min: 22110.0, max: 22110.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 50
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.0, max: 4812472.0, variation: inf%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.0, max: 4824324.0, variation: inf%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 0.0, max: 10560.0, variation: inf%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 0.0, max: 42240.0, variation: inf%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 0.0, max: 10560.0, variation: inf%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 0.0, max: 18150.0, variation: inf%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 0.0, max: 10560.0, variation: inf%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 351.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.0, max: 4824580.0, variation: inf%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "splitKreduce_kernel", min: 0.0, max: 10560.0, variation: inf%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 0.0, max: 39168.0, variation: inf%, launches: 135
+    "volta_sgemm_128x128_tn", min: 69.0, max: 684.0, variation: 891.30%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 96.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 288.0, max: 1152.0, variation: 300.00%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 0.0, max: 10560.0, variation: inf%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 96.0, max: 110.0, variation: 14.58%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 25
+    "volta_sgemm_128x32_nt", min: 0.0, max: 0.0, variation: inf%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 0.0, max: 25000.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "volta_sgemm_128x32_tn", min: 0.0, max: 0.0, variation: inf%, launches: 24
+    "softmax_warp_backward", min: 3960.0, max: 11040.0, variation: 178.79%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 96.0, max: 4820256.0, variation: 5021000.00%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 96.0, max: 2459628.0, variation: 2562012.50%, launches: 148
+
+Kernel Behavior Groups for 'L2_cache_global_write_total_access':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 110.0, max: 110.0, variation: 0.00%, launches: 50
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 100
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 1513.0, max: 1513.0, variation: 0.00%, launches: 12
+    "softmax_warp_forward", min: 22110.0, max: 22110.0, variation: 0.00%, launches: 12
+    "splitKreduce_kernel", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 110.0, max: 110.0, variation: 0.00%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 14.0, max: 14.0, variation: 0.00%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 50
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "softmax_warp_backward", min: 22110.0, max: 22110.0, variation: 0.00%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 10560.0, max: 18150.0, variation: 71.88%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 173
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 10560.0, max: 18150.0, variation: 71.88%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 360.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 135
+    "volta_sgemm_128x128_tn", min: 72.0, max: 786.0, variation: 991.67%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 1.0, max: 4824672.0, variation: 482467100.00%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 384.0, max: 1536.0, variation: 300.00%, launches: 98
+    "volta_sgemm_128x32_nt", min: 0.0, max: 0.0, variation: inf%, launches: 72
+    "volta_sgemm_64x32_sliced1x4_tn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "volta_sgemm_128x32_tn", min: 0.0, max: 0.0, variation: inf%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 96.0, max: 4824672.0, variation: 5025600.00%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 96.0, max: 4824672.0, variation: 5025600.00%, launches: 148
+
+Kernel Behavior Groups for 'Total_core_cache_stats_breakdown_GLOBAL_ACC_R_TOTAL_ACCESS':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 50
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 13200.0, max: 13200.0, variation: 0.00%, launches: 100
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 1821.0, max: 1821.0, variation: 0.00%, launches: 12
+    "softmax_warp_forward", min: 22110.0, max: 22110.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 28.0, max: 28.0, variation: 0.00%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 2640.0, max: 2640.0, variation: 0.00%, launches: 50
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 84480.0, max: 84480.0, variation: 0.00%, launches: 12
+    "softmax_warp_backward", min: 44220.0, max: 44220.0, variation: 0.00%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 28.0, max: 9649344.0, variation: 34461842.86%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 13200.0, max: 38574.0, variation: 192.23%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 173
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 21120.0, max: 40012.0, variation: 89.45%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 10560.0, max: 84480.0, variation: 700.00%, launches: 180
+    "volta_sgemm_128x32_nn", min: 54264.0, max: 1131696.0, variation: 1985.54%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 368928.0, max: 1633824.0, variation: 342.86%, launches: 36
+    "splitKreduce_kernel", min: 31680.0, max: 42240.0, variation: 33.33%, launches: 60
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 21120.0, max: 84480.0, variation: 300.00%, launches: 135
+    "volta_sgemm_128x128_tn", min: 531216.0, max: 8787778.0, variation: 1554.28%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 98
+    "volta_sgemm_128x32_nt", min: 50796.0, max: 1175040.0, variation: 2213.25%, launches: 72
+    "volta_sgemm_64x32_sliced1x4_tn", min: 368928.0, max: 1633824.0, variation: 342.86%, launches: 36
+    "volta_sgemm_128x32_tn", min: 46200.0, max: 98820.0, variation: 113.90%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 288.0, max: 14474016.0, variation: 5025600.00%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 288.0, max: 14474016.0, variation: 5025600.00%, launches: 148
+
+Kernel Behavior Groups for 'Total_core_cache_stats_breakdown_GLOBAL_ACC_R_HIT':
+group-constant:
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 0.0, max: 0.0, variation: inf%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 0.0, max: 947.0, variation: inf%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 0.0, max: 0.0, variation: inf%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 20.0, max: 884.0, variation: 4320.00%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 0.0, max: 392.0, variation: inf%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 0.0, max: 32446.0, variation: inf%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 108828.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 0.0, max: 4.0, variation: inf%, launches: 12
+    "softmax_warp_forward", min: 44.0, max: 101.0, variation: 129.55%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 0.0, max: 114710.0, variation: inf%, launches: 36
+    "splitKreduce_kernel", min: 0.0, max: 0.0, variation: inf%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 135
+    "volta_sgemm_128x128_tn", min: 0.0, max: 133646.0, variation: inf%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 462.0, max: 586.0, variation: 26.84%, launches: 50
+    "volta_sgemm_128x32_nt", min: 0.0, max: 188492.0, variation: inf%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "volta_sgemm_128x32_tn", min: 0.0, max: 39528.0, variation: inf%, launches: 24
+    "softmax_warp_backward", min: 240.0, max: 305.0, variation: 27.08%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 0.0, max: 1167.0, variation: inf%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 148
+
+Kernel Behavior Groups for 'Total_core_cache_stats_breakdown_GLOBAL_ACC_W_HIT':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 96.0, max: 96.0, variation: 0.00%, launches: 50
+    "softmax_warp_forward", min: 3960.0, max: 3960.0, variation: 0.00%, launches: 12
+    "reduce_kernel<512, 4, …>", min: 96.0, max: 96.0, variation: 0.00%, launches: 75
+    "softmax_warp_backward", min: 3960.0, max: 3960.0, variation: 0.00%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.0, max: 4824672.0, variation: inf%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.0, max: 4824672.0, variation: inf%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 0.0, max: 0.0, variation: inf%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.0, max: 4824672.0, variation: inf%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "splitKreduce_kernel", min: 0.0, max: 10560.0, variation: inf%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 135
+    "volta_sgemm_128x128_tn", min: 0.0, max: 23.0, variation: inf%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 288.0, max: 1152.0, variation: 300.00%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 50
+    "volta_sgemm_128x32_nt", min: 0.0, max: 0.0, variation: inf%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "volta_sgemm_128x32_tn", min: 0.0, max: 0.0, variation: inf%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 96.0, max: 4824672.0, variation: 5025600.00%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 96.0, max: 4448112.0, variation: 4633350.00%, launches: 148
+
+Kernel Behavior Groups for 'Total_core_cache_stats_breakdown_GLOBAL_ACC_W_TOTAL_ACCESS':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 110.0, max: 110.0, variation: 0.00%, launches: 50
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 100
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 1513.0, max: 1513.0, variation: 0.00%, launches: 12
+    "softmax_warp_forward", min: 22110.0, max: 22110.0, variation: 0.00%, launches: 12
+    "splitKreduce_kernel", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 110.0, max: 110.0, variation: 0.00%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 14.0, max: 14.0, variation: 0.00%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 10560.0, max: 10560.0, variation: 0.00%, launches: 50
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 42240.0, max: 42240.0, variation: 0.00%, launches: 12
+    "softmax_warp_backward", min: 22110.0, max: 22110.0, variation: 0.00%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 10560.0, max: 18150.0, variation: 71.88%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 173
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 10560.0, max: 18150.0, variation: 71.88%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 360.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 14.0, max: 4824672.0, variation: 34461842.86%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 10560.0, max: 42240.0, variation: 300.00%, launches: 135
+    "volta_sgemm_128x128_tn", min: 72.0, max: 786.0, variation: 991.67%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 1.0, max: 4824672.0, variation: 482467100.00%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 384.0, max: 1536.0, variation: 300.00%, launches: 98
+    "volta_sgemm_128x32_nt", min: 0.0, max: 0.0, variation: inf%, launches: 72
+    "volta_sgemm_64x32_sliced1x4_tn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "volta_sgemm_128x32_tn", min: 0.0, max: 0.0, variation: inf%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 96.0, max: 4824672.0, variation: 5025600.00%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 96.0, max: 4824672.0, variation: 5025600.00%, launches: 148
+
+Kernel Behavior Groups for 'Total_core_cache_stats_breakdown_GLOBAL_ACC_R_MSHR_HIT':
+group-constant:
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 242.0, max: 246.0, variation: 1.65%, launches: 12
+    "softmax_warp_forward", min: 3859.0, max: 3916.0, variation: 1.48%, launches: 12
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 1724.0, max: 1848.0, variation: 7.19%, launches: 50
+    "softmax_warp_backward", min: 7615.0, max: 7680.0, variation: 0.85%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 0.0, max: 0.0, variation: inf%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 1363.0, max: 2880.0, variation: 111.30%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 0.0, max: 0.0, variation: inf%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 1426.0, max: 2290.0, variation: 60.59%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 2567.0, max: 2880.0, variation: 12.19%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 0.0, max: 33400.0, variation: inf%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 8064.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 0.0, max: 163271.0, variation: inf%, launches: 36
+    "splitKreduce_kernel", min: 0.0, max: 0.0, variation: inf%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 135
+    "volta_sgemm_128x128_tn", min: 0.0, max: 224619.0, variation: inf%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 25
+    "volta_sgemm_128x32_nt", min: 0.0, max: 55170.0, variation: inf%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "volta_sgemm_128x32_tn", min: 0.0, max: 0.0, variation: inf%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 96.0, max: 4823505.0, variation: 5024384.38%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 148
+
+Kernel Behavior Groups for 'gpgpu_n_tot_w_icount':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 24418.0, max: 24418.0, variation: 0.00%, launches: 50
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 232320.0, max: 232320.0, variation: 0.00%, launches: 100
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 20888.0, max: 20888.0, variation: 0.00%, launches: 12
+    "softmax_warp_forward", min: 382584.0, max: 382584.0, variation: 0.00%, launches: 12
+    "splitKreduce_kernel", min: 300960.0, max: 300960.0, variation: 0.00%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 63360.0, max: 63360.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 295438.0, max: 295548.0, variation: 0.04%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 13200.0, max: 13200.0, variation: 0.00%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 24868.0, max: 24868.0, variation: 0.00%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 224.0, max: 224.0, variation: 0.00%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 145200.0, max: 145200.0, variation: 0.00%, launches: 50
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 71280.0, max: 71280.0, variation: 0.00%, launches: 12
+    "softmax_warp_backward", min: 75900.0, max: 75900.0, variation: 0.00%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 95.0, max: 6935466.0, variation: 7300390.53%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 88.0, max: 6332382.0, variation: 7195788.64%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 159720.0, max: 274603.0, variation: 71.93%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 13200.0, max: 52800.0, variation: 300.00%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 161.0, max: 30642723.0, variation: 19032647.20%, launches: 173
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 159720.0, max: 351749.0, variation: 120.23%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 142560.0, max: 570240.0, variation: 300.00%, launches: 180
+    "volta_sgemm_128x32_nn", min: 672384.0, max: 12453454.0, variation: 1752.13%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 86.0, max: 6030840.0, variation: 7012504.65%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 3755520.0, max: 13163520.0, variation: 250.51%, launches: 36
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 15180.0, max: 60720.0, variation: 300.00%, launches: 135
+    "volta_sgemm_128x128_tn", min: 11716633.0, max: 182311128.0, variation: 1456.00%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 28.0, max: 5126214.0, variation: 18307807.14%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 12378.0, max: 49512.0, variation: 300.00%, launches: 98
+    "volta_sgemm_128x32_nt", min: 537984.0, max: 12854784.0, variation: 2289.44%, launches: 72
+    "volta_sgemm_64x32_sliced1x4_tn", min: 3829248.0, max: 13229568.0, variation: 245.49%, launches: 36
+    "volta_sgemm_128x32_tn", min: 693504.0, max: 1112064.0, variation: 60.35%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 180.0, max: 9046260.0, variation: 5025600.00%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 672.0, max: 90037971.0, variation: 13398407.59%, launches: 148
+
+Kernel Behavior Groups for 'total_dram_reads':
+group-constant:
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 2.0, max: 2.0, variation: 0.00%, launches: 25
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.0, max: 9649344.0, variation: inf%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.0, max: 4824672.0, variation: inf%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 0.0, max: 0.0, variation: inf%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 0.0, max: 96.0, variation: inf%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 0.0, max: 42240.0, variation: inf%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.0, max: 4824672.0, variation: inf%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 0.0, max: 10574.0, variation: inf%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 96.0, max: 1540.0, variation: 1504.17%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 0.0, max: 10560.0, variation: inf%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 216652.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.0, max: 4824672.0, variation: inf%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "softmax_warp_forward", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 64512.0, max: 303104.0, variation: 369.84%, launches: 36
+    "splitKreduce_kernel", min: 29488.0, max: 42240.0, variation: 43.24%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 0.0, max: 84480.0, variation: inf%, launches: 135
+    "volta_sgemm_128x128_tn", min: 288368.0, max: 4754040.0, variation: 1548.60%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 0.0, max: 10560.0, variation: inf%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 0.0, max: 1.0, variation: inf%, launches: 50
+    "volta_sgemm_128x32_nt", min: 9792.0, max: 42696.0, variation: 336.03%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 56228.0, max: 66472.0, variation: 18.22%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 64512.0, max: 301320.0, variation: 367.08%, launches: 36
+    "volta_sgemm_128x32_tn", min: 9240.0, max: 10368.0, variation: 12.21%, launches: 24
+    "softmax_warp_backward", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 0.0, max: 9649344.0, variation: inf%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 0.0, max: 14474016.0, variation: inf%, launches: 148
+
+Kernel Behavior Groups for 'total_dram_writes':
+group-constant:
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.0, max: 4926064.0, variation: inf%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.0, max: 4747840.0, variation: inf%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 0.0, max: 1496.0, variation: inf%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 0.0, max: 10060.0, variation: inf%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 0.0, max: 55388.0, variation: inf%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.0, max: 4815288.0, variation: inf%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 0.0, max: 9224.0, variation: inf%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 0.0, max: 10140.0, variation: inf%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 0.0, max: 12346.0, variation: inf%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 108132.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.0, max: 4840240.0, variation: inf%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 16.0, max: 116.0, variation: 625.00%, launches: 12
+    "softmax_warp_forward", min: 4.0, max: 28.0, variation: 600.00%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 14425.0, max: 170772.0, variation: 1083.86%, launches: 36
+    "splitKreduce_kernel", min: 1288.0, max: 19305.0, variation: 1398.84%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 788.0, max: 1056.0, variation: 34.01%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 0.0, max: 35580.0, variation: inf%, launches: 135
+    "volta_sgemm_128x128_tn", min: 65530.0, max: 95726.0, variation: 46.08%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 4825392.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 0.0, max: 44.0, variation: inf%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 50
+    "volta_sgemm_128x32_nt", min: 64.0, max: 8832.0, variation: 13700.00%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 14684.0, max: 24416.0, variation: 66.28%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 0.0, max: 186236.0, variation: inf%, launches: 36
+    "volta_sgemm_128x32_tn", min: 8.0, max: 8040.0, variation: 100400.00%, launches: 24
+    "softmax_warp_backward", min: 4796.0, max: 16812.0, variation: 250.54%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 0.0, max: 4909420.0, variation: inf%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 0.0, max: 4922152.0, variation: inf%, launches: 148
+
+Skipping metric 'gpgpu_n_shmem_bkconflict' as it is not in the DataFrame.
+Skipping metric 'gpgpu_n_l1cache_bkconflict' as it is not in the DataFrame.
+Kernel Behavior Groups for 'gpu_ipc':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 85.1829, max: 86.944, variation: 2.07%, launches: 50
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 92.9972, max: 95.6138, variation: 2.81%, launches: 12
+    "softmax_warp_forward", min: 950.485, max: 1003.7983, variation: 5.61%, launches: 12
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 246.004, max: 249.5381, variation: 1.44%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 747.4231, max: 760.0029, variation: 1.68%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 64.3466, max: 65.018, variation: 1.04%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 86.9742, max: 88.5873, variation: 1.85%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 0.9524, max: 0.9829, variation: 3.20%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 651.2334, max: 653.4031, variation: 0.33%, launches: 50
+    "softmax_warp_backward", min: 319.4093, max: 323.7772, variation: 1.37%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.4431, max: 228.8293, variation: 51542.81%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.3989, max: 359.7411, variation: 90083.28%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 557.8189, max: 1090.021, variation: 95.41%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 64.0755, max: 155.3735, variation: 142.49%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.7427, max: 1607.3076, variation: 216314.11%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 854.0179, max: 952.8502, variation: 11.57%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 549.3934, max: 1336.6124, variation: 143.29%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 428.6844, max: 1888.0974, variation: 340.44%, launches: 180
+    "volta_sgemm_128x32_nn", min: 1794.7153, max: 4716.7104, variation: 162.81%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.4001, max: 341.6629, variation: 85294.38%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 4146.668, max: 4844.4175, variation: 16.83%, launches: 36
+    "splitKreduce_kernel", min: 801.1319, max: 891.3838, variation: 11.27%, launches: 60
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 69.7468, max: 208.5435, variation: 199.00%, launches: 135
+    "volta_sgemm_128x128_tn", min: 3970.0193, max: 5425.1016, variation: 36.65%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.1112, max: 557.188, variation: 500968.35%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 38.3045, max: 163.2095, variation: 326.08%, launches: 98
+    "volta_sgemm_128x32_nt", min: 956.9109, max: 5062.73, variation: 429.07%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 171.5539, max: 203.2333, variation: 18.47%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 3910.2202, max: 4550.0107, variation: 16.36%, launches: 36
+    "volta_sgemm_128x32_tn", min: 1698.5968, max: 2089.6731, variation: 23.02%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 0.9659, max: 357.7169, variation: 36934.57%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 3.2821, max: 1541.8412, variation: 46877.28%, launches: 148
+
+Kernel Behavior Groups for 'gpgpu_simulation_rate_instructions':
+group-constant:
+    "volta_sgemm_128x32_nn", min: 1139600.0, max: 1242972.0, variation: 9.07%, launches: 36
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 1160316.0, max: 1196016.0, variation: 3.08%, launches: 12
+    "softmax_warp_forward", min: 1133292.0, max: 1194037.0, variation: 5.36%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 1179510.0, max: 1209453.0, variation: 2.54%, launches: 36
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 1185530.0, max: 1196065.0, variation: 0.89%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 1143372.0, max: 1191293.0, variation: 4.19%, launches: 12
+    "volta_sgemm_128x128_tn", min: 1235310.0, max: 1301991.0, variation: 5.40%, launches: 13
+    "reduce_kernel<128, 4, …>", min: 1232754.0, max: 1304524.0, variation: 5.82%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 1231282.0, max: 1303152.0, variation: 5.84%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 1231059.0, max: 1302546.0, variation: 5.81%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 1232101.0, max: 1302220.0, variation: 5.69%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 1230810.0, max: 1301395.0, variation: 5.73%, launches: 50
+    "volta_sgemm_128x32_nt", min: 1232439.0, max: 1304285.0, variation: 5.83%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 1235391.0, max: 1301802.0, variation: 5.38%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 1232803.0, max: 1299082.0, variation: 5.38%, launches: 36
+    "volta_sgemm_128x32_tn", min: 1232429.0, max: 1295398.0, variation: 5.11%, launches: 24
+    "softmax_warp_backward", min: 1232748.0, max: 1294669.0, variation: 5.02%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 526313.0, max: 1300052.0, variation: 147.01%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 397025.0, max: 1191952.0, variation: 200.22%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 386234.0, max: 1194136.0, variation: 209.17%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 422197.0, max: 1194694.0, variation: 182.97%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 418068.0, max: 1300414.0, variation: 211.05%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 380071.0, max: 1191651.0, variation: 213.53%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 426382.0, max: 1303507.0, variation: 205.71%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 430009.0, max: 1304221.0, variation: 203.30%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 495687.0, max: 1293856.0, variation: 161.02%, launches: 180
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 535883.0, max: 1302406.0, variation: 143.04%, launches: 812
+    "splitKreduce_kernel", min: 1161443.0, max: 1298728.0, variation: 11.82%, launches: 60
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 1121314.0, max: 1303956.0, variation: 16.29%, launches: 135
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 535954.0, max: 1249946.0, variation: 133.22%, launches: 299
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 535908.0, max: 900881.0, variation: 68.10%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 535858.0, max: 811678.0, variation: 51.47%, launches: 148
+
+Kernel Behavior Groups for 'gpgpu_simulation_rate_cycles':
+group-constant:
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 513.0, max: 564.0, variation: 9.94%, launches: 12
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 426.0, max: 468.0, variation: 9.86%, launches: 25
+    "volta_sgemm_128x32_nt", min: 426.0, max: 468.0, variation: 9.86%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 427.0, max: 467.0, variation: 9.37%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 427.0, max: 468.0, variation: 9.60%, launches: 36
+    "volta_sgemm_128x32_tn", min: 430.0, max: 468.0, variation: 8.84%, launches: 24
+    "softmax_warp_backward", min: 430.0, max: 468.0, variation: 8.84%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 388.0, max: 410.0, variation: 5.67%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 388.0, max: 394.0, variation: 1.55%, launches: 148
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 388.0, max: 938.0, variation: 141.75%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 388.0, max: 1103.0, variation: 184.28%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 511.0, max: 1081.0, variation: 111.55%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 511.0, max: 1083.0, variation: 111.94%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 427.0, max: 1052.0, variation: 146.37%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 388.0, max: 1139.0, variation: 193.56%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 425.0, max: 1112.0, variation: 161.65%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 424.0, max: 1077.0, variation: 154.01%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 431.0, max: 1013.0, variation: 135.03%, launches: 180
+    "volta_sgemm_128x32_nn", min: 511.0, max: 616.0, variation: 20.55%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 388.0, max: 603.0, variation: 55.41%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 512.0, max: 595.0, variation: 16.21%, launches: 12
+    "softmax_warp_forward", min: 513.0, max: 610.0, variation: 18.91%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 511.0, max: 593.0, variation: 16.05%, launches: 36
+    "splitKreduce_kernel", min: 427.0, max: 593.0, variation: 38.88%, launches: 60
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 514.0, max: 569.0, variation: 10.70%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 424.0, max: 572.0, variation: 34.91%, launches: 135
+    "volta_sgemm_128x128_tn", min: 427.0, max: 476.0, variation: 11.48%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 388.0, max: 474.0, variation: 22.16%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 424.0, max: 468.0, variation: 10.38%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 425.0, max: 469.0, variation: 10.35%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 425.0, max: 469.0, variation: 10.35%, launches: 75
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 426.0, max: 469.0, variation: 10.09%, launches: 50
+
+Kernel Behavior Groups for 'gpu_tot_ipc':
+group-constant:
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 560.9991, max: 3040.3777, variation: 441.96%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 359.7799, max: 2323.3958, variation: 545.78%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 357.0275, max: 2331.5227, variation: 553.04%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 389.5721, max: 2330.1909, variation: 498.14%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 397.2552, max: 3041.9297, variation: 665.74%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 333.5675, max: 2321.7351, variation: 596.03%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 383.2693, max: 3066.5186, variation: 700.10%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 399.0052, max: 3071.748, variation: 669.85%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 489.2563, max: 2999.4412, variation: 513.06%, launches: 180
+    "volta_sgemm_128x32_nn", min: 1847.9136, max: 2340.0784, variation: 26.63%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 1358.4259, max: 3057.564, variation: 125.08%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 1948.4242, max: 2328.2639, variation: 19.49%, launches: 12
+    "softmax_warp_forward", min: 1855.3134, max: 2323.8379, variation: 25.25%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 1988.3385, max: 2337.4797, variation: 17.56%, launches: 36
+    "splitKreduce_kernel", min: 1956.5626, max: 3040.5005, variation: 55.40%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 2101.8628, max: 2324.5129, variation: 10.59%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 2007.0598, max: 2316.7805, variation: 15.43%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 1958.3984, max: 3070.1438, variation: 56.77%, launches: 135
+    "volta_sgemm_128x128_tn", min: 2641.342, max: 3043.9541, variation: 15.24%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 1359.1819, max: 2632.6077, variation: 93.69%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 2632.5032, max: 3073.4709, variation: 16.75%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 2623.2378, max: 3063.7815, variation: 16.79%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 2621.8787, max: 3058.9744, variation: 16.67%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 2628.0122, max: 3056.0427, variation: 16.29%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 2620.2598, max: 3049.821, variation: 16.39%, launches: 50
+    "volta_sgemm_128x32_nt", min: 2631.3872, max: 3056.8853, variation: 16.17%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 2644.9258, max: 3047.7551, variation: 15.23%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 2633.3794, max: 3042.1091, variation: 15.52%, launches: 36
+    "volta_sgemm_128x32_tn", min: 2631.0374, max: 3010.314, variation: 14.42%, launches: 24
+    "softmax_warp_backward", min: 2633.4849, max: 3006.8828, variation: 14.18%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 1358.6766, max: 2192.6204, variation: 61.38%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 1358.1661, max: 2088.5393, variation: 53.78%, launches: 148
+
+Kernel Behavior Groups for 'gpu_stall_dramfull':
+group-constant:
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.0, max: 11928275.0, variation: inf%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.0, max: 12566561.0, variation: inf%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 0.0, max: 0.0, variation: inf%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 0.0, max: 2979.0, variation: inf%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 0.0, max: 191817.0, variation: inf%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.0, max: 26415699.0, variation: inf%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 0.0, max: 2013.0, variation: inf%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 0.0, max: 3124.0, variation: inf%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 0.0, max: 115587.0, variation: inf%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 5224.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.0, max: 24612507.0, variation: inf%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "softmax_warp_forward", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 0.0, max: 5671.0, variation: inf%, launches: 36
+    "splitKreduce_kernel", min: 16982.0, max: 68482.0, variation: 303.26%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 0.0, max: 167924.0, variation: inf%, launches: 135
+    "volta_sgemm_128x128_tn", min: 0.0, max: 6461.0, variation: inf%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 11493892.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 0.0, max: 136.0, variation: inf%, launches: 50
+    "volta_sgemm_128x32_nt", min: 0.0, max: 22546.0, variation: inf%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 122016.0, max: 228993.0, variation: 87.67%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 0.0, max: 577.0, variation: inf%, launches: 36
+    "volta_sgemm_128x32_tn", min: 0.0, max: 0.0, variation: inf%, launches: 24
+    "softmax_warp_backward", min: 0.0, max: 921.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 0.0, max: 10385101.0, variation: inf%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 0.0, max: 7790320.0, variation: inf%, launches: 148
+
+Kernel Behavior Groups for 'gpu_stall_icnt2sh':
+group-constant:
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 0.0, max: 0.0, variation: inf%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 0.0, max: 0.0, variation: inf%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 0.0, max: 268.0, variation: inf%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 0.0, max: 164.0, variation: inf%, launches: 180
+    "volta_sgemm_128x32_nn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 0.0, max: 757.0, variation: inf%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "softmax_warp_forward", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "splitKreduce_kernel", min: 0.0, max: 0.0, variation: inf%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 135
+    "volta_sgemm_128x128_tn", min: 0.0, max: 0.0, variation: inf%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 0.0, max: 0.0, variation: inf%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 0.0, max: 0.0, variation: inf%, launches: 50
+    "volta_sgemm_128x32_nt", min: 0.0, max: 0.0, variation: inf%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 0.0, max: 0.0, variation: inf%, launches: 36
+    "volta_sgemm_128x32_tn", min: 0.0, max: 0.0, variation: inf%, launches: 24
+    "softmax_warp_backward", min: 0.0, max: 0.0, variation: inf%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 0.0, max: 2280.0, variation: inf%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 0.0, max: 13872.0, variation: inf%, launches: 148
+
+Kernel Behavior Groups for 'Stall':
+group-constant:
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 2472.0, max: 2486.0, variation: 0.57%, launches: 12
+    "softmax_warp_forward", min: 250808.0, max: 260292.0, variation: 3.78%, launches: 12
+    "splitKreduce_kernel", min: 238505.0, max: 249493.0, variation: 4.61%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 148196.0, max: 150890.0, variation: 1.82%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 154239.0, max: 157642.0, variation: 2.21%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 2234.0, max: 2297.0, variation: 2.82%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 20.0, max: 20.0, variation: 0.00%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 22047.0, max: 22540.0, variation: 2.24%, launches: 50
+    "softmax_warp_backward", min: 106976.0, max: 111541.0, variation: 4.27%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 8.0, max: 327464041.0, variation: 4093300412.50%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 8.0, max: 1973013.0, variation: 24662562.50%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 11268.0, max: 13351.0, variation: 18.49%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 29696.0, max: 144469.0, variation: 386.49%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 2285.0, max: 132051.0, variation: 5679.04%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 11.0, max: 4312452.0, variation: 39204009.09%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 46090.0, max: 61044.0, variation: 32.45%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 29398.0, max: 191336.0, variation: 550.85%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 21717.0, max: 549447.0, variation: 2430.03%, launches: 180
+    "volta_sgemm_128x32_nn", min: 371367.0, max: 8049775.0, variation: 2067.61%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 8.0, max: 85744619.0, variation: 1071807637.50%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 2736128.0, max: 9476642.0, variation: 246.35%, launches: 36
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 32236.0, max: 725756.0, variation: 2151.38%, launches: 135
+    "volta_sgemm_128x128_tn", min: 9623711.0, max: 149221363.0, variation: 1450.56%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 2.0, max: 2759409.0, variation: 137970350.00%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 2597.0, max: 11064.0, variation: 326.03%, launches: 98
+    "reduce_kernel<512, 4, …>", min: 11609.0, max: 13163.0, variation: 13.39%, launches: 75
+    "volta_sgemm_128x32_nt", min: 282484.0, max: 8252570.0, variation: 2821.43%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 409996.0, max: 950887.0, variation: 131.93%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 3314673.0, max: 11412899.0, variation: 244.31%, launches: 36
+    "volta_sgemm_128x32_tn", min: 335714.0, max: 547562.0, variation: 63.10%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 12.0, max: 17126518.0, variation: 142720883.33%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 60.0, max: 21952853.0, variation: 36587988.33%, launches: 148
+
+Kernel Behavior Groups for 'Stall_W0_Idle':
+group-constant:
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 131062.0, max: 131641.0, variation: 0.44%, launches: 12
+    "softmax_warp_forward", min: 80731.0, max: 84212.0, variation: 4.31%, launches: 12
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 318737.0, max: 327485.0, variation: 2.74%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 162149.0, max: 171947.0, variation: 6.04%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 106292.0, max: 110794.0, variation: 4.24%, launches: 75
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 75525.0, max: 81811.0, variation: 8.32%, launches: 50
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 1372.0, max: 810025.0, variation: 58939.72%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 1884.0, max: 547556316.0, variation: 29063398.73%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 6310.0, max: 7381.0, variation: 16.97%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 72370.0, max: 104869.0, variation: 44.91%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 106143.0, max: 379789.0, variation: 257.81%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 2218.0, max: 505878.0, variation: 22707.84%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 73036.0, max: 110898.0, variation: 51.84%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 75055.0, max: 115009.0, variation: 53.23%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 75698.0, max: 226134.0, variation: 198.73%, launches: 180
+    "volta_sgemm_128x32_nn", min: 22863.0, max: 181958.0, variation: 695.86%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 1360.0, max: 756416.0, variation: 55518.82%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 76861.0, max: 327069.0, variation: 325.53%, launches: 36
+    "splitKreduce_kernel", min: 85254.0, max: 110455.0, variation: 29.56%, launches: 60
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 96533.0, max: 277512.0, variation: 187.48%, launches: 135
+    "volta_sgemm_128x128_tn", min: 534038.0, max: 1446255.0, variation: 170.81%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 882.0, max: 65392237.0, variation: 7413985.83%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 8827.0, max: 41066.0, variation: 365.23%, launches: 98
+    "reduce_kernel<512, 4, …>", min: 6389.0, max: 7301.0, variation: 14.27%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 2441.0, max: 3011.0, variation: 23.35%, launches: 25
+    "volta_sgemm_128x32_nt", min: 18280.0, max: 130220.0, variation: 612.36%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 182683.0, max: 236199.0, variation: 29.29%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 73030.0, max: 293572.0, variation: 301.99%, launches: 36
+    "volta_sgemm_128x32_tn", min: 34101.0, max: 53320.0, variation: 56.36%, launches: 24
+    "softmax_warp_backward", min: 153711.0, max: 176168.0, variation: 14.61%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 4617.0, max: 399869.0, variation: 8560.80%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 7013.0, max: 1278723.0, variation: 18133.61%, launches: 148
+
+Kernel Behavior Groups for 'Stall_W0_Scoreboard':
+group-constant:
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 41456.0, max: 43712.0, variation: 5.44%, launches: 50
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 71994.0, max: 72210.0, variation: 0.30%, launches: 12
+    "softmax_warp_forward", min: 255081.0, max: 261303.0, variation: 2.44%, launches: 12
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 206033.0, max: 214141.0, variation: 3.94%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 147444.0, max: 154875.0, variation: 5.04%, launches: 12
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 130889.0, max: 134930.0, variation: 3.09%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 41666.0, max: 43492.0, variation: 4.38%, launches: 75
+    "softmax_warp_backward", min: 164043.0, max: 172967.0, variation: 5.44%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 485.0, max: 1627068.0, variation: 335377.94%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 646.0, max: 1891075294.0, variation: 292736013.62%, launches: 186
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 178754.0, max: 638784.0, variation: 257.35%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 132087.0, max: 1293651.0, variation: 879.39%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 888.0, max: 5299275.0, variation: 596665.20%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 206637.0, max: 441085.0, variation: 113.46%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 165191.0, max: 687567.0, variation: 316.23%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 9698.0, max: 594374.0, variation: 6028.83%, launches: 180
+    "volta_sgemm_128x32_nn", min: 127580.0, max: 240814.0, variation: 88.76%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 482.0, max: 155091622.0, variation: 32176585.06%, launches: 812
+    "volta_sgemm_64x32_sliced1x4_nn", min: 24384.0, max: 761394.0, variation: 3022.51%, launches: 36
+    "splitKreduce_kernel", min: 529932.0, max: 982604.0, variation: 85.42%, launches: 60
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 172604.0, max: 833327.0, variation: 382.80%, launches: 135
+    "volta_sgemm_128x128_tn", min: 311922.0, max: 716668.0, variation: 129.76%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 54.0, max: 9215042.0, variation: 17064792.59%, launches: 299
+    "reduce_kernel<128, 4, …>", min: 59477.0, max: 292752.0, variation: 392.21%, launches: 98
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 1022.0, max: 1212.0, variation: 18.59%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 133040.0, max: 151476.0, variation: 13.86%, launches: 50
+    "volta_sgemm_128x32_nt", min: 286902.0, max: 849509.0, variation: 196.10%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 914864.0, max: 1102459.0, variation: 20.51%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 71092.0, max: 502887.0, variation: 607.37%, launches: 36
+    "volta_sgemm_128x32_tn", min: 321301.0, max: 516350.0, variation: 60.71%, launches: 24
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 1807.0, max: 1252553.0, variation: 69216.71%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 3727.0, max: 2147137.0, variation: 57510.33%, launches: 148
+
+Kernel Behavior Groups for 'max_icnt2mem_latency':
+group-constant:
+    "reduce_kernel<128, 4, …>", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 50
+    "volta_sgemm_128x32_nt", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 36
+    "volta_sgemm_128x32_tn", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 24
+    "softmax_warp_backward", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 12
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 24379.0, max: 24379.0, variation: 0.00%, launches: 148
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 537.0, max: 24379.0, variation: 4439.85%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 537.0, max: 24379.0, variation: 4439.85%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 537.0, max: 2618.0, variation: 387.52%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 537.0, max: 2618.0, variation: 387.52%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 537.0, max: 24379.0, variation: 4439.85%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 537.0, max: 24379.0, variation: 4439.85%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 537.0, max: 24379.0, variation: 4439.85%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 1645.0, max: 24379.0, variation: 1382.01%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 1645.0, max: 24379.0, variation: 1382.01%, launches: 180
+    "volta_sgemm_128x32_nn", min: 1645.0, max: 2618.0, variation: 59.15%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 1645.0, max: 24379.0, variation: 1382.01%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 1645.0, max: 2618.0, variation: 59.15%, launches: 12
+    "softmax_warp_forward", min: 1645.0, max: 2618.0, variation: 59.15%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 1834.0, max: 2618.0, variation: 42.75%, launches: 36
+    "splitKreduce_kernel", min: 1834.0, max: 24379.0, variation: 1229.28%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 1911.0, max: 2618.0, variation: 37.00%, launches: 12
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 1911.0, max: 2618.0, variation: 37.00%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 1911.0, max: 24379.0, variation: 1175.72%, launches: 135
+    "volta_sgemm_128x128_tn", min: 2618.0, max: 24379.0, variation: 831.21%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 14679.0, max: 24379.0, variation: 66.08%, launches: 299
+
+Kernel Behavior Groups for 'average_mflatency':
+group-constant:
+    "vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>", min: 420.0, max: 457.0, variation: 8.81%, launches: 12
+    "reduce_kernel<128, 4, …>", min: 479.0, max: 521.0, variation: 8.77%, launches: 98
+    "vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>", min: 479.0, max: 521.0, variation: 8.77%, launches: 75
+    "reduce_kernel<512, 4, …>", min: 479.0, max: 520.0, variation: 8.56%, launches: 75
+    "vectorized_elementwise_kernel<4, DivFunctor<float>, _>", min: 479.0, max: 520.0, variation: 8.56%, launches: 25
+    "unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>", min: 479.0, max: 520.0, variation: 8.56%, launches: 50
+    "volta_sgemm_128x32_nt", min: 479.0, max: 519.0, variation: 8.35%, launches: 72
+    "vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>", min: 481.0, max: 520.0, variation: 8.11%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_tn", min: 480.0, max: 522.0, variation: 8.75%, launches: 36
+    "volta_sgemm_128x32_tn", min: 480.0, max: 518.0, variation: 7.92%, launches: 24
+    "softmax_warp_backward", min: 480.0, max: 518.0, variation: 7.92%, launches: 12
+group-oscillating:
+    "vectorized_elementwise_kernel<4, AddFunctor<float>, _>", min: 312.0, max: 2348.0, variation: 652.56%, launches: 309
+    "vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>", min: 267.0, max: 2348.0, variation: 779.40%, launches: 186
+    "reduce_kernel<512, 1, MeanOps<…> >", min: 274.0, max: 462.0, variation: 68.61%, launches: 50
+    "unrolled_elementwise_kernel<AddFunctor<float>, _>", min: 267.0, max: 461.0, variation: 72.66%, launches: 87
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)", min: 280.0, max: 521.0, variation: 86.07%, launches: 37
+    "vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>", min: 267.0, max: 2348.0, variation: 779.40%, launches: 173
+    "unrolled_elementwise_kernel<DivFunctor<float>, _>", min: 261.0, max: 521.0, variation: 99.62%, launches: 100
+    "unrolled_elementwise_kernel<MulFunctor<float>, _>", min: 323.0, max: 521.0, variation: 61.30%, launches: 74
+    "unrolled_elementwise_kernel<copy_device_to_device(…), _>", min: 322.0, max: 518.0, variation: 60.87%, launches: 180
+    "volta_sgemm_128x32_nn", min: 323.0, max: 456.0, variation: 41.18%, launches: 36
+    "vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>", min: 333.0, max: 2348.0, variation: 605.11%, launches: 812
+    "unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>", min: 333.0, max: 456.0, variation: 36.94%, launches: 12
+    "softmax_warp_forward", min: 328.0, max: 456.0, variation: 39.02%, launches: 12
+    "volta_sgemm_64x32_sliced1x4_nn", min: 355.0, max: 461.0, variation: 29.86%, launches: 36
+    "splitKreduce_kernel", min: 363.0, max: 522.0, variation: 43.80%, launches: 60
+    "vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>", min: 395.0, max: 455.0, variation: 15.19%, launches: 12
+    "vectorized_elementwise_kernel<4, MulFunctor<float>, _>", min: 436.0, max: 521.0, variation: 19.50%, launches: 135
+    "volta_sgemm_128x128_tn", min: 445.0, max: 519.0, variation: 16.63%, launches: 13
+    "vectorized_elementwise_kernel<4, FillFunctor<float>, _>", min: 479.0, max: 2348.0, variation: 390.19%, launches: 299
+    "vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>", min: 1378.0, max: 2348.0, variation: 70.39%, launches: 148
+    "vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>", min: 1667.0, max: 2348.0, variation: 40.85%, launches: 148
+
