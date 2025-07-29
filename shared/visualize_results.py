@@ -528,6 +528,7 @@ class Config:
     log_scale: bool = False
     do_prune_outliers: bool = False
     outlier_threshold: float | None = 3.0
+    describe: bool = False
 
     @classmethod
     def from_args(cls):
@@ -597,6 +598,11 @@ class Config:
             nargs="?",
             help="Prune outliers from the data based on the specified metric, you can optionally provide a threshold as well.",
         )
+        parser.add_argument(
+            "--describe",
+            action="store_true",
+            help="Print summary statistics for each metric, will be saved to summary_statistics.txt in the output directory.",
+        )
         args = parser.parse_args()
         if not args.input_file:
             raise ValueError("Input file must be specified.")
@@ -645,6 +651,7 @@ class Config:
             outlier_threshold=(
                 args.prune_outliers if args.prune_outliers is not None else None
             ),
+            describe=args.describe,
         )
 
 
@@ -689,11 +696,23 @@ def main():
     # print("\nKernels:")
     # print(df["clean_names"].unique())
 
-    # # Print summary statistics
-    # print("\nSummary Statistics:")
-    # for metric in metrics_to_plot:
-    #     print(f"\n{metric}:")
-    #     print(df.groupby("clean_names")[metric].describe())
+    # Optionally Print summary statistics
+    if config.describe:
+        describe_txt = ""
+        print("\nSummary Statistics:")
+        for metric in metrics_to_plot:
+            # skip the metric if it is not in the DataFrame
+            if metric not in df.columns:
+                print(f"Skipping metric '{metric}' as it is not in the DataFrame.")
+                continue
+            message = f"{metric}:\n{df.groupby("clean_names")[metric].describe(include="all").to_string()}\n"
+            print(f"{message}")
+            describe_txt += message + "\n"
+
+        with open(f"{config.output_dir}/summary_statistics.txt", "w") as f:
+            f.write(describe_txt)
+
+    # return
 
     if not config.group_behavior:
         correlation_matrix(df, config.output_dir)
