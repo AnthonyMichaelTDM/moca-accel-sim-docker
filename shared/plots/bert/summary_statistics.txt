@@ -1,0 +1,624 @@
+gpu_tot_sim_insn:
+                                                                         count          mean           std           min           25%           50%           75%           max
+clean_names                                                                                                                                                                     
+fused_dropout_kernel_vec                                                  61.0  3.752025e+07  1.921258e+07  2.285107e+07  2.285107e+07  2.285107e+07  5.121178e+07  6.905867e+07
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  3.600725e+07  0.000000e+00  3.600725e+07  3.600725e+07  3.600725e+07  3.600725e+07  3.600725e+07
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  2.381700e+06  0.000000e+00  2.381700e+06  2.381700e+06  2.381700e+06  2.381700e+06  2.381700e+06
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  1.394102e+07  2.774877e+04  1.391303e+07  1.391396e+07  1.393968e+07  1.396798e+07  1.397084e+07
+softmax_warp_forward                                                      12.0  7.807363e+07  0.000000e+00  7.807363e+07  7.807363e+07  7.807363e+07  7.807363e+07  7.807363e+07
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  2.047369e+07  1.423352e+07  1.574899e+07  1.574899e+07  1.574899e+07  1.574899e+07  6.299597e+07
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  6.288648e+06  0.000000e+00  6.288648e+06  6.288648e+06  6.288648e+06  6.288648e+06  6.288648e+06
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  2.286144e+07  0.000000e+00  2.286144e+07  2.286144e+07  2.286144e+07  2.286144e+07  2.286144e+07
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  1.574899e+07  0.000000e+00  1.574899e+07  1.574899e+07  1.574899e+07  1.574899e+07  1.574899e+07
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  1.684800e+07  1.812948e+06  1.386202e+07  1.386202e+07  1.792627e+07  1.792627e+07  1.792627e+07
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  2.967976e+06  2.153864e+06  1.524096e+06  1.524096e+06  1.524096e+06  6.096384e+06  6.096384e+06
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  1.840957e+06  2.635349e+06  3.548000e+03  3.548000e+03  3.548000e+03  5.515776e+06  5.515776e+06
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  6.096384e+06  0.000000e+00  6.096384e+06  6.096384e+06  6.096384e+06  6.096384e+06  6.096384e+06
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  5.848476e+06  1.090494e+06  5.225472e+06  5.225472e+06  5.225472e+06  5.848476e+06  7.717488e+06
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  6.386688e+06  0.000000e+00  6.386688e+06  6.386688e+06  6.386688e+06  6.386688e+06  6.386688e+06
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  1.963346e+07  1.802532e+03  1.962904e+07  1.963281e+07  1.963378e+07  1.963476e+07  1.963526e+07
+volta_sgemm_128x64_tn                                                     12.0  1.081002e+09  0.000000e+00  1.081002e+09  1.081002e+09  1.081002e+09  1.081002e+09  1.081002e+09
+volta_sgemm_32x128_tn                                                     12.0  1.392631e+09  1.438102e+06  1.390460e+09  1.391719e+09  1.392448e+09  1.393324e+09  1.395000e+09
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  3.207767e+08  0.000000e+00  3.207767e+08  3.207767e+08  3.207767e+08  3.207767e+08  3.207767e+08
+volta_sgemm_64x64_nn                                                      24.0  1.462265e+08  7.954130e+06  1.384399e+08  1.384399e+08  1.462265e+08  1.540132e+08  1.540132e+08
+
+gpgpu_simulation_time:
+                                                                         count         mean        std     min      25%     50%      75%     max
+clean_names                                                                                                                                     
+fused_dropout_kernel_vec                                                  61.0    65.131148  54.714859    25.0    25.00    26.0    91.00   194.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0    42.583333   2.151462    41.0    42.00    42.0    42.00    49.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0     9.541667   0.508977     9.0     9.00    10.0    10.00    10.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0    23.541667   0.508977    23.0    23.00    24.0    24.00    24.0
+softmax_warp_forward                                                      12.0   159.916667   8.511579   155.0   155.00   158.0   159.00   185.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0    26.050000  16.681318    17.0    21.00    21.0    22.00    78.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0    11.666667   0.492366    11.0    11.00    12.0    12.00    12.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0    21.916667   0.503610    21.0    22.00    22.0    22.00    23.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0    21.125000   0.612372    20.0    21.00    21.0    21.25    22.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0    27.775510   9.689482    20.0    22.00    23.0    41.00    48.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0    56.710526  59.833060    15.0    16.00    18.0   141.00   149.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0    23.805556  27.999816     4.0     4.00     5.0    62.00    64.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0   145.583333   1.564279   144.0   144.75   145.0   146.50   148.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0    69.500000  19.578538    52.0    58.25    60.0    71.25   115.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0    79.333333   1.154701    78.0    78.00    79.5    80.00    81.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0    66.916667   1.164500    65.0    66.00    67.0    68.00    69.0
+volta_sgemm_128x64_tn                                                     12.0   812.000000   8.944272   796.0   806.50   812.0   820.00   821.0
+volta_sgemm_32x128_tn                                                     12.0  1118.333333  13.733392  1099.0  1108.25  1118.5  1130.50  1135.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0   268.520833   5.928616   263.0   265.00   267.0   270.00   297.0
+volta_sgemm_64x64_nn                                                      24.0   157.416667  30.154554   126.0   127.00   161.5   186.25   194.0
+
+gpu_tot_sim_cycle:
+                                                                         count           mean           std       min        25%       50%        75%       max
+clean_names                                                                                                                                                    
+fused_dropout_kernel_vec                                                  61.0   19452.786885  11508.826152   10794.0   10903.00   10979.0   25948.00   39828.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0   13897.083333     30.885296   13851.0   13882.75   13888.5   13906.50   13967.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0    8555.958333     54.397474    8475.0    8512.00    8551.0    8589.75    8665.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0   17014.791667    291.167064   16636.0   16764.75   17036.5   17281.25   17369.0
+softmax_warp_forward                                                      12.0   45218.083333    329.998473   44746.0   44986.50   45220.0   45439.75   45827.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0   10686.000000   3321.834653    8473.0    9777.50    9874.5    9948.50   20963.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0    7683.083333     28.011226    7628.0    7669.50    7681.0    7698.25    7735.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0    9884.083333     41.101060    9824.0    9859.50    9875.0    9913.00    9964.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0    9891.000000     77.673788    9737.0    9835.00    9892.5    9949.75   10044.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0   11134.530612   1337.717788    9590.0   10620.00   10704.0   12828.00   13435.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0   17380.526316  13165.278165    8056.0    8256.25    8829.5   36087.75   37206.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0   10914.416667   7563.006104    5641.0    5641.00    5642.0   21342.75   21787.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0   36784.333333    394.256800   36037.0   36532.00   36830.0   37052.75   37494.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0   23171.062500   4618.634630   19737.0   20425.75   20644.5   23595.25   31239.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0   24715.916667    139.615354   24510.0   24608.50   24704.5   24803.00   24915.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0   20723.333333    199.788221   20473.0   20571.75   20699.5   20845.50   21020.0
+volta_sgemm_128x64_tn                                                     12.0  220597.666667    424.330989  219948.0  220240.25  220612.0  220885.50  221246.0
+volta_sgemm_32x128_tn                                                     12.0  253484.333333   3399.988485  247574.0  252454.75  253411.5  254369.50  261078.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0   72101.500000    159.128076   71811.0   72002.25   72091.5   72221.75   72494.0
+volta_sgemm_64x64_nn                                                      24.0   55339.375000  18538.480860   36735.0   37119.50   54950.5   73313.00   75026.0
+
+L2_cache_global_read_hit:
+                                                                         count          mean           std        min         25%        50%         75%        max
+clean_names                                                                                                                                                        
+fused_dropout_kernel_vec                                                  61.0  2.789130e+04  11430.126179     6716.0    21776.00    36288.0    36288.00    36288.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  5.265767e+04    188.677374    52286.0    52552.25    52643.5    52792.00    52934.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  3.628800e+04      0.000000    36288.0    36288.00    36288.0    36288.00    36288.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  3.628800e+04      0.000000    36288.0    36288.00    36288.0    36288.00    36288.0
+softmax_warp_forward                                                      12.0  2.551000e+03    362.071314     1952.0     2305.00     2526.0     2871.00     3052.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  2.976378e+04  15582.473468     7305.0     7357.75    37418.0    43628.25    43696.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  5.580000e+02      0.000000      558.0      558.00      558.0      558.00      558.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  3.741808e+04      0.282330    37418.0    37418.00    37418.0    37418.00    37419.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  4.363192e+04     16.980594    43614.0    43621.50    43626.0    43638.00    43684.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  5.627202e+04  95340.864079        0.0        0.00        0.0   204156.00   290304.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  2.668768e+04  17417.299617     2208.0     3319.00    36288.0    36288.00    72576.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  1.564967e+04  22400.218961       47.0       47.00       47.0    45464.00    49528.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  2.990667e+03    675.543328     2148.0     2549.00     2790.0     3205.00     4352.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  3.649325e+04  39412.750857        0.0     4155.00    23256.0    55268.00   101628.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  1.900000e+01     24.188652        0.0        0.00       10.0       32.00       64.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  4.483300e+04   1228.962164    43288.0    43661.00    44928.0    45801.00    46580.0
+volta_sgemm_128x64_tn                                                     12.0  2.129991e+06  13053.485796  2112645.0  2117676.75  2128494.0  2140737.25  2151106.0
+volta_sgemm_32x128_tn                                                     12.0  3.673683e+06   5734.112826  3665288.0  3668476.50  3673810.0  3678837.50  3680886.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  1.144426e+06   4460.753608  1136649.0  1141225.25  1143842.5  1147248.50  1158482.0
+volta_sgemm_64x64_nn                                                      24.0  3.127867e+05  88232.252451   223871.0   226497.75   313739.5   399159.00   399165.0
+
+L2_cache_global_read_total_access:
+                                                                         count          mean            std        min         25%        50%         75%        max
+clean_names                                                                                                                                                         
+fused_dropout_kernel_vec                                                  61.0  9.272774e+04   73967.866419    36288.0    36288.00    36288.0   145152.00   214326.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  5.265867e+04     188.677374    52287.0    52553.25    52644.5    52793.00    52935.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  3.628800e+04       0.000000    36288.0    36288.00    36288.0    36288.00    36288.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  3.628800e+04       0.000000    36288.0    36288.00    36288.0    36288.00    36288.0
+softmax_warp_forward                                                      12.0  2.143260e+05       0.000000   214326.0   214326.00   214326.0   214326.00   214326.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  5.552787e+04   39293.243419    37422.0    43968.00    43968.0    43968.00   173408.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  5.024000e+03       0.000000     5024.0     5024.00     5024.0     5024.00     5024.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  3.742200e+04       0.000000    37422.0    37422.00    37422.0    37422.00    37422.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  4.396800e+04       0.000000    43968.0    43968.00    43968.0    43968.00    43968.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  1.036800e+05  113309.243683    36288.0    36288.00    36288.0   290304.00   290304.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  1.413322e+05  102564.937550    72576.0    72576.00    72576.0   290304.00   290304.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  4.841600e+04   69372.980852       48.0       48.00       48.0   145152.00   145152.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  2.903040e+05       0.000000   290304.0   290304.00   290304.0   290304.00   290304.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  1.624455e+05   30270.194766   145152.0   145152.00   145152.0   162445.50   214326.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  1.451520e+05       0.000000   145152.0   145152.00   145152.0   145152.00   145152.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  1.451520e+05       0.000000   145152.0   145152.00   145152.0   145152.00   145152.0
+volta_sgemm_128x64_tn                                                     12.0  2.612880e+06       0.000000  2612880.0  2612880.00  2612880.0  2612880.00  2612880.0
+volta_sgemm_32x128_tn                                                     12.0  4.182455e+06    5930.488361  4171312.0  4179450.50  4183613.5  4187285.25  4189555.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  1.265184e+06       0.000000  1265184.0  1265184.00  1265184.0  1265184.00  1265184.0
+volta_sgemm_64x64_nn                                                      24.0  4.127348e+05   13869.225285   399147.0   399159.00   412738.5   426312.00   426312.0
+
+L2_cache_global_write_hit:
+                                                                         count          mean           std      min      25%      50%      75%       max
+clean_names                                                                                                                                             
+fused_dropout_kernel_vec                                                  61.0   7733.508197  14983.552194      0.0      0.0      0.0      0.0   36288.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0    330.000000      0.000000    330.0    330.0    330.0    330.0     330.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0    330.000000      0.000000    330.0    330.0    330.0    330.0     330.0
+softmax_warp_forward                                                      12.0  40830.333333      9.930058  40822.0  40824.0  40828.5  40832.0   40859.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  39916.800000  38044.635205      0.0  36288.0  36288.0  36288.0  145152.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0   1275.166667   6247.015341      0.0      0.0      0.0      0.0   30604.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0   4536.000000  12259.246250      0.0      0.0      0.0      0.0   36288.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0    740.571429   5184.000000      0.0      0.0      0.0      0.0   36288.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  20054.736842  18284.452473      0.0      0.0  36288.0  36288.0   36288.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0      0.666667      4.618802      0.0      0.0      0.0      0.0      32.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_128x64_tn                                                     12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_32x128_tn                                                     12.0    855.000000      0.000000    855.0    855.0    855.0    855.0     855.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_64x64_nn                                                      24.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+
+L2_cache_global_write_total_access:
+                                                                         count           mean           std       min       25%       50%       75%       max
+clean_names                                                                                                                                                  
+fused_dropout_kernel_vec                                                  61.0  115909.770492  92459.997417   45360.0   45360.0   45360.0  181440.0  267908.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0       0.000000      0.000000       0.0       0.0       0.0       0.0       0.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0     378.000000      0.000000     378.0     378.0     378.0     378.0     378.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0     378.000000      0.000000     378.0     378.0     378.0     378.0     378.0
+softmax_warp_forward                                                      12.0  255150.000000      0.000000  255150.0  255150.0  255150.0  255150.0  255150.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0   47174.400000  32796.136450   36288.0   36288.0   36288.0   36288.0  145152.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0    4466.000000      0.000000    4466.0    4466.0    4466.0    4466.0    4466.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0   36288.000000      0.000000   36288.0   36288.0   36288.0   36288.0   36288.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0   36288.000000      0.000000   36288.0   36288.0   36288.0   36288.0   36288.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0   36288.000000      0.000000   36288.0   36288.0   36288.0   36288.0   36288.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0   70666.105263  51282.468775   36288.0   36288.0   36288.0  145152.0  145152.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0   48416.000000  69372.980852      48.0      48.0      48.0  145152.0  145152.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  145152.000000      0.000000  145152.0  145152.0  145152.0  145152.0  145152.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  162445.500000  30270.194766  145152.0  145152.0  145152.0  162445.5  214326.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  145152.000000      0.000000  145152.0  145152.0  145152.0  145152.0  145152.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  145152.000000      0.000000  145152.0  145152.0  145152.0  145152.0  145152.0
+volta_sgemm_128x64_tn                                                     12.0       0.000000      0.000000       0.0       0.0       0.0       0.0       0.0
+volta_sgemm_32x128_tn                                                     12.0     864.000000      0.000000     864.0     864.0     864.0     864.0     864.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0       0.000000      0.000000       0.0       0.0       0.0       0.0       0.0
+volta_sgemm_64x64_nn                                                      24.0       0.000000      0.000000       0.0       0.0       0.0       0.0       0.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_R_TOTAL_ACCESS:
+                                                                         count          mean            std        min        25%        50%        75%        max
+clean_names                                                                                                                                                       
+fused_dropout_kernel_vec                                                  61.0  9.272774e+04   73967.866419    36288.0    36288.0    36288.0   145152.0   214326.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  9.824200e+04       0.000000    98242.0    98242.0    98242.0    98242.0    98242.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  3.628800e+04       0.000000    36288.0    36288.0    36288.0    36288.0    36288.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  3.628800e+04       0.000000    36288.0    36288.0    36288.0    36288.0    36288.0
+softmax_warp_forward                                                      12.0  2.551500e+05       0.000000   255150.0   255150.0   255150.0   255150.0   255150.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  8.890560e+04   68270.602161    45360.0    72576.0    72576.0    72576.0   290304.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  8.931000e+03       0.000000     8931.0     8931.0     8931.0     8931.0     8931.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  4.536000e+04       0.000000    45360.0    45360.0    45360.0    45360.0    45360.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  7.257600e+04       0.000000    72576.0    72576.0    72576.0    72576.0    72576.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  1.036800e+05  113309.243683    36288.0    36288.0    36288.0   290304.0   290304.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  1.413322e+05  102564.937550    72576.0    72576.0    72576.0   290304.0   290304.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  4.841600e+04   69372.980852       48.0       48.0       48.0   145152.0   145152.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  2.903040e+05       0.000000   290304.0   290304.0   290304.0   290304.0   290304.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  1.624455e+05   30270.194766   145152.0   145152.0   145152.0   162445.5   214326.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  1.451520e+05       0.000000   145152.0   145152.0   145152.0   145152.0   145152.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  1.451520e+05       0.000000   145152.0   145152.0   145152.0   145152.0   145152.0
+volta_sgemm_128x64_tn                                                     12.0  2.612880e+06       0.000000  2612880.0  2612880.0  2612880.0  2612880.0  2612880.0
+volta_sgemm_32x128_tn                                                     12.0  4.231872e+06       0.000000  4231872.0  4231872.0  4231872.0  4231872.0  4231872.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  1.265184e+06       0.000000  1265184.0  1265184.0  1265184.0  1265184.0  1265184.0
+volta_sgemm_64x64_nn                                                      24.0  5.000580e+05   84525.687473   417312.0   417312.0   500058.0   582804.0   582804.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_R_HIT:
+                                                                         count          mean           std      min       25%      50%        75%       max
+clean_names                                                                                                                                                
+fused_dropout_kernel_vec                                                  61.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0   6629.333333    354.872918   6116.0   6362.75   6605.0    6787.75    7395.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+softmax_warp_forward                                                      12.0   3236.166667     33.121905   3160.0   3221.75   3239.0    3260.50    3279.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0   7304.333333  17907.879841      0.0      0.75     25.0    6284.50   63695.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0   1665.666667      6.665151   1654.0   1659.75   1667.0    1670.50    1674.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0   6286.541667     60.792576   6174.0   6236.75   6289.5    6334.50    6378.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0     28.250000     30.443461      0.0      3.25     17.5      50.75      83.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+volta_sgemm_128x64_tn                                                     12.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+volta_sgemm_32x128_tn                                                     12.0  27180.083333   3283.419406  22781.0  24892.75  26448.0   29511.50   34322.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0      0.000000      0.000000      0.0      0.00      0.0       0.00       0.0
+volta_sgemm_64x64_nn                                                      24.0  78317.083333  79856.290890    121.0    140.50  78338.5  156492.00  156492.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_W_HIT:
+                                                                         count          mean           std      min      25%      50%      75%       max
+clean_names                                                                                                                                             
+fused_dropout_kernel_vec                                                  61.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0    330.000000      0.000000    330.0    330.0    330.0    330.0     330.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0    330.000000      0.000000    330.0    330.0    330.0    330.0     330.0
+softmax_warp_forward                                                      12.0  40824.000000      0.000000  40824.0  40824.0  40824.0  40824.0   40824.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  32659.200000  41388.056221      0.0      0.0  36288.0  36288.0  145152.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_128x64_tn                                                     12.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_32x128_tn                                                     12.0      0.333333      0.492366      0.0      0.0      0.0      1.0       1.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_64x64_nn                                                      24.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_W_TOTAL_ACCESS:
+                                                                         count           mean           std       min       25%       50%       75%       max
+clean_names                                                                                                                                                  
+fused_dropout_kernel_vec                                                  61.0  115909.770492  92459.997417   45360.0   45360.0   45360.0  181440.0  267908.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0       0.000000      0.000000       0.0       0.0       0.0       0.0       0.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0     378.000000      0.000000     378.0     378.0     378.0     378.0     378.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0     378.000000      0.000000     378.0     378.0     378.0     378.0     378.0
+softmax_warp_forward                                                      12.0  255150.000000      0.000000  255150.0  255150.0  255150.0  255150.0  255150.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0   47174.400000  32796.136450   36288.0   36288.0   36288.0   36288.0  145152.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0    4466.000000      0.000000    4466.0    4466.0    4466.0    4466.0    4466.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0   36288.000000      0.000000   36288.0   36288.0   36288.0   36288.0   36288.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0   36288.000000      0.000000   36288.0   36288.0   36288.0   36288.0   36288.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0   36288.000000      0.000000   36288.0   36288.0   36288.0   36288.0   36288.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0   70666.105263  51282.468775   36288.0   36288.0   36288.0  145152.0  145152.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0   48416.000000  69372.980852      48.0      48.0      48.0  145152.0  145152.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  145152.000000      0.000000  145152.0  145152.0  145152.0  145152.0  145152.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  162445.500000  30270.194766  145152.0  145152.0  145152.0  162445.5  214326.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  145152.000000      0.000000  145152.0  145152.0  145152.0  145152.0  145152.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  145152.000000      0.000000  145152.0  145152.0  145152.0  145152.0  145152.0
+volta_sgemm_128x64_tn                                                     12.0       0.000000      0.000000       0.0       0.0       0.0       0.0       0.0
+volta_sgemm_32x128_tn                                                     12.0     864.000000      0.000000     864.0     864.0     864.0     864.0     864.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0       0.000000      0.000000       0.0       0.0       0.0       0.0       0.0
+volta_sgemm_64x64_nn                                                      24.0       0.000000      0.000000       0.0       0.0       0.0       0.0       0.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_R_MSHR_HIT:
+                                                                         count          mean           std      min       25%      50%       75%      max
+clean_names                                                                                                                                              
+fused_dropout_kernel_vec                                                  61.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  38954.000000    171.147464  38560.0  38877.00  39006.0  39067.50  39191.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+softmax_warp_forward                                                      12.0  37587.833333     33.121905  37545.0  37563.50  37585.0  37602.25  37664.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  26073.400000  14994.053719   1414.0  28541.75  28597.0  28608.00  61125.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0   2241.333333      6.665151   2233.0   2236.50   2240.0   2247.25   2253.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0   1651.458333     60.792576   1560.0   1603.50   1648.5   1701.25   1764.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  28579.750000     30.443461  28525.0  28557.25  28590.5  28604.75  28608.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+volta_sgemm_128x64_tn                                                     12.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+volta_sgemm_32x128_tn                                                     12.0  22237.166667   3762.013528  17368.0  20259.75  21827.5  23826.50  31197.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0      0.000000      0.000000      0.0      0.00      0.0      0.00      0.0
+volta_sgemm_64x64_nn                                                      24.0   9006.125000   9199.832552      0.0      0.00   8990.0  18009.75  18038.0
+
+gpgpu_n_tot_w_icount:
+                                                                         count          mean            std         min         25%         50%          75%         max
+clean_names                                                                                                                                                             
+fused_dropout_kernel_vec                                                  61.0  1.201811e+06  616975.620148    730556.0    730556.0    730556.0   1642944.00   2213713.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  1.553892e+06       0.000000   1553892.0   1553892.0   1553892.0   1553892.00   1553892.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  8.381400e+04       0.000000     83814.0     83814.0     83814.0     83814.00     83814.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  5.270882e+05   16780.347727    509641.0    510780.5    526647.5    543535.75    545460.0
+softmax_warp_forward                                                      12.0  2.644488e+06       0.000000   2644488.0   2644488.0   2644488.0   2644488.00   2644488.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  7.135128e+05  496041.563801    548856.0    548856.0    548856.0    548856.00   2195424.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  2.155500e+05       0.000000    215550.0    215550.0    215550.0    215550.00    215550.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  7.983360e+05       0.000000    798336.0    798336.0    798336.0    798336.00    798336.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  5.488560e+05       0.000000    548856.0    548856.0    548856.0    548856.00    548856.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  5.965303e+05   64748.139247    489888.0    489888.0    635040.0    635040.00    635040.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  1.015825e+05   73718.548864     52164.0     52164.0     52164.0    208656.00    208656.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  6.359067e+04   91020.005241       130.0       130.0       130.0    190512.00    190512.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  2.086560e+05       0.000000    208656.0    208656.0    208656.0    208656.00    208656.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  2.030748e+05   37869.031498    181440.0    181440.0    181440.0    203074.75    267979.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  2.177280e+05       0.000000    217728.0    217728.0    217728.0    217728.00    217728.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  1.015818e+06      86.019378   1015635.0   1015800.0   1015833.0   1015855.00   1015921.0
+volta_sgemm_128x64_tn                                                     12.0  3.389184e+07       0.000000  33891840.0  33891840.0  33891840.0  33891840.00  33891840.0
+volta_sgemm_32x128_tn                                                     12.0  4.414407e+07   44940.676152  44076237.0  44115584.5  44138369.0  44165715.00  44218106.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  1.007539e+07       0.000000  10075392.0  10075392.0  10075392.0  10075392.00  10075392.0
+volta_sgemm_64x64_nn                                                      24.0  4.641048e+06  281911.646799   4365072.0   4365072.0   4641048.0   4917024.00   4917024.0
+
+total_dram_reads:
+                                                                         count           mean            std       min       25%       50%        75%       max
+clean_names                                                                                                                                                    
+fused_dropout_kernel_vec                                                  61.0   64836.442623   83015.978840       0.0       0.0       0.0  137632.00  192786.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0       1.000000       0.000000       1.0       1.0       1.0       1.00       1.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0    1536.000000       0.000000    1536.0    1536.0    1536.0    1536.00    1536.0
+softmax_warp_forward                                                      12.0  211775.000000     362.071314  211274.0  211455.0  211800.0  212021.00  212374.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0   25507.400000   43361.923407       1.0      96.0      96.0   36384.00  145536.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0    4466.000000       0.000000    4466.0    4466.0    4466.0    4466.00    4466.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0       1.000000       0.000000       1.0       1.0       1.0       1.00       1.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0      96.000000       0.000000      96.0      96.0      96.0      96.00      96.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0   35544.897959    5183.635742       0.0   36288.0   36288.0   36288.00   36288.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  114644.526316  119111.982701       0.0   36288.0   36288.0  286985.00  288096.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0   32766.333333   47004.820831       1.0       1.0       1.0   96727.00  100776.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  287313.333333     675.543328  285952.0  287099.0  287514.0  287755.00  288156.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  125952.250000   61308.211593   43524.0   89884.0  121896.0  158290.50  214326.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  145133.000000      24.188652  145088.0  145120.0  145142.0  145152.00  145152.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  100319.000000    1228.962164   98572.0   99351.0  100224.0  101491.00  101864.0
+volta_sgemm_128x64_tn                                                     12.0  308311.333333     215.938263  308048.0  308162.0  308204.0  308468.00  308688.0
+volta_sgemm_32x128_tn                                                     12.0  402362.583333     632.387605  401496.0  401956.5  402308.0  402700.75  403578.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0   70685.333333      44.314799   70656.0   70656.0   70662.0   70700.00   70856.0
+volta_sgemm_64x64_nn                                                      24.0   97950.750000  100058.040789       0.0       0.0   97408.0  195987.50  196452.0
+
+total_dram_writes:
+                                                                         count           mean            std       min       25%       50%        75%       max
+clean_names                                                                                                                                                    
+fused_dropout_kernel_vec                                                  61.0   80427.950820  112066.944075       0.0      16.0     212.0  126384.00  283726.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0       3.333333       3.749747       0.0       0.0       2.0       8.00       8.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0       7.833333      11.157632       0.0       0.0       0.0      13.00      36.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0     768.000000     768.841025       0.0       0.0     780.0    1488.00    1748.0
+softmax_warp_forward                                                      12.0  186742.250000     336.310767  186228.0  186561.5  186639.5  186942.25  187480.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0    2102.633333    3274.101154       0.0       0.0      96.0    5785.00   10488.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0    4522.000000     316.579446    3964.0    4283.0    4618.0    4646.00    5180.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0    9303.541667    4427.711569    1948.0    5430.0    6683.0   13740.00   14840.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0    5478.541667    6112.035731       0.0       0.0      14.5   11653.00   14256.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0   31059.673469   10478.827442       0.0   21244.0   25396.0   41236.00   42172.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0   66247.736842   90715.782840       0.0       0.0    9820.0  196995.00  199036.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0   49023.222222   70282.265584       0.0       0.0      46.0  146207.00  148732.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  199176.666667     815.753676  197692.0  198772.0  199462.0  199692.00  200108.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  145362.500000   39203.659861   99572.0  123827.0  135626.0  159966.00  207900.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  170201.333333    2063.238995  167008.0  168469.0  169818.0  171762.00  173472.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  133631.000000     723.629488  132220.0  133333.0  133706.0  134090.00  134704.0
+volta_sgemm_128x64_tn                                                     12.0  178673.333333     744.299712  176900.0  178729.0  178904.0  179058.00  179320.0
+volta_sgemm_32x128_tn                                                     12.0  140057.333333     487.028342  139344.0  139768.0  139926.0  140376.00  140916.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0   41351.250000   22725.109384    6908.0   29066.0   45308.0   57449.00   68224.0
+volta_sgemm_64x64_nn                                                      24.0   50867.333333   51935.076911      12.0      20.0   50334.0  101508.00  103044.0
+
+gpu_ipc:
+                                                                         count         mean          std        min          25%         50%          75%        max
+clean_names                                                                                                                                                         
+fused_dropout_kernel_vec                                                  61.0  2004.262182   132.733209  1733.9226  1973.631000  2081.34380  2095.851800  2117.0161
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  2591.004875     5.747631  2578.0229  2589.238725  2592.59450  2593.668475  2599.6135
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0   278.378167     1.764934   274.8644   277.272300   278.52895   279.805050   281.0266
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0   819.551396    12.446550   804.1892   808.221625   818.33825   829.960225   836.3522
+softmax_warp_forward                                                      12.0  1726.686167    12.584468  1703.6602  1718.179350  1726.52900  1735.490275  1744.8181
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  1789.959878   442.590381  1525.6216  1587.600000  1600.42620  1835.065825  3176.8013
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0   818.515750     2.984489   813.0120   816.893300   818.72790   819.955450   824.4164
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  2312.993267     9.602100  2294.4038  2306.208000  2315.08250  2318.722250  2327.1011
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  1592.348821    12.495634  1568.0000  1582.853350  1592.01340  1601.321250  1617.4379
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  1549.803376   312.968966  1031.7838  1080.606200  1674.72640  1687.972900  1869.2672
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0   174.828468     8.432232   162.8134   168.460825   172.61445   184.599275   189.1877
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0    86.105072   122.604426     0.6284     0.628900     0.62900   254.892350   262.0819
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0   165.750650     1.779114   162.5963   164.532650   165.52835   166.877900   169.1701
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0   252.966450     4.333740   247.0466   249.061825   253.11690   255.827650   264.7551
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0   258.411392     1.458336   256.3391   257.497925   258.52330   259.531775   260.5748
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0   947.489383     9.141801   934.0045   941.851650   948.55655   954.449900   958.8870
+volta_sgemm_128x64_tn                                                     12.0  4900.350525     9.424264  4885.9741  4893.949575  4900.01560  4908.286375  4914.8081
+volta_sgemm_32x128_tn                                                     12.0  5494.822633    71.026846  5343.2310  5474.247775  5495.12865  5513.753550  5624.2012
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  4448.981442     9.811921  4424.8726  4441.552475  4449.57740  4455.092675  4466.9580
+volta_sgemm_64x64_nn                                                      24.0  3012.274004  1152.567762  1845.2253  1888.348775  2978.72815  4149.118425  4192.5464
+
+gpgpu_simulation_rate_instructions:
+                                                                         count           mean           std       min        25%       50%        75%        max
+clean_names                                                                                                                                                     
+fused_dropout_kernel_vec                                                  61.0  911530.622951  42692.013321  619715.0  916161.00  923963.0  925696.00   928214.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  928144.000000   2338.397859  923087.0  926785.00  928034.0  930148.75   930997.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  905856.250000  67361.280276  596557.0  918600.75  924323.5  925782.00   927623.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  905331.250000  67805.649293  594382.0  918077.25  924056.0  925507.75   927395.0
+softmax_warp_forward                                                      12.0  921243.416667  12228.853774  885245.0  922218.25  925703.5  927178.25   928970.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  920707.841667  39949.273153  622438.0  923673.50  925791.0  928660.25  1019045.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  928620.583333   2752.434673  923241.0  927346.00  928434.5  930229.00   934003.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  907879.833333  54620.286925  660758.0  917741.75  923954.0  925350.75   927233.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  906744.458333  60193.345141  632613.0  917808.25  923975.0  925381.75   927293.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  924908.244898  26016.161361  828102.0  923441.00  926584.0  931667.00  1014362.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  900310.105263  85216.906699  535074.0  917698.25  924325.0  925831.50   927848.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  907946.083333  52019.750795  620346.0  914218.50  922323.5  924580.25   927166.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  904908.416667  27036.403962  829598.0  905822.00  918235.0  919193.50   919589.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  927004.708333  10396.419729  880662.0  924918.25  928040.5  930695.50   960689.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  930402.083333   4363.532711  923614.0  928010.00  930052.0  932161.25   941347.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  914715.333333  16305.704726  870725.0  915624.00  922263.0  923242.50   924849.0
+volta_sgemm_128x64_tn                                                     12.0  937857.916667  12872.955537  928697.0  931682.25  936260.0  937401.00   977383.0
+volta_sgemm_32x128_tn                                                     12.0  924135.333333   4468.165219  913981.0  923676.25  925386.0  927036.75   928378.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  929903.583333  20133.405342  871444.0  925243.25  927939.0  930918.00  1024938.0
+volta_sgemm_64x64_nn                                                      24.0  925010.125000  28007.375759  827843.0  923138.00  926577.0  932687.75  1005003.0
+
+gpgpu_simulation_rate_cycles:
+                                                                         count        mean        std    min     25%    50%     75%    max
+clean_names                                                                                                                               
+fused_dropout_kernel_vec                                                  61.0  302.606557  27.801846  295.0  297.00  298.0  300.00  514.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  301.166667   8.277388  297.0  298.00  299.0  299.00  327.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  309.791667  49.711322  296.0  298.00  298.0  301.00  542.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  311.583333  55.130609  297.0  298.00  299.0  301.00  569.0
+softmax_warp_forward                                                      12.0  300.500000   6.543560  297.0  298.00  299.0  299.00  321.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  305.641667  34.259218  295.0  298.00  299.0  300.00  559.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  301.166667   8.277388  297.0  298.00  299.0  299.00  327.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  311.708333  51.832069  297.0  298.75  299.0  302.00  553.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  311.083333  50.834699  297.0  298.00  299.0  301.25  548.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  300.836735   7.698341  296.0  298.00  299.0  299.00  333.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  314.473684  63.917065  295.0  298.00  299.0  300.75  615.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  308.472222  44.220542  297.0  298.00  299.0  302.00  564.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  300.916667   4.679905  297.0  298.75  300.0  301.00  315.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  301.208333   6.006940  297.0  298.00  299.0  301.00  325.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  301.500000   5.791844  297.0  298.75  300.5  301.25  319.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  301.166667   5.219428  297.0  298.75  300.5  301.00  317.0
+volta_sgemm_128x64_tn                                                     12.0  301.250000   5.785955  297.0  298.75  300.0  301.00  319.0
+volta_sgemm_32x128_tn                                                     12.0  296.666667   1.154701  294.0  296.00  297.0  297.25  298.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  302.875000  16.653701  297.0  298.00  299.0  299.25  398.0
+volta_sgemm_64x64_nn                                                      24.0  300.916667   7.045916  297.0  298.00  299.0  300.00  327.0
+
+gpu_tot_ipc:
+                                                                         count         mean         std        min          25%         50%          75%        max
+clean_names                                                                                                                                                        
+fused_dropout_kernel_vec                                                  61.0  3029.488882  256.715387  1204.6726  3063.200200  3091.44140  3106.094000  3116.4836
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  3077.767992   75.542155  2843.7727  3089.816375  3104.00210  3109.834075  3112.7698
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  2981.868729  410.735629  1099.6165  3064.726750  3091.11560  3101.493675  3111.6282
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  2972.452279  421.917473  1044.5402  3057.199000  3087.23230  3098.829575  3109.2971
+softmax_warp_forward                                                      12.0  3061.453975  100.484501  2751.6758  3076.809300  3097.11710  3105.121850  3109.1499
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  3036.482657  267.067749  1112.0594  3073.984275  3097.77770  3110.403675  3119.8625
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  3079.375175   73.547202  2851.2883  3091.311150  3104.80565  3110.381025  3113.1831
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  2969.832587  392.785239  1193.4224  3043.352350  3081.03125  3094.355125  3106.3276
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  2972.578158  400.284297  1154.2682  3050.234650  3084.08935  3096.732000  3107.8035
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  3070.135708  101.294553  2575.6335  3079.835000  3102.21390  3114.450700  3118.7795
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  2953.124518  485.769539   868.9795  3056.901700  3090.51270  3100.526000  3115.1841
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  2985.311125  340.449432  1098.3362  3036.687600  3076.45055  3091.010525  3106.7769
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  3003.327367  130.457833  2627.5571  3002.789875  3054.08300  3074.288900  3085.8159
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  3072.792808   66.267386  2772.8687  3073.091650  3096.13450  3106.970450  3114.1919
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  3081.985333   45.071565  2950.5681  3082.562700  3099.20370  3105.860550  3109.8628
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  3032.529800  100.179187  2742.4160  3033.026150  3071.40855  3086.342450  3094.9866
+volta_sgemm_128x64_tn                                                     12.0  3107.094767   15.387498  3062.1716  3106.988575  3112.67850  3115.224000  3117.0503
+volta_sgemm_32x128_tn                                                     12.0  3109.181650   10.751019  3079.7207  3107.426900  3113.34940  3115.813550  3117.9568
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  3071.676781  126.446503  2341.1917  3090.893650  3105.86290  3115.835050  3120.9045
+volta_sgemm_64x64_nn                                                      24.0  3069.738213  109.443572  2587.1562  3074.248200  3098.95350  3116.568850  3119.3391
+
+gpu_stall_dramfull:
+                                                                         count          mean            std        min         25%        50%         75%        max
+clean_names                                                                                                                                                         
+fused_dropout_kernel_vec                                                  61.0  3.597328e+05  501525.630641        0.0        0.00        0.0   570579.00  1282840.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  0.000000e+00       0.000000        0.0        0.00        0.0        0.00        0.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  0.000000e+00       0.000000        0.0        0.00        0.0        0.00        0.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  0.000000e+00       0.000000        0.0        0.00        0.0        0.00        0.0
+softmax_warp_forward                                                      12.0  1.049696e+06    7820.167209  1038665.0  1045092.25  1047637.5  1052832.50  1065398.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  1.877845e+04   53230.155111        0.0      841.75     1522.5     2383.50   224862.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  0.000000e+00       0.000000        0.0        0.00        0.0        0.00        0.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  2.591667e+01      37.780737        0.0        0.00        0.0       53.25      121.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  1.019667e+03     237.353647      710.0      801.00      984.0     1224.25     1478.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  1.032226e+05   31713.819216        0.0    66998.00   101576.0   123521.00   142399.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  4.695328e+05  660341.657539        0.0     5428.50    52178.5  1406137.25  1480669.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  1.855108e+05  266395.821945        0.0        0.00        0.0   539272.75   591065.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  1.443386e+06   18795.766612  1411934.0  1436663.75  1449347.5  1454222.75  1465716.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  6.487327e+05  276749.832762   371643.0   481667.75   539337.0   709000.50  1116839.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  8.566382e+05    8809.129901   842513.0   852073.25   858388.5   862957.00   868784.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  4.754085e+05    9986.446174   458150.0   468753.75   478170.0   482204.75   489287.0
+volta_sgemm_128x64_tn                                                     12.0  1.264234e+05    7642.323129   115153.0   121487.25   124968.0   130677.00   139200.0
+volta_sgemm_32x128_tn                                                     12.0  8.130017e+04   10826.015802    63591.0    74935.75    81949.0    89945.00    99711.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  2.716479e+03    2203.738149      222.0     1118.50     2163.0     3397.50    11161.0
+volta_sgemm_64x64_nn                                                      24.0  6.000000e+00      20.540522        0.0        0.00        0.0        0.00       82.0
+
+gpu_stall_icnt2sh:
+                                                                         count        mean         std  min  25%  50%    75%     max
+clean_names                                                                                                                         
+fused_dropout_kernel_vec                                                  61.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+softmax_warp_forward                                                      12.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0   72.959184  183.017185  0.0  0.0  0.0    0.0   766.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0    1.708333    9.978612  0.0  0.0  0.0    0.0    68.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0   40.083333  120.115443  0.0  0.0  0.0    0.0   417.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  236.916667  565.217007  0.0  0.0  5.5  157.5  1975.0
+volta_sgemm_128x64_tn                                                     12.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+volta_sgemm_32x128_tn                                                     12.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+volta_sgemm_64x64_nn                                                      24.0    0.000000    0.000000  0.0  0.0  0.0    0.0     0.0
+
+Stall:
+                                                                         count          mean           std         min          25%         50%          75%         max
+clean_names                                                                                                                                                             
+fused_dropout_kernel_vec                                                  61.0  2.166025e+06  2.199034e+06    613362.0    622591.00    631082.0   2912157.00   6637135.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  1.551199e+06  6.503166e+02   1550256.0   1550794.00   1551068.0   1551541.00   1552549.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  3.971558e+04  5.025202e+02     38697.0     39428.25     39706.0     40002.75     40790.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  1.504028e+05  1.251138e+04    137000.0    138315.50    150002.0    162617.25    164424.0
+softmax_warp_forward                                                      12.0  5.971580e+06  1.772975e+04   5945776.0   5962223.00   5969190.5   5980739.00   6008940.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  5.707117e+05  5.177266e+05    367770.0    395607.50    399787.5    404523.00   2229842.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  9.778508e+04  1.482293e+03     95589.0     96867.50     97753.5     98535.25    100880.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  5.320685e+05  1.301089e+03    529077.0    531458.25    532080.0    533082.50    534584.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  3.933710e+05  1.450337e+03    389989.0    392554.50    393607.0    394311.00    395539.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  8.651106e+05  6.155680e+05    485962.0    499590.00    504156.0   1725759.00   1909122.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  2.687902e+06  3.540292e+06    279906.0    296192.00    338884.5   7745097.50   8052455.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  3.346766e+05  4.810344e+05        12.0        12.00        12.0    976749.50   1096508.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  7.911442e+06  9.000087e+04   7742409.0   7880981.00   7932628.5   7958383.75   8028683.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  1.307689e+06  2.179497e+05   1062376.0   1145499.50   1231846.0   1384597.00   1815403.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  1.848780e+06  3.980001e+04   1786935.0   1824660.25   1846121.5   1870598.50   1921544.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  1.301908e+06  3.300396e+04   1252317.0   1274965.75   1295653.0   1326300.50   1353821.0
+volta_sgemm_128x64_tn                                                     12.0  2.644243e+07  2.134900e+04  26410572.0  26423739.25  26447201.5  26461399.00  26465820.0
+volta_sgemm_32x128_tn                                                     12.0  2.722157e+07  4.809610e+04  27146990.0  27177555.00  27218032.5  27251928.75  27294476.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  8.642390e+06  3.656485e+04   8546907.0   8616146.75   8649342.0   8670640.50   8697878.0
+volta_sgemm_64x64_nn                                                      24.0  3.473434e+06  5.977445e+05   2842665.0   2898003.25   3486169.0   4056053.25   4098383.0
+
+Stall_W0_Idle:
+                                                                         count          mean           std       min        25%        50%         75%        max
+clean_names                                                                                                                                                      
+fused_dropout_kernel_vec                                                  61.0  2.954052e+05  1.178688e+05  195527.0  208646.00   216181.0   378230.00   613066.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  5.486583e+03  1.611174e+02    5206.0    5365.75     5476.0     5613.50     5725.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  2.755517e+04  1.286289e+03   25576.0   26629.50    27417.0    28273.50    30166.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  3.127100e+04  1.873150e+03   28212.0   29626.00    31463.5    32572.75    35717.0
+softmax_warp_forward                                                      12.0  3.668121e+05  8.091354e+03  350224.0  362186.50   365782.5   371438.00   378927.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  9.944570e+04  3.170472e+04   84046.0   87875.50    89409.0    90824.25   209336.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  8.421242e+04  1.740679e+03   80870.0   83406.25    84357.5    85487.75    86882.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  1.002563e+05  1.506328e+03   96662.0   99541.00   100386.0   101314.25   102890.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  8.952192e+04  2.065429e+03   86372.0   88090.50    89390.0    90227.00    94125.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  1.873086e+05  4.161436e+04  118286.0  164951.00   193545.0   223911.00   260943.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  2.356927e+05  8.436733e+04  129995.0  165294.25   210111.0   324290.25   411318.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  1.384899e+05  1.942365e+05    3239.0    3246.00     3266.5   393522.00   438087.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  3.543137e+05  3.499185e+04  301105.0  335116.25   350996.5   370128.50   416761.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  3.650961e+05  9.978211e+04  248076.0  274910.25   334571.0   474734.00   526629.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  2.822129e+05  5.325875e+03  272159.0  278966.25   283171.5   285912.75   289863.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  3.209538e+05  2.369639e+04  285311.0  309822.75   315678.0   326031.75   366051.0
+volta_sgemm_128x64_tn                                                     12.0  5.357863e+05  1.700888e+04  513195.0  524932.25   533001.0   549106.00   562319.0
+volta_sgemm_32x128_tn                                                     12.0  1.261430e+05  6.028699e+03  117026.0  120915.25   125577.5   132448.00   134764.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  1.592405e+05  7.687460e+03  138043.0  155650.75   158225.5   163078.75   181342.0
+volta_sgemm_64x64_nn                                                      24.0  5.267553e+06  4.515787e+06  836261.0  849023.75  5151611.5  9667184.00  9894547.0
+
+Stall_W0_Scoreboard:
+                                                                         count          mean           std        min         25%        50%         75%        max
+clean_names                                                                                                                                                        
+fused_dropout_kernel_vec                                                  61.0  6.927258e+05  6.337835e+05   180106.0   189277.00   195035.0  1384389.00  1754968.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  1.086022e+05  1.762489e+03   105652.0   107137.50   108873.0   109501.00   111771.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  1.803771e+05  3.006770e+03   174936.0   178586.50   179991.0   182216.25   186391.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  4.679518e+05  2.254521e+03   464012.0   466019.75   467885.5   469935.25   471655.0
+softmax_warp_forward                                                      12.0  1.532485e+06  4.424151e+04  1487280.0  1505716.25  1521062.0  1547061.75  1650365.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  2.823395e+05  1.289626e+05    39991.0   259356.75   329261.5   372180.00   473466.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  4.391748e+05  3.157194e+03   434018.0   436509.00   440213.0   441644.75   442979.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  1.255271e+04  3.035551e+02    12100.0    12394.50    12475.5    12650.50    13440.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  3.483846e+05  2.165501e+04   314352.0   332815.75   346944.5   363014.25   391315.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  2.248970e+05  1.442266e+05    13150.0    26362.00   206327.0   336036.00   416881.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  8.097670e+05  4.118274e+05   366621.0   450673.00   648744.0  1366054.25  1461324.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  1.099708e+06  1.576281e+06     1127.0     1127.75     1131.0  3239254.25  3427209.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  1.379373e+06  2.995544e+04  1316462.0  1366373.25  1385740.0  1392068.75  1419472.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  3.598292e+06  1.373804e+06  2342492.0  2791886.25  3018939.5  3836546.25  5971751.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  3.824120e+06  5.643201e+04  3742619.0  3770347.00  3822097.5  3861328.00  3906969.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  1.894444e+06  2.407387e+04  1849583.0  1885474.50  1889892.5  1904481.25  1938145.0
+volta_sgemm_128x64_tn                                                     12.0  9.735362e+05  4.739183e+04   882646.0   927640.00   996848.5  1004868.00  1018551.0
+volta_sgemm_32x128_tn                                                     12.0  1.744644e+05  2.394083e+04   132690.0   160186.00   166077.0   198084.50   208945.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  1.590164e+05  2.234544e+04   120231.0   141079.00   161035.0   174775.50   208385.0
+volta_sgemm_64x64_nn                                                      24.0  9.867045e+05  9.443489e+05    61788.0    66037.00   891378.0  1897077.00  2053311.0
+
+max_icnt2mem_latency:
+                                                                         count          mean          std      min      25%      50%      75%      max
+clean_names                                                                                                                                           
+fused_dropout_kernel_vec                                                  61.0  11036.704918  1325.548155   1236.0  10944.0  11243.0  11480.0  11480.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  10895.500000  1148.726132   7321.0  10944.0  11243.0  11480.0  11480.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  10762.708333  2065.962824   1236.0  10944.0  11243.0  11480.0  11480.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  10762.708333  2065.962824   1236.0  10944.0  11243.0  11480.0  11480.0
+softmax_warp_forward                                                      12.0  10895.500000  1148.726132   7321.0  10944.0  11243.0  11480.0  11480.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  10793.700000  1932.374829   1236.0  10944.0  11243.0  11480.0  11480.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  10895.500000  1148.726132   7321.0  10944.0  11243.0  11480.0  11480.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  10782.333333  1971.614802   1707.0  10944.0  11243.0  11480.0  11480.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  10782.333333  1971.614802   1707.0  10944.0  11243.0  11480.0  11480.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  10808.285714  1876.467082   1994.0  10944.0  11243.0  11480.0  11480.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  10647.157895  2294.877592   1163.0  10944.0  11243.0  11480.0  11480.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  10900.555556  1632.362152   1707.0  10944.0  11243.0  11480.0  11480.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  11242.083333   240.914718  10944.0  10944.0  11243.0  11480.0  11480.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  11076.625000   708.363971   7321.0  10944.0  11243.0  11480.0  11480.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  11137.000000   508.814665   9683.0  10944.0  11243.0  11480.0  11480.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  11137.000000   508.814665   9683.0  10944.0  11243.0  11480.0  11480.0
+volta_sgemm_128x64_tn                                                     12.0  11137.000000   508.814665   9683.0  10944.0  11243.0  11480.0  11480.0
+volta_sgemm_32x128_tn                                                     12.0  11242.083333   240.914718  10944.0  10944.0  11243.0  11480.0  11480.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  10610.979167  2319.989293   1707.0  10944.0  11243.0  11480.0  11480.0
+volta_sgemm_64x64_nn                                                      24.0  10794.291667  1914.212166   1994.0  10944.0  11243.0  11480.0  11480.0
+
+average_mflatency:
+                                                                         count        mean         std    min     25%    50%     75%     max
+clean_names                                                                                                                                 
+fused_dropout_kernel_vec                                                  61.0  922.295082   55.018283  585.0  921.00  923.0  924.00  1114.0
+kernelPointwiseApply2<TensorMaskedFillOp<float, bool>, …>                 12.0  878.166667   82.017552  624.0  893.00  907.0  912.25   915.0
+reduce_kernel<512, 1, MeanOps<…> >                                        24.0  897.333333   75.404801  561.0  913.50  918.0  922.25   923.0
+reduce_kernel<512, 1, WelfordOps<…> >                                     24.0  895.500000   81.696682  529.0  912.50  917.5  922.00   923.0
+softmax_warp_forward                                                      12.0  891.666667   56.496715  717.0  901.75  911.5  915.25   917.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                        120.0  883.650000  102.313626  370.0  901.75  913.0  919.00   924.0
+unrolled_elementwise_kernel<BUnaryFunctor<CompareEqFunctor<long>,_>, _>   12.0  878.750000   81.237167  627.0  893.75  907.5  912.25   915.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                         24.0  891.583333   91.624430  479.0  910.00  916.5  921.00   922.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                         24.0  893.500000   85.878073  508.0  912.25  917.5  921.25   922.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                  49.0  886.306122  104.911908  381.0  898.00  912.0  923.00   930.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                    38.0  898.315789   74.629211  593.0  914.25  921.0  923.00   924.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>   36.0  909.194444   74.236233  507.0  914.75  921.5  929.25  1001.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                    12.0  959.333333   41.805466  934.0  936.75  943.0  959.00  1081.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>       48.0  896.083333   54.260535  628.0  897.75  910.5  919.00   945.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>     12.0  891.833333   39.668704  775.0  894.50  907.0  912.25   915.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                  12.0  933.000000   11.520732  926.0  927.00  928.5  933.50   967.0
+volta_sgemm_128x64_tn                                                     12.0  872.416667   66.573894  675.0  877.75  898.0  905.50   910.0
+volta_sgemm_32x128_tn                                                     12.0  923.416667    0.514929  923.0  923.00  923.0  924.00   924.0
+volta_sgemm_64x32_sliced1x4_tn                                            48.0  867.916667  131.250586  365.0  893.75  909.5  914.25   919.0
+volta_sgemm_64x64_nn                                                      24.0  882.791667  105.672990  402.0  895.00  909.5  921.00   922.0
+

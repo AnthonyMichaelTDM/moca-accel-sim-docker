@@ -1,0 +1,936 @@
+gpu_tot_sim_insn:
+                                                                                 count          mean           std          min          25%          50%          75%          max
+clean_names                                                                                                                                                                        
+reduce_kernel<128, 4, …>                                                          98.0  5.961953e+05  4.100423e+05     369792.0     369792.0     369792.0     369792.0    1479168.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0  6.939000e+05  0.000000e+00     693900.0     693900.0     693900.0     693900.0     693900.0
+reduce_kernel<512, 4, …>                                                          75.0  7.117100e+05  0.000000e+00     711710.0     711710.0     711710.0     711710.0     711710.0
+softmax_warp_backward                                                             12.0  2.249280e+06  0.000000e+00    2249280.0    2249280.0    2249280.0    2249280.0    2249280.0
+softmax_warp_forward                                                              12.0  8.858520e+06  0.000000e+00    8858520.0    8858520.0    8858520.0    8858520.0    8858520.0
+splitKreduce_kernel                                                               60.0  8.042714e+06  1.252075e+05    7941338.0    7941338.0    7941338.0    8194778.0    8194778.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  5.912760e+05  0.000000e+00     591276.0     591276.0     591276.0     591276.0     591276.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0  5.037610e+06  1.143013e+06    4583040.0    4583040.0    4583040.0    4583040.0    7878672.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  6.652800e+06  0.000000e+00    6652800.0    6652800.0    6652800.0    6652800.0    6652800.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  6.358272e+06  2.579817e+06    4583040.0    4583040.0    4583040.0   10056672.0   10056672.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  4.118400e+06  0.000000e+00    4118400.0    4118400.0    4118400.0    4118400.0    4118400.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0  5.930496e+06  3.349771e+06    4033920.0    4033920.0    5216640.0    5216640.0   16135680.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0  3.119034e+06  1.652422e+07       2434.0       4032.0     443520.0    1774080.0  202636224.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0  3.283916e+06  1.387354e+07       2260.0       3648.0       3648.0    2801664.0  183337536.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  5.822000e+03  0.000000e+00       5822.0       5822.0       5822.0       5822.0       5822.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0  3.615346e+06  1.464324e+07        583.0       2880.0       8640.0    4792320.0  144740160.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  9.450880e+05  6.244315e+05     443520.0     443520.0     443520.0    1774080.0    1774080.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0  2.971192e+06  1.256156e+07       2196.0       3456.0      13824.0    1520640.0  173688192.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  1.500094e+07  2.373436e+07      19584.0      19584.0      19584.0   25619712.0   60162048.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0  5.885667e+06  2.281143e+07       5376.0       5376.0      10752.0    7225344.0  270181632.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  3.801600e+05  0.000000e+00     380160.0     380160.0     380160.0     380160.0     380160.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  1.858560e+06  0.000000e+00    1858560.0    1858560.0    1858560.0    1858560.0    1858560.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  7.500454e+05  5.412479e+05     380160.0     380160.0     380160.0    1520640.0    1520640.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0  7.765018e+06  1.368968e+07       4328.0      11904.0      11904.0    9142272.0   36569088.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  2.112000e+06  0.000000e+00    2112000.0    2112000.0    2112000.0    2112000.0    2112000.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  5.700577e+06  2.464738e+02    5700276.0    5700364.5    5700548.0    5700680.0    5701036.0
+volta_sgemm_128x128_tn                                                            12.0  3.726026e+08  4.151147e+04  372541616.0  372579312.0  372595072.0  372621872.0  372697488.0
+volta_sgemm_128x32_nn                                                             36.0  1.475928e+08  1.732602e+08   20727168.0   20727168.0   32961984.0  388835144.0  389655536.0
+volta_sgemm_128x32_nt                                                             72.0  2.071549e+08  1.641201e+08   16593792.0   32974272.0  198696960.0  397393920.0  398573568.0
+volta_sgemm_128x32_tn                                                             24.0  2.764637e+07  6.452955e+06   21329280.0   21329280.0   27646368.0   33963456.0   33963456.0
+volta_sgemm_64x32_sliced1x4_nn                                                    12.0  1.185408e+08  0.000000e+00  118540800.0  118540800.0  118540800.0  118540800.0  118540800.0
+volta_sgemm_64x32_sliced1x4_tn                                                    24.0  2.210043e+08  1.022572e+08  120900096.0  120900096.0  221004288.0  321108480.0  321108480.0
+
+gpgpu_simulation_time:
+                                                                                 count        mean         std    min     25%    50%     75%    max
+clean_names                                                                                                                                        
+reduce_kernel<128, 4, …>                                                          98.0    6.397959    0.796122    5.0    6.00    6.0    6.75    9.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0    5.680000    0.471212    5.0    5.00    6.0    6.00    6.0
+reduce_kernel<512, 4, …>                                                          75.0    5.653333    0.479113    5.0    5.00    6.0    6.00    6.0
+softmax_warp_backward                                                             12.0    8.000000    0.000000    8.0    8.00    8.0    8.00    8.0
+softmax_warp_forward                                                              12.0   11.833333    0.389249   11.0   12.00   12.0   12.00   12.0
+splitKreduce_kernel                                                               60.0   14.950000    1.111191   13.0   14.00   15.0   16.00   17.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0    4.750000    0.452267    4.0    4.75    5.0    5.00    5.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0    7.931034    1.469006    6.0    7.00    7.0    9.00   10.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0    8.050000    0.538891    7.0    8.00    8.0    8.00    9.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0   10.000000    0.662085    9.0   10.00   10.0   10.00   11.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0    5.960000    0.197949    5.0    6.00    6.0    6.00    6.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0    8.683333    2.880245    6.0    7.00    7.0    9.00   17.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           307.0   33.029316   70.785156    3.0    4.00    6.0   14.00  249.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0   22.908108   37.059547    3.0    3.00    4.0   16.00  107.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0    3.560000    0.506623    3.0    3.00    4.0    4.00    4.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0   18.030100   63.868802    3.0    3.00    3.0   21.50  642.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0    9.666667    4.823760    5.0    6.00    6.0   14.00   21.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              808.0   23.030941   37.010334    3.0    3.00    4.0   16.00  119.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0   89.340136  138.094245    3.0    4.00    4.0   98.50  374.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0   60.768707   96.964481    3.0    3.00    4.0   36.50  255.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0    4.960000    0.197279    4.0    5.00    5.0    5.00    5.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0    9.833333    0.389249    9.0   10.00   10.0   10.00   10.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0    8.513514    5.161942    5.0    5.00    5.0   15.00   17.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0   28.813953   47.389394    3.0    3.00    4.0   18.00  132.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0   20.916667    1.729862   19.0   19.75   20.5   22.25   24.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0   11.666667    0.492366   11.0   11.00   12.0   12.00   12.0
+volta_sgemm_128x128_tn                                                            12.0  235.166667    1.585923  233.0  234.50  235.0  237.00  237.0
+volta_sgemm_128x32_nn                                                             36.0   97.027778  109.153754   17.0   17.00   25.0  248.25  251.0
+volta_sgemm_128x32_nt                                                             72.0  139.555556  104.740039   19.0   27.75  136.0  257.00  263.0
+volta_sgemm_128x32_tn                                                             24.0   23.000000    4.625073   18.0   18.75   23.0   27.25   28.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  208.027778   93.976437   76.0   77.00  272.0  274.00  277.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  197.722222   87.467091   82.0   83.00  220.0  289.25  297.0
+
+gpu_tot_sim_cycle:
+                                                                                 count          mean           std      min       25%      50%       75%      max
+clean_names                                                                                                                                                      
+reduce_kernel<128, 4, …>                                                          98.0   8752.469388    269.104862   8482.0   8582.50   8651.0   8893.00   9654.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0   8055.380000     38.347440   7981.0   8024.00   8047.0   8077.00   8146.0
+reduce_kernel<512, 4, …>                                                          75.0   8086.280000     29.677346   8034.0   8067.00   8078.0   8099.00   8183.0
+softmax_warp_backward                                                             12.0   6994.833333     27.518038   6947.0   6974.75   7001.0   7007.00   7042.0
+softmax_warp_forward                                                              12.0   8954.666667    132.182610   8825.0   8874.75   8916.5   8984.50   9320.0
+splitKreduce_kernel                                                               60.0   9500.950000    411.938675   8909.0   9186.75   9319.0   9910.00  10229.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0   6225.916667     73.023606   6184.0   6185.00   6186.0   6224.25   6358.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0   7126.425287    664.762077   6583.0   6596.00   6625.0   8020.00   8216.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0   7142.730000    225.076501   6982.0   7015.00   7024.0   7117.50   7790.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0   7931.905405    264.597403   7524.0   7581.00   8052.0   8115.00   8342.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0   6310.600000      4.430875   6303.0   6308.00   6308.0   6312.00   6324.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0   7250.344444    864.997357   6314.0   6689.00   6862.5   7693.00   9751.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           307.0  13298.938111  17955.249859   5489.0   5691.00   6134.0   8521.50  67692.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0  11446.708108  11309.263393   5486.0   5486.00   5499.0   9063.00  37160.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0   5936.000000     36.962819   5923.0   5928.00   5928.0   5931.00   6113.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          296.0   8733.554054   5719.256859   5242.0   5277.00   5279.0   7931.00  20034.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0   7397.029630   1497.314765   6096.0   6144.50   6337.0   8565.00  10884.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              808.0  11662.715347  11621.605486   5484.0   5491.00   5677.0   9094.50  41793.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  27547.414966  34525.159014   5954.0   5958.00   5966.0  32494.50  99260.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0  19899.537415  24237.444895   5552.0   5557.00   5562.0  13793.50  68114.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0   5872.933333     12.386057   5847.0   5864.50   5872.0   5880.50   5908.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0   7494.416667     30.488324   7448.0   7473.25   7500.5   7509.75   7555.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0   7389.324324   2202.281860   5851.0   5884.00   5900.0  10263.00  11263.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0  12512.313953  12927.962928   5540.0   5546.75   5624.0   9248.50  40535.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  11234.916667    576.385360  10392.0  10839.75  11095.5  11695.50  12311.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0   7561.666667     35.793177   7501.0   7533.50   7558.5   7587.00   7627.0
+volta_sgemm_128x128_tn                                                            12.0  92560.000000    823.678556  91378.0  92068.75  92459.0  93088.00  93878.0
+volta_sgemm_128x32_nn                                                             36.0  36787.583333  33732.353786  11412.0  11527.75  15103.0  83089.75  86292.0
+volta_sgemm_128x32_nt                                                             72.0  49165.194444  29799.607798  16643.0  17240.75  51150.5  78625.00  81196.0
+volta_sgemm_128x32_tn                                                             24.0  14318.791667   2018.035333  12187.0  12313.00  14405.0  16288.50  16355.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  69406.194444  29609.647253  28357.0  28514.75  85168.5  93890.00  95313.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  65409.916667  26273.988182  30636.0  30828.00  72344.0  92916.50  93547.0
+
+L2_cache_global_read_hit:
+                                                                                 count           mean            std       min        25%       50%        75%       max
+clean_names                                                                                                                                                             
+reduce_kernel<128, 4, …>                                                          98.0   16527.102041   11202.126419       0.0   10560.00   10560.0   10560.00   40536.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0   10560.000000       0.000000   10560.0   10560.00   10560.0   10560.00   10560.0
+reduce_kernel<512, 4, …>                                                          75.0   10560.000000       0.000000   10560.0   10560.00   10560.0   10560.00   10560.0
+softmax_warp_backward                                                             12.0   36300.000000       0.000000   36300.0   36300.00   36300.0   36300.00   36300.0
+softmax_warp_forward                                                              12.0   18150.000000       0.000000   18150.0   18150.00   18150.0   18150.00   18150.0
+splitKreduce_kernel                                                               60.0    2187.000000    4234.454104       0.0       0.00       0.0     268.00   10560.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0    1575.000000       0.000000    1575.0    1575.00    1575.0    1575.00    1575.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0   16457.747126    8672.435163   10886.0   10886.00   10890.0   17927.00   36588.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0    8237.160000    4615.681117     279.0    8236.25   10888.0   10890.00   10890.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0   22638.824324    6853.676566   17881.0   17905.25   17941.5   32423.00   32593.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0     328.000000       2.020305     326.0     326.00     328.0     330.00     330.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0   13113.488889   17112.416096       0.0       0.00    7590.0   10560.00   84480.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0   16587.262136   26154.102501       0.0      96.00     644.0   21120.00   98304.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0    8378.586022   21247.120240       0.0      13.00      96.0     384.00   98304.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0      26.000000       0.000000      26.0      26.00      26.0      26.00      26.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0       0.000000       0.000000       0.0       0.00       0.0       0.00       0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0   30444.800000   27104.892034       0.0   10560.00   21120.0   42240.00   84480.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0    6893.711823   16864.354236       0.0       0.00      96.0     384.00   98304.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      148.0    5752.675676   17454.104790       0.0     288.00     288.0     564.00   63096.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0    8848.810811   27790.486829       0.0     192.00     192.0     516.00   99428.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0   10560.000000       0.000000   10560.0   10560.00   10560.0   10560.00   10560.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0   42240.000000       0.000000   42240.0   42240.00   42240.0   42240.00   42240.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0    7135.135135    5011.554218       0.0       0.00   10560.0   10560.00   10560.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0    5771.867052   20048.421545       0.0      13.00      96.0      96.00   98304.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0   24429.000000    3328.925188   18008.0   22503.00   25496.0   26854.00   28252.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0   42240.000000       0.000000   42240.0   42240.00   42240.0   42240.00   42240.0
+volta_sgemm_128x128_tn                                                            12.0  239989.666667    1202.402091  237576.0  238974.50  240429.5  240881.50  241185.0
+volta_sgemm_128x32_nn                                                             24.0   51594.000000    5510.013272   46200.0   46200.00   51594.0   56988.00   56988.0
+volta_sgemm_128x32_nt                                                             36.0  113954.416667  110823.012973   33672.0   33672.00   39722.0  267925.75  269978.0
+volta_sgemm_128x32_tn                                                             24.0   13899.958333    4736.925755    9240.0    9240.00   13829.5   18513.50   19316.0
+volta_sgemm_64x32_sliced1x4_nn                                                    12.0  230971.750000    7503.538585  214242.0  227938.25  232007.0  236057.50  240272.0
+volta_sgemm_64x32_sliced1x4_tn                                                    12.0  233655.666667    3516.066845  229157.0  231058.50  233944.0  234970.00  242157.0
+
+L2_cache_global_read_total_access:
+                                                                                 count          mean            std       min       25%        50%        75%        max
+clean_names                                                                                                                                                             
+reduce_kernel<128, 4, …>                                                          98.0  1.702531e+04   11709.412744   10560.0   10560.0    10560.0    10560.0    42240.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0  1.056000e+04       0.000000   10560.0   10560.0    10560.0    10560.0    10560.0
+reduce_kernel<512, 4, …>                                                          75.0  1.056000e+04       0.000000   10560.0   10560.0    10560.0    10560.0    10560.0
+softmax_warp_backward                                                             12.0  3.630000e+04       0.000000   36300.0   36300.0    36300.0    36300.0    36300.0
+softmax_warp_forward                                                              12.0  1.815000e+04       0.000000   18150.0   18150.0    18150.0    18150.0    18150.0
+splitKreduce_kernel                                                               60.0  3.590400e+04    5216.979839   31680.0   31680.0    31680.0    42240.0    42240.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  1.575000e+03       0.000000    1575.0    1575.0     1575.0     1575.0     1575.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0  1.654703e+04    8688.994581   10890.0   10890.0    10890.0    18240.0    36591.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  1.089000e+04       0.000000   10890.0   10890.0    10890.0    10890.0    10890.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  2.434151e+04    8866.891385   18240.0   18240.0    18240.0    37053.0    37053.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  3.300000e+02       0.000000     330.0     330.0      330.0      330.0      330.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0  1.786080e+04   19809.366829    7680.0   10560.0    10560.0    10560.0    84480.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           307.0  8.662367e+04  171448.465727      28.0     192.0    21120.0    84480.0   589824.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0  6.080051e+04  106499.430657      14.0      96.0       96.0    73728.0   294912.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  2.800000e+01       0.000000      28.0      28.0       28.0       28.0       28.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0  0.000000e+00       0.000000       0.0       0.0        0.0        0.0        0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  4.499733e+04   29736.848120   21120.0   21120.0    21120.0    84480.0    84480.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              808.0  5.905381e+04  101693.636575      14.0      96.0      384.0    42240.0   294912.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  2.189858e+05  348131.234098     288.0     288.0      288.0   258048.0   884736.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0  1.459905e+05  232087.489399     192.0     192.0      192.0   172032.0   589824.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  1.056000e+04       0.000000   10560.0   10560.0    10560.0    10560.0    10560.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  4.224000e+04       0.000000   42240.0   42240.0    42240.0    42240.0    42240.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  2.083459e+04   15034.662653   10560.0   10560.0    10560.0    42240.0    42240.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0  6.238752e+04  110285.659549      14.0      96.0       96.0    73728.0   294912.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  8.448000e+04       0.000000   84480.0   84480.0    84480.0    84480.0    84480.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  4.224000e+04       0.000000   42240.0   42240.0    42240.0    42240.0    42240.0
+volta_sgemm_128x128_tn                                                            12.0  5.312160e+05       0.000000  531216.0  531216.0   531216.0   531216.0   531216.0
+volta_sgemm_128x32_nn                                                             36.0  3.757594e+05  464963.804582   46200.0   46200.0    56988.0  1023571.0  1024766.0
+volta_sgemm_128x32_nt                                                             72.0  5.371759e+05  417743.111675   43464.0   59670.0   579162.0   949864.5  1023336.0
+volta_sgemm_128x32_tn                                                             24.0  5.274600e+04    6686.790300   46200.0   46200.0    52746.0    59292.0    59292.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  1.118964e+06  550204.256973  368928.0  368928.0  1353905.5  1633824.0  1633824.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  1.071648e+06  533326.981765  368928.0  368928.0  1212192.0  1633824.0  1633824.0
+
+L2_cache_global_write_hit:
+                                                                                 count          mean            std      min      25%      50%      75%       max
+clean_names                                                                                                                                                      
+reduce_kernel<128, 4, …>                                                          98.0    464.755102     319.117664    288.0    288.0    288.0    302.0    1152.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0     96.000000       0.000000     96.0     96.0     96.0     96.0      96.0
+reduce_kernel<512, 4, …>                                                          75.0    105.333333       6.644106     96.0     96.0    110.0    110.0     110.0
+softmax_warp_backward                                                             12.0   4550.000000    2043.819953   3960.0   3960.0   3960.0   3960.0   11040.0
+softmax_warp_forward                                                              12.0  22110.000000       0.000000  22110.0  22110.0  22110.0  22110.0   22110.0
+splitKreduce_kernel                                                               60.0   6336.000000    5216.979839      0.0      0.0  10560.0  10560.0   10560.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0   3520.000000    5006.890136      0.0      0.0      0.0  10560.0   10560.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0   7392.000000    4863.578929      0.0      0.0  10560.0  10560.0   10560.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0   6742.702703    8448.784187      0.0      0.0      0.0  18150.0   18150.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  10560.000000       0.000000  10560.0  10560.0  10560.0  10560.0   10560.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0   3742.988889    4642.853373      0.0      0.0      0.0   9792.0   10560.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           308.0  40747.370130   86309.565442      0.0     96.0    384.0  11796.0  294912.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0  60741.535135  106530.414915      0.0     96.0     96.0  73728.0  294912.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0     23.438127      41.308855      0.0      0.0      0.0      0.0      96.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0   4244.074074    8339.657609      0.0      0.0      0.0   9268.0   39168.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              809.0  42749.438813   92019.767591      0.0      0.0     96.0  10560.0  294912.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  55021.823129   86382.670056     96.0     96.0     96.0  63140.0  221864.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0  72995.265306  116043.744699     96.0     96.0     96.0  86016.0  294912.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0   9433.600000    3281.707136      0.0  10560.0  10560.0  10560.0   10560.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0   3710.702703    7955.388841      0.0      0.0      0.0  10560.0   42240.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0   4166.666667    9711.654679      0.0      0.0      0.0     29.0   25000.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  42240.000000       0.000000  42240.0  42240.0  42240.0  42240.0   42240.0
+volta_sgemm_128x128_tn                                                            13.0    116.307692     170.570310     69.0     69.0     69.0     69.0     684.0
+volta_sgemm_128x32_nn                                                             36.0    117.000000     167.810097      0.0      0.0      0.0    351.0     351.0
+volta_sgemm_128x32_nt                                                             72.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_128x32_tn                                                             24.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+
+L2_cache_global_write_total_access:
+                                                                                 count          mean            std      min      25%      50%      75%       max
+clean_names                                                                                                                                                      
+reduce_kernel<128, 4, …>                                                          98.0    619.102041     425.796827    384.0    384.0    384.0    384.0    1536.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0    110.000000       0.000000    110.0    110.0    110.0    110.0     110.0
+reduce_kernel<512, 4, …>                                                          75.0    110.000000       0.000000    110.0    110.0    110.0    110.0     110.0
+softmax_warp_backward                                                             12.0  22110.000000       0.000000  22110.0  22110.0  22110.0  22110.0   22110.0
+softmax_warp_forward                                                              12.0  22110.000000       0.000000  22110.0  22110.0  22110.0  22110.0   22110.0
+splitKreduce_kernel                                                               60.0  10560.000000       0.000000  10560.0  10560.0  10560.0  10560.0   10560.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0   1513.000000       0.000000   1513.0   1513.0   1513.0   1513.0    1513.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0  11606.896552    2632.413920  10560.0  10560.0  10560.0  10560.0   18150.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  10560.000000       0.000000  10560.0  10560.0  10560.0  10560.0   10560.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  13021.621622    3577.297912  10560.0  10560.0  10560.0  18150.0   18150.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  10560.000000       0.000000  10560.0  10560.0  10560.0  10560.0   10560.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0  14080.000000    9204.641045  10560.0  10560.0  10560.0  10560.0   42240.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           307.0  43311.837134   85724.232864     14.0     96.0  10560.0  42240.0  294912.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0  60800.508108  106499.430657     14.0     96.0     96.0  73728.0  294912.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0     14.000000       0.000000     14.0     14.0     14.0     14.0      14.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          296.0  72834.165541  115539.662460      1.0     96.0     96.0  98304.0  294912.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  22498.666667   14868.424060  10560.0  10560.0  10560.0  42240.0   42240.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              808.0  59053.814356  101693.636575     14.0     96.0    384.0  42240.0  294912.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  72995.265306  116043.744699     96.0     96.0     96.0  86016.0  294912.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0  72995.265306  116043.744699     96.0     96.0     96.0  86016.0  294912.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  10560.000000       0.000000  10560.0  10560.0  10560.0  10560.0   10560.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  42240.000000       0.000000  42240.0  42240.0  42240.0  42240.0   42240.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  20834.594595   15034.662653  10560.0  10560.0  10560.0  42240.0   42240.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0  62387.523256  110285.659549     14.0     96.0     96.0  73728.0  294912.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  42240.000000       0.000000  42240.0  42240.0  42240.0  42240.0   42240.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  42240.000000       0.000000  42240.0  42240.0  42240.0  42240.0   42240.0
+volta_sgemm_128x128_tn                                                            13.0    126.923077     198.027970     72.0     72.0     72.0     72.0     786.0
+volta_sgemm_128x32_nn                                                             36.0    120.000000     172.112920      0.0      0.0      0.0    360.0     360.0
+volta_sgemm_128x32_nt                                                             72.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_128x32_tn                                                             24.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_R_TOTAL_ACCESS:
+                                                                                 count          mean            std       min       25%        50%        75%        max
+clean_names                                                                                                                                                             
+reduce_kernel<128, 4, …>                                                          98.0  1.702531e+04   11709.412744   10560.0   10560.0    10560.0    10560.0    42240.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0  1.056000e+04       0.000000   10560.0   10560.0    10560.0    10560.0    10560.0
+reduce_kernel<512, 4, …>                                                          75.0  1.056000e+04       0.000000   10560.0   10560.0    10560.0    10560.0    10560.0
+softmax_warp_backward                                                             12.0  4.422000e+04       0.000000   44220.0   44220.0    44220.0    44220.0    44220.0
+softmax_warp_forward                                                              12.0  2.211000e+04       0.000000   22110.0   22110.0    22110.0    22110.0    22110.0
+splitKreduce_kernel                                                               60.0  3.590400e+04    5216.979839   31680.0   31680.0    31680.0    42240.0    42240.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  1.821000e+03       0.000000    1821.0    1821.0     1821.0     1821.0     1821.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0  1.897572e+04    8621.232876   13200.0   13200.0    13200.0    21120.0    38574.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  1.320000e+04       0.000000   13200.0   13200.0    13200.0    13200.0    13200.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  2.724714e+04    8904.125447   21120.0   21120.0    21120.0    40012.0    40012.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  2.640000e+03       0.000000    2640.0    2640.0     2640.0     2640.0     2640.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0  2.393600e+04   25493.014436   10560.0   10560.0    10560.0    31680.0    84480.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           307.0  8.662367e+04  171448.465727      28.0     192.0    21120.0    84480.0   589824.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0  6.080051e+04  106499.430657      14.0      96.0       96.0    73728.0   294912.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  2.800000e+01       0.000000      28.0      28.0       28.0       28.0       28.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0  0.000000e+00       0.000000       0.0       0.0        0.0        0.0        0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  4.499733e+04   29736.848120   21120.0   21120.0    21120.0    84480.0    84480.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              808.0  5.905381e+04  101693.636575      14.0      96.0      384.0    42240.0   294912.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  2.189858e+05  348131.234098     288.0     288.0      288.0   258048.0   884736.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0  2.189858e+05  348131.234098     288.0     288.0      288.0   258048.0   884736.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  1.056000e+04       0.000000   10560.0   10560.0    10560.0    10560.0    10560.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  4.224000e+04       0.000000   42240.0   42240.0    42240.0    42240.0    42240.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  2.083459e+04   15034.662653   10560.0   10560.0    10560.0    42240.0    42240.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0  6.238752e+04  110285.659549      14.0      96.0       96.0    73728.0   294912.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  8.448000e+04       0.000000   84480.0   84480.0    84480.0    84480.0    84480.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  4.224000e+04       0.000000   42240.0   42240.0    42240.0    42240.0    42240.0
+volta_sgemm_128x128_tn                                                            12.0  5.312160e+05       0.000000  531216.0  531216.0   531216.0   531216.0   531216.0
+volta_sgemm_128x32_nn                                                             36.0  4.182760e+05  511655.726779   54264.0   54264.0    68868.0  1131696.0  1131696.0
+volta_sgemm_128x32_nt                                                             72.0  6.059310e+05  491209.578257   50796.0   59670.0   587520.0  1175040.0  1175040.0
+volta_sgemm_128x32_tn                                                             24.0  7.251000e+04   26875.871189   46200.0   46200.0    72510.0    98820.0    98820.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  1.206336e+06  600580.449235  368928.0  368928.0  1616256.0  1633824.0  1633824.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  1.071648e+06  533326.981765  368928.0  368928.0  1212192.0  1633824.0  1633824.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_R_HIT:
+                                                                                 count          mean           std    min     25%      50%       75%      max
+clean_names                                                                                                                                                  
+reduce_kernel<128, 4, …>                                                          98.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+reduce_kernel<512, 4, …>                                                          75.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+softmax_warp_backward                                                             12.0    270.333333     16.972348  240.0  262.00    269.5    276.25    305.0
+softmax_warp_forward                                                              12.0     67.416667     14.393549   44.0   65.25     68.5     72.25    101.0
+splitKreduce_kernel                                                               60.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0      0.666667      1.302678    0.0    0.00      0.0      0.50      4.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0    462.540230    392.409516    0.0    1.50    720.0    788.50    947.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0    581.470000    321.727140   20.0  485.75    754.0    776.25    884.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0    113.729730    165.526416    0.0    0.00      0.0    326.75    392.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0    538.680000     27.912721  462.0  541.00    541.0    542.00    586.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0   2229.177778   7986.124691    0.0    0.00      0.0      0.00  32446.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      148.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0     17.668919     97.591219    0.0    0.00      0.0      0.00   1167.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+volta_sgemm_128x128_tn                                                            12.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+volta_sgemm_128x32_nn                                                             24.0   5941.333333   6066.394823    0.0    2.75   5944.5  11880.00  11880.0
+volta_sgemm_128x32_nt                                                             48.0   2829.083333   4785.366474    0.0    0.00    282.0   1952.50  13910.0
+volta_sgemm_128x32_tn                                                             24.0  19764.000000  20189.080889    0.0    0.00  19764.0  39528.00  39528.0
+volta_sgemm_64x32_sliced1x4_nn                                                    24.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0      0.000000      0.000000    0.0    0.00      0.0      0.00      0.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_W_HIT:
+                                                                                 count          mean            std     min     25%     50%      75%       max
+clean_names                                                                                                                                                   
+reduce_kernel<128, 4, …>                                                          98.0    464.326531     319.347620   288.0   288.0   288.0    288.0    1152.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0     96.000000       0.000000    96.0    96.0    96.0     96.0      96.0
+reduce_kernel<512, 4, …>                                                          75.0     96.000000       0.000000    96.0    96.0    96.0     96.0      96.0
+softmax_warp_backward                                                             12.0   3960.000000       0.000000  3960.0  3960.0  3960.0   3960.0    3960.0
+softmax_warp_forward                                                              12.0   3960.000000       0.000000  3960.0  3960.0  3960.0   3960.0    3960.0
+splitKreduce_kernel                                                               60.0   4224.000000    5216.979839     0.0     0.0     0.0  10560.0   10560.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           308.0  34838.649351   87964.496996     0.0     0.0     0.0     96.0  294912.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0  58001.643243  107515.017218     0.0    96.0    96.0  73728.0  294912.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              809.0  39790.991347   92857.883139     0.0     0.0    96.0    288.0  294912.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  72894.340136  115858.862161    96.0    96.0    96.0  86016.0  294580.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0  72995.265306  116043.744699    96.0    96.0    96.0  86016.0  294912.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+volta_sgemm_128x128_tn                                                            13.0      1.769231       6.379052     0.0     0.0     0.0      0.0      23.0
+volta_sgemm_128x32_nn                                                             36.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+volta_sgemm_128x32_nt                                                             72.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+volta_sgemm_128x32_tn                                                             24.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0      0.000000       0.000000     0.0     0.0     0.0      0.0       0.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_W_TOTAL_ACCESS:
+                                                                                 count          mean            std      min      25%      50%      75%       max
+clean_names                                                                                                                                                      
+reduce_kernel<128, 4, …>                                                          98.0    619.102041     425.796827    384.0    384.0    384.0    384.0    1536.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0    110.000000       0.000000    110.0    110.0    110.0    110.0     110.0
+reduce_kernel<512, 4, …>                                                          75.0    110.000000       0.000000    110.0    110.0    110.0    110.0     110.0
+softmax_warp_backward                                                             12.0  22110.000000       0.000000  22110.0  22110.0  22110.0  22110.0   22110.0
+softmax_warp_forward                                                              12.0  22110.000000       0.000000  22110.0  22110.0  22110.0  22110.0   22110.0
+splitKreduce_kernel                                                               60.0  10560.000000       0.000000  10560.0  10560.0  10560.0  10560.0   10560.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0   1513.000000       0.000000   1513.0   1513.0   1513.0   1513.0    1513.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0  11606.896552    2632.413920  10560.0  10560.0  10560.0  10560.0   18150.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  10560.000000       0.000000  10560.0  10560.0  10560.0  10560.0   10560.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  13021.621622    3577.297912  10560.0  10560.0  10560.0  18150.0   18150.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  10560.000000       0.000000  10560.0  10560.0  10560.0  10560.0   10560.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0  14080.000000    9204.641045  10560.0  10560.0  10560.0  10560.0   42240.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           307.0  43311.837134   85724.232864     14.0     96.0  10560.0  42240.0  294912.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0  60800.508108  106499.430657     14.0     96.0     96.0  73728.0  294912.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0     14.000000       0.000000     14.0     14.0     14.0     14.0      14.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          296.0  72834.165541  115539.662460      1.0     96.0     96.0  98304.0  294912.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  22498.666667   14868.424060  10560.0  10560.0  10560.0  42240.0   42240.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              808.0  59053.814356  101693.636575     14.0     96.0    384.0  42240.0  294912.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  72995.265306  116043.744699     96.0     96.0     96.0  86016.0  294912.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0  72995.265306  116043.744699     96.0     96.0     96.0  86016.0  294912.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  10560.000000       0.000000  10560.0  10560.0  10560.0  10560.0   10560.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  42240.000000       0.000000  42240.0  42240.0  42240.0  42240.0   42240.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  20834.594595   15034.662653  10560.0  10560.0  10560.0  42240.0   42240.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0  62387.523256  110285.659549     14.0     96.0     96.0  73728.0  294912.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  42240.000000       0.000000  42240.0  42240.0  42240.0  42240.0   42240.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  42240.000000       0.000000  42240.0  42240.0  42240.0  42240.0   42240.0
+volta_sgemm_128x128_tn                                                            13.0    126.923077     198.027970     72.0     72.0     72.0     72.0     786.0
+volta_sgemm_128x32_nn                                                             36.0    120.000000     172.112920      0.0      0.0      0.0    360.0     360.0
+volta_sgemm_128x32_nt                                                             72.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_128x32_tn                                                             24.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0      0.000000       0.000000      0.0      0.0      0.0      0.0       0.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_R_MSHR_HIT:
+                                                                                 count          mean           std     min      25%     50%        75%       max
+clean_names                                                                                                                                                     
+reduce_kernel<128, 4, …>                                                          98.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+reduce_kernel<512, 4, …>                                                          75.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+softmax_warp_backward                                                             12.0   7649.666667     16.972348  7615.0  7643.75  7650.5    7658.00    7680.0
+softmax_warp_forward                                                              12.0   3892.583333     14.393549  3859.0  3887.75  3891.5    3894.75    3916.0
+splitKreduce_kernel                                                               60.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0    245.333333      1.302678   242.0   245.50   246.0     246.00     246.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0   1966.149425    603.108528  1363.0  1521.50  1590.0    2878.50    2880.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0   1728.530000    321.727140  1426.0  1533.75  1556.0    1824.25    2290.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0   2791.891892    128.474780  2567.0  2632.25  2880.0    2880.00    2880.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0   1771.320000     27.912721  1724.0  1768.00  1769.0    1769.00    1848.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0   3846.022222   8469.091593     0.0     0.00     0.0    2880.00   33400.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      148.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      123.0  29690.252033  67346.760776    96.0    96.00    96.0     384.00  221184.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+volta_sgemm_128x128_tn                                                            13.0  17278.384615  62298.101688     0.0     0.00     0.0       0.00  224619.0
+volta_sgemm_128x32_nn                                                             36.0   2741.222222   3818.148378     0.0     0.00    33.0    8060.00    8064.0
+volta_sgemm_128x32_nt                                                             72.0  16112.527778  20605.781368     0.0     0.00  4892.0   35212.25   55170.0
+volta_sgemm_128x32_tn                                                             24.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  52229.833333  74994.378121     0.0     0.00     0.0  151800.25  163271.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0      0.000000      0.000000     0.0     0.00     0.0       0.00       0.0
+
+gpgpu_n_tot_w_icount:
+                                                                                 count          mean           std         min          25%         50%          75%         max
+clean_names                                                                                                                                                                     
+reduce_kernel<128, 4, …>                                                          98.0  1.995637e+04  1.372529e+04     12378.0     12378.00     12378.0     12378.00     49512.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0  2.441800e+04  0.000000e+00     24418.0     24418.00     24418.0     24418.00     24418.0
+reduce_kernel<512, 4, …>                                                          75.0  2.486800e+04  0.000000e+00     24868.0     24868.00     24868.0     24868.00     24868.0
+softmax_warp_backward                                                             12.0  7.590000e+04  0.000000e+00     75900.0     75900.00     75900.0     75900.00     75900.0
+softmax_warp_forward                                                              12.0  3.825840e+05  0.000000e+00    382584.0    382584.00    382584.0    382584.00    382584.0
+splitKreduce_kernel                                                               60.0  3.009600e+05  0.000000e+00    300960.0    300960.00    300960.0    300960.00    300960.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  2.088800e+04  0.000000e+00     20888.0     20888.00     20888.0     20888.00     20888.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0  1.755659e+05  3.984448e+04    159720.0    159720.00    159720.0    159720.00    274603.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  2.323200e+05  0.000000e+00    232320.0    232320.00    232320.0    232320.00    232320.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  2.219997e+05  9.050658e+04    159720.0    159720.00    159720.0    351749.00    351749.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  1.452000e+05  0.000000e+00    145200.0    145200.00    145200.0    145200.00    145200.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0  2.097920e+05  1.183379e+05    142560.0    142560.00    184800.0    184800.00    570240.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0  1.067536e+05  5.655610e+05        95.0       138.00     15180.0     60720.00   6935466.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0  1.134261e+05  4.791845e+05        88.0       126.00       126.0     96768.00   6332382.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  2.240000e+02  0.000000e+00       224.0       224.00       224.0       224.00       224.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0  1.280435e+05  5.186146e+05        28.0       102.00       306.0    169728.00   5126214.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  3.234791e+04  2.137158e+04     15180.0     15180.00     15180.0     60720.00     60720.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0  1.031672e+05  4.361650e+05        86.0       120.00       480.0     52800.00   6030840.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  5.156642e+05  8.152077e+05       672.0       672.00       672.0    942120.00   2064384.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0  1.970647e+05  7.637755e+05       180.0       180.00       360.0    241920.00   9046260.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  1.320000e+04  0.000000e+00     13200.0     13200.00     13200.0     13200.00     13200.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  6.336000e+04  0.000000e+00     63360.0     63360.00     63360.0     63360.00     63360.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  2.604324e+04  1.879333e+04     13200.0     13200.00     13200.0     52800.00     52800.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0  2.507359e+05  4.417534e+05       161.0       384.00       384.0    294912.00   1179648.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  7.128000e+04  0.000000e+00     71280.0     71280.00     71280.0     71280.00     71280.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  2.954967e+05  3.732738e+01    295438.0    295484.75    295493.0    295526.00    295548.0
+volta_sgemm_128x128_tn                                                            12.0  1.171854e+07  1.297234e+03  11716633.0  11717811.00  11718303.5  11719141.00  11721504.0
+volta_sgemm_128x32_nn                                                             36.0  4.727909e+06  5.530107e+06    672384.0    672384.00   1075584.0  12427816.75  12453454.0
+volta_sgemm_128x32_nt                                                             72.0  6.683072e+06  5.289958e+06    537984.0   1075968.00   6407424.0  12814848.00  12854784.0
+volta_sgemm_128x32_tn                                                             24.0  9.027840e+05  2.137812e+05    693504.0    693504.00    902784.0   1112064.00   1112064.0
+volta_sgemm_64x32_sliced1x4_nn                                                    24.0  8.345088e+06  4.688280e+06   3755520.0   3755520.00   8345088.0  12934656.00  12934656.0
+volta_sgemm_64x32_sliced1x4_tn                                                    24.0  6.962688e+06  3.200834e+06   3829248.0   3829248.00   6962688.0  10096128.00  10096128.0
+
+total_dram_reads:
+                                                                                 count           mean            std       min       25%       50%        75%       max
+clean_names                                                                                                                                                            
+reduce_kernel<128, 4, …>                                                          98.0     498.204082    1206.270507       0.0       0.0       0.0     777.00   10560.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+reduce_kernel<512, 4, …>                                                          75.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+softmax_warp_backward                                                             12.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+softmax_warp_forward                                                              12.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+splitKreduce_kernel                                                               60.0   33717.000000    4309.865490   29488.0   31680.0   31680.0   31680.00   42240.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0      28.011494      43.425021       0.0       0.0       1.0      96.00      96.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0    2643.750000    4601.597789       0.0       0.0       0.5    2644.25   10574.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0     564.324324     680.582106      96.0      96.0      96.0    1540.00    1540.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0       0.500000       0.505076       0.0       0.0       0.5       1.00       1.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0    3738.838889    4920.595455       0.0       0.0     288.0   10560.00   10560.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           307.0   69928.664495  174248.973860       0.0       0.0      96.0   10560.00  589824.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0   52376.632432  108053.142494       0.0       0.0       0.0       1.00  294912.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0       2.000000       0.000000       2.0       2.0       2.0       2.00       2.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0   14552.533333   25096.614414       0.0       0.0      32.0   11252.00   84480.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              808.0   52125.975248  103802.633587       0.0       0.0       0.0   18150.00  294912.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  213193.986395  348626.974491       0.0       0.0       0.0  201602.00  884736.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0  137081.523810  233651.881824       0.0       0.0       0.0   74080.00  589824.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0   13699.459459   20046.216870       0.0       0.0       0.0   42240.00   42240.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0   56582.098837  111443.443182       0.0       0.0       0.0       1.00  294912.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0   60051.000000    3328.925188   56228.0   57626.0   58984.0   61977.00   66472.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0       0.000000       0.000000       0.0       0.0       0.0       0.00       0.0
+volta_sgemm_128x128_tn                                                            12.0  288768.000000     277.867202  288368.0  288450.0  288946.0  288981.00  289020.0
+volta_sgemm_128x32_nn                                                             36.0   71757.666667  102920.877998       0.0       0.0       0.0  214786.50  216652.0
+volta_sgemm_128x32_nt                                                             72.0   21824.111111   11881.986517    9792.0    9792.0   18614.0   31499.00   42696.0
+volta_sgemm_128x32_tn                                                             24.0    9804.000000     576.130420    9240.0    9240.0    9804.0   10368.00   10368.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  217900.777778  110203.613202   64512.0   64512.0  286518.0  302499.00  303104.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  194196.222222   99127.399770   64512.0   64512.0  217624.0  300031.00  301320.0
+
+total_dram_writes:
+                                                                                 count           mean            std      min      25%       50%       75%       max
+clean_names                                                                                                                                                         
+reduce_kernel<128, 4, …>                                                          98.0       2.204082       7.335775      0.0      0.0       0.0       0.0      44.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0     198.240000     333.071945      0.0      4.0      44.0     169.0    1496.0
+reduce_kernel<512, 4, …>                                                          75.0       0.000000       0.000000      0.0      0.0       0.0       0.0       0.0
+softmax_warp_backward                                                             12.0   10080.666667    4141.453705   4796.0   6099.0   12248.0   12688.0   16812.0
+softmax_warp_forward                                                              12.0      14.000000       8.780143      4.0      7.0      12.0      21.0      28.0
+splitKreduce_kernel                                                               60.0    6687.066667    4612.643273   1288.0   4390.0    4816.0    7631.0   19305.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0      50.333333      30.817154     16.0     24.0      46.0      73.0     116.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0    2677.747126    3819.971786      0.0      0.0     516.0    7864.0   10060.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0     850.080000    2276.625856      0.0      0.0       0.0       0.0    9224.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0    1578.702703    3289.542874      0.0      0.0     108.0     494.0   10140.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0       0.000000       0.000000      0.0      0.0       0.0       0.0       0.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0    1119.855556    2757.678321      0.0      0.0      46.0    1021.0   12346.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           307.0   47653.068404  113955.371119      0.0      0.0      44.0    1288.0  379332.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0   37711.935135   78283.177413      0.0     20.0      64.0     228.0  219416.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0       0.000000       0.000000      0.0      0.0       0.0       0.0       0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          296.0   67461.716216  112849.156031      0.0      0.0       0.0   53832.0  298260.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0    4836.162963   10068.086897      0.0      0.0       0.0    3455.0   35580.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              808.0   44507.480198   91318.980404      0.0      0.0      64.0   20171.0  312016.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      147.0  105623.564626  161714.361722      0.0      0.0       0.0  169972.0  403132.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0   89307.891156  152875.926197      0.0      0.0       0.0   44882.0  379664.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0       0.000000       0.000000      0.0      0.0       0.0       0.0       0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0     942.000000      79.351920    788.0    917.0     948.0     993.0    1056.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0   14651.594595   17522.285200      0.0     20.0    6610.0   35080.0   55388.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0   57182.418605  105337.053891      0.0      0.0       0.0   47068.0  284428.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0   18576.666667    3337.023969  14684.0  16147.0   17814.0   20489.0   24416.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0       0.000000       0.000000      0.0      0.0       0.0       0.0       0.0
+volta_sgemm_128x128_tn                                                            13.0   83315.615385    9255.111376  65530.0  83686.0   84214.0   85158.0   95726.0
+volta_sgemm_128x32_nn                                                             36.0   29778.666667   42833.015837      0.0      0.0      10.0   87404.0  108132.0
+volta_sgemm_128x32_nt                                                             72.0    1920.055556    1785.795155     64.0    942.0    1268.0    2222.0    8832.0
+volta_sgemm_128x32_tn                                                             24.0    2803.000000    2765.604455      8.0    203.0    2672.0    4380.0    8040.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  101723.666667   64675.000468  14425.0  18386.0  118278.0  170102.0  170772.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0   92729.888889   73409.434210      0.0   1857.0  100796.0  159593.0  186236.0
+
+gpu_ipc:
+                                                                                 count         mean         std        min          25%         50%          75%        max
+clean_names                                                                                                                                                                
+reduce_kernel<128, 4, …>                                                          98.0    66.972862   43.504732    38.3045    42.743075    43.08425    43.590875   163.2095
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0    86.143094    0.409136    85.1829    85.910625    86.23090    86.478025    86.9440
+reduce_kernel<512, 4, …>                                                          75.0    88.015677    0.321818    86.9742    87.876300    88.10470    88.224900    88.5873
+softmax_warp_backward                                                             12.0   321.567617    1.264789   319.4093   321.004825   321.27980   322.489000   323.7772
+softmax_warp_forward                                                              12.0   989.455608   14.240024   950.4850   985.978300   993.49795   998.172275  1003.7983
+splitKreduce_kernel                                                               60.0   847.545880   24.617187   801.1319   826.922150   852.16665   864.433850   891.3838
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0    94.981925    1.099553    92.9972    95.005075    95.58290    95.598400    95.6138
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0   710.957795  160.754163   557.8189   571.452100   694.08450   695.190000  1090.0210
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0   932.284765   28.092316   854.0179   934.884200   947.15260   948.367800   952.8502
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0   813.087004  360.083282   549.3934   564.761600   569.18030  1326.562775  1336.6124
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0   652.616590    0.457805   651.2334   652.471500   652.88530   652.885300   653.4031
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0   800.576376  356.400065   428.6844   572.816950   760.16645   779.883400  1888.0974
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0    76.587265   78.045139     0.4431     0.708600    70.42240   164.084400   228.8293
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0    96.750954  136.846717     0.3989     0.665000     0.66500   300.680350   359.7411
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0     0.980808    0.005933     0.9524     0.981600     0.98210     0.982100     0.9829
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0   137.945285  194.742296     0.1112     0.545800     1.62770   394.015800   557.1880
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0   118.129890   59.782397    69.7468    72.081900    72.57730   204.458700   208.5435
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0    94.795913  115.027674     0.4001     0.629900     2.51780   203.300900   341.6629
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      148.0   221.988200  315.140251     3.2821     3.287000     6.35150   609.541850  1541.8412
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0    93.255218  131.887366     0.9659     0.967400     1.92775   242.795975   357.7169
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0    64.731145    0.136452    64.3466    64.647600    64.74110    64.823950    65.0180
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0   247.996392    1.007878   246.0040   247.486350   247.79155   248.695050   249.5381
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0    90.567957   38.168701    64.0755    64.477600    64.66410   143.038300   155.3735
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0   275.622905  434.668537     0.7427     2.145600     2.14640   879.261900  1607.3076
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0   188.435208    9.576904   171.5539   180.582275   190.35510   194.838550   203.2333
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0   753.893800    3.563881   747.4231   751.353425   754.22340   756.664450   760.0029
+volta_sgemm_128x128_tn                                                             0.0          NaN         NaN        NaN          NaN         NaN          NaN        NaN
+volta_sgemm_128x32_nn                                                             24.0  1993.434221  193.550156  1794.7153  1804.049025  1993.33435  2182.190400  2191.6213
+volta_sgemm_128x32_nt                                                             24.0  1453.264587  498.064948   956.9109   966.231600  1434.25445  1948.291250  1981.2698
+volta_sgemm_128x32_tn                                                             24.0  1906.254608  182.536000  1698.5968  1733.101750  1913.40360  2084.990750  2089.6731
+volta_sgemm_64x32_sliced1x4_nn                                                     0.0          NaN         NaN        NaN          NaN         NaN          NaN        NaN
+volta_sgemm_64x32_sliced1x4_tn                                                     0.0          NaN         NaN        NaN          NaN         NaN          NaN        NaN
+
+gpgpu_simulation_rate_instructions:
+                                                                                 count          mean            std        min         25%        50%         75%        max
+clean_names                                                                                                                                                                 
+reduce_kernel<128, 4, …>                                                          98.0  1.260915e+06   20423.041261  1232754.0  1243876.50  1257263.5  1275635.50  1304524.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0  1.156499e+06  156027.517230   386234.0  1189679.00  1191957.5  1193014.00  1194136.0
+reduce_kernel<512, 4, …>                                                          75.0  1.259471e+06   20560.788381  1231059.0  1241846.50  1255407.0  1273792.50  1302546.0
+softmax_warp_backward                                                             12.0  1.257822e+06   19758.990760  1232748.0  1242512.75  1254540.0  1270245.50  1294669.0
+softmax_warp_forward                                                              12.0  1.187728e+06   17318.355651  1133292.0  1192345.50  1193627.0  1193910.75  1194037.0
+splitKreduce_kernel                                                               60.0  1.232398e+06   35950.449489  1161443.0  1194721.25  1238412.5  1259563.25  1298728.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  1.192165e+06   10074.356842  1160316.0  1194391.50  1195300.5  1195650.00  1196016.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0  1.159559e+06  138257.944061   422197.0  1186708.00  1190342.0  1192746.50  1194694.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  1.233654e+06   90468.533347   426382.0  1222130.75  1247189.5  1267823.50  1303507.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  1.212644e+06  101409.694229   430009.0  1190130.00  1215023.0  1256366.50  1304221.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  1.258775e+06   20474.184064  1230810.0  1241371.25  1254624.5  1272764.00  1301395.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0  1.208380e+06   64865.113940   495687.0  1190640.25  1197653.0  1239941.00  1293856.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0  9.584257e+05  301443.277005   526313.0   646672.00  1186188.0  1248077.00  1300052.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0  7.531069e+05  224896.920748   397025.0   593868.75   677285.5   786636.00  1191952.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  1.260041e+06   20960.509653  1232101.0  1242636.00  1255822.0  1273936.00  1302220.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0  6.614248e+05  104145.662392   535954.0   581969.50   639551.0   721188.50  1249946.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  1.253374e+06   30878.288197  1121314.0  1239602.00  1254458.0  1273501.00  1303956.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0  8.135238e+05  271360.009411   535883.0   599804.50   700157.5  1192250.00  1302406.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      148.0  6.521472e+05   80533.403150   535858.0   581806.75   639294.0   712250.75   811678.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0  6.534955e+05   82232.210174   535908.0   581866.75   639365.0   713233.75   900881.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  1.259812e+06   20643.774722  1231282.0  1242091.00  1255681.0  1274212.50  1303152.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  1.194259e+06    2840.485974  1185530.0  1194211.25  1195148.0  1195524.00  1196065.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  1.190615e+06  136062.868588   418068.0  1191323.00  1192740.0  1241832.00  1300414.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0  7.252503e+05  200545.550250   380071.0   593472.00   661502.0   762626.00  1191651.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  1.262247e+06   21302.491790  1235391.0  1245794.75  1258399.0  1275529.75  1301802.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  1.184638e+06   13768.003707  1143372.0  1186395.00  1190240.5  1191102.25  1191293.0
+volta_sgemm_128x128_tn                                                            13.0  1.263241e+06   20815.025292  1235310.0  1246697.00  1260752.0  1275274.00  1301991.0
+volta_sgemm_128x32_nn                                                             36.0  1.196835e+06   13224.840080  1139600.0  1193990.75  1196721.5  1199459.75  1242972.0
+volta_sgemm_128x32_nt                                                             72.0  1.259773e+06   19702.131838  1232439.0  1243762.00  1256781.0  1275324.50  1304285.0
+volta_sgemm_128x32_tn                                                             24.0  1.257830e+06   19337.899590  1232429.0  1242317.25  1254547.5  1270477.25  1295398.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  1.197101e+06    4287.738678  1179510.0  1195532.50  1196642.0  1198374.25  1209453.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  1.258861e+06   19537.897169  1232803.0  1242968.00  1255691.5  1272440.75  1299082.0
+
+gpgpu_simulation_rate_cycles:
+                                                                                 count        mean        std    min     25%    50%     75%    max
+clean_names                                                                                                                                       
+reduce_kernel<128, 4, …>                                                          98.0  450.510204  12.649310  424.0  441.25  453.0  461.00  468.0
+reduce_kernel<512, 1, MeanOps<…> >                                                48.0  523.041667  20.822408  511.0  514.00  517.0  522.50  622.0
+reduce_kernel<512, 4, …>                                                          75.0  451.413333  12.658822  425.0  442.50  454.0  462.50  469.0
+softmax_warp_backward                                                             12.0  452.333333  12.286973  430.0  444.00  454.5  461.75  468.0
+softmax_warp_forward                                                              12.0  527.000000  27.105853  513.0  514.75  517.5  524.00  610.0
+splitKreduce_kernel                                                               60.0  478.766667  36.449811  427.0  450.75  464.0  513.25  593.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  524.333333  23.090074  512.0  513.75  516.5  521.75  595.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 83.0  524.060241  19.967870  511.0  514.50  518.0  524.50  626.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                 98.0  467.448980  33.099077  425.0  446.00  459.0  468.00  555.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 72.0  485.888889  38.888267  424.0  453.00  468.0  518.00  587.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  451.860000  12.679744  426.0  443.25  455.0  463.00  469.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         178.0  499.842697  37.885316  431.0  462.50  514.0  518.75  626.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           308.0  431.308442  44.324892  388.0  392.00  428.5  460.25  598.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          183.0  416.852459  51.775775  388.0  391.00  393.0  394.00  571.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  451.080000  12.750556  426.0  443.00  454.0  462.00  468.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0  392.959866   9.052701  388.0  391.00  392.0  393.00  474.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  457.451852  24.775927  424.0  443.00  455.0  464.00  572.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0  413.422414  39.653619  388.0  391.00  393.0  433.25  603.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      148.0  391.770270   1.569673  388.0  391.00  392.0  393.00  394.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0  391.898649   2.130887  388.0  391.00  392.0  393.00  410.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  451.226667  12.684928  425.0  442.50  454.0  462.00  469.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  522.750000  14.321789  513.0  514.75  517.5  523.00  564.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   36.0  499.000000  39.223171  427.0  462.25  514.0  519.00  614.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         171.0  409.415205  44.758274  388.0  391.00  392.0  393.00  553.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  450.416667  12.971706  427.0  441.75  453.0  460.50  467.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  524.083333  15.721776  514.0  515.00  518.0  525.00  569.0
+volta_sgemm_128x128_tn                                                            13.0  453.000000  14.148027  427.0  444.00  455.0  463.00  476.0
+volta_sgemm_128x32_nn                                                             36.0  521.750000  20.292680  511.0  513.00  515.0  520.25  616.0
+volta_sgemm_128x32_nt                                                             72.0  451.305556  11.981957  426.0  441.75  453.0  461.25  468.0
+volta_sgemm_128x32_tn                                                             24.0  452.500000  11.894463  430.0  444.00  454.5  462.50  468.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  520.138889  15.488526  511.0  513.00  515.0  520.25  593.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  451.500000  12.093682  427.0  442.50  453.5  462.00  468.0
+
+gpu_tot_ipc:
+                                                                                 count         mean         std        min          25%         50%          75%        max
+clean_names                                                                                                                                                                
+reduce_kernel<128, 4, …>                                                          98.0  2799.047676  125.082375  2632.5032  2690.841875  2770.42335  2887.010025  3073.4709
+reduce_kernel<512, 1, MeanOps<…> >                                                48.0  2273.084365  101.970578  1792.4847  2279.696175  2306.28360  2319.375200  2331.5227
+reduce_kernel<512, 4, …>                                                          75.0  2790.416173  125.555109  2621.8787  2682.437600  2759.47050  2874.772100  3058.9744
+softmax_warp_backward                                                             12.0  2780.751025  120.096743  2633.4849  2686.633350  2757.17540  2856.427450  3006.8828
+softmax_warp_forward                                                              12.0  2258.140958  131.805339  1855.3134  2274.592825  2305.88585  2318.691375  2323.8379
+splitKreduce_kernel                                                               60.0  2590.831160  264.010284  1956.5626  2323.559200  2665.92200  2793.247100  3040.5005
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  2276.326225  106.794620  1948.4242  2290.539775  2314.57345  2324.530300  2328.2639
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 84.0  2258.697619  117.746445  1666.5214  2263.321850  2299.11305  2314.557775  2330.1909
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                 99.0  2664.980214  269.980918  1710.3533  2630.757850  2712.34160  2838.895150  3066.5186
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 73.0  2529.387614  298.673159  1687.9449  2299.412800  2633.10420  2771.018300  3071.7480
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  2785.645884  124.627153  2620.2598  2678.462075  2754.72445  2867.696250  3049.8210
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         179.0  2439.335098  263.918909  1670.5892  2296.234850  2327.10640  2676.428350  2999.4412
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0  2182.835516  557.473846   560.9991  1647.518800  2257.67430  2718.947000  3040.3777
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          184.0  1779.754164  306.211119  1358.3013  1512.652775  1726.86190  1997.518475  2323.3958
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  2793.989888  128.208312  2628.0122  2684.845000  2762.26290  2875.503200  3056.0427
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0  1679.264251  237.373983  1359.1819  1480.435050  1632.73730  1843.586500  2632.6077
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  2747.546842  199.196504  1958.3984  2668.381000  2754.92970  2872.833850  3070.1438
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0  1934.354272  493.163443  1358.4259  1528.471950  1784.17320  2292.825575  3057.5640
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      148.0  1663.342176  211.741718  1358.1661  1478.710900  1629.98085  1824.118750  2088.5393
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0  1665.857270  213.824427  1358.6766  1479.330025  1630.75015  1826.475875  2192.6204
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  2792.791435  126.262620  2623.2378  2684.297750  2761.43460  2877.757200  3063.7815
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  2284.882033   63.461500  2101.8628  2283.910550  2308.99110  2320.117450  2324.5129
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   36.0  2447.466019  275.152667  1828.5736  2295.281700  2317.83360  2686.903100  3041.9297
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0  1747.004205  287.295384  1358.5508  1506.801225  1689.12430  1950.639825  2321.7351
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  2802.575708  129.513515  2644.9258  2701.193550  2776.39995  2883.299850  3047.7551
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  2260.608017   88.442744  2007.0598  2258.608975  2294.59300  2310.006000  2316.7805
+volta_sgemm_128x128_tn                                                            13.0  2789.269700  128.426054  2641.3420  2680.321800  2756.37820  2867.010500  3043.9541
+volta_sgemm_128x32_nn                                                             36.0  2294.900211   91.715915  1847.9136  2301.628750  2322.41140  2333.464100  2340.0784
+volta_sgemm_128x32_nt                                                             72.0  2791.182363  119.844450  2631.3872  2690.380900  2768.25390  2880.064250  3056.8853
+volta_sgemm_128x32_tn                                                             24.0  2779.890246  117.230921  2631.0374  2684.792925  2756.30725  2856.965800  3010.3140
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  2301.324361   64.192348  1988.3385  2300.531750  2321.83190  2328.349825  2337.4797
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  2788.299925  119.556911  2633.3794  2689.558150  2765.17005  2873.246900  3042.1091
+
+gpu_stall_dramfull:
+                                                                                 count           mean           std       min        25%       50%        75%        max
+clean_names                                                                                                                                                             
+reduce_kernel<128, 4, …>                                                          98.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+reduce_kernel<512, 4, …>                                                          75.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+softmax_warp_backward                                                             12.0     124.333333  2.715971e+02       0.0       0.00       0.0      74.00      921.0
+softmax_warp_forward                                                              12.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+splitKreduce_kernel                                                               60.0   32497.066667  1.071057e+04   16982.0   27873.50   28807.0   31546.75    68482.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0     629.172414  9.630162e+02       0.0       0.00       1.0    1582.00     2979.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0     347.320000  5.675660e+02       0.0       0.00       0.0     386.75     2013.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0    1558.783784  9.243372e+02       0.0     839.25    1775.5    2292.50     3124.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0      23.860000  4.953334e+01       0.0       0.00       0.0       0.00      136.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0    6901.705556  2.405950e+04       0.0       0.00       0.0    2487.00   115587.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           307.0  333248.280130  8.712125e+05       0.0       0.00       0.0       0.00  2998522.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          185.0  235804.632432  4.896183e+05       0.0       0.00       0.0       0.00  1363011.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          296.0  133928.567568  2.348779e+05       0.0       0.00       0.0   51190.00   601622.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0   17706.792593  4.796696e+04       0.0       0.00       0.0       7.50   167924.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              808.0  250481.564356  5.165589e+05       0.0       0.00       0.0   16862.75  1659852.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      127.0  503975.188976  1.077498e+06       0.0       0.00       0.0       0.00  3750449.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      147.0  667282.877551  1.167481e+06       0.0       0.00       0.0  185719.00  3011186.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0   53162.108108  7.831593e+04       0.0       0.00       0.0  148816.00   191817.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         172.0  295464.290698  5.774489e+05       0.0       0.00       0.0   31357.25  1544832.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  171485.250000  3.409432e+04  122016.0  150979.50  166710.0  196484.50   228993.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+volta_sgemm_128x128_tn                                                            13.0     678.076923  1.770236e+03       0.0       0.00      48.0     383.00     6461.0
+volta_sgemm_128x32_nn                                                             36.0     738.388889  1.393002e+03       0.0       0.00       0.0     640.75     5224.0
+volta_sgemm_128x32_nt                                                             72.0    3845.208333  5.291473e+03       0.0       0.00    1669.5    5499.75    22546.0
+volta_sgemm_128x32_tn                                                             24.0       0.000000  0.000000e+00       0.0       0.00       0.0       0.00        0.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0     775.500000  1.463824e+03       0.0       0.00     114.5     438.50     5671.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0      56.111111  1.367030e+02       0.0       0.00       0.0      16.25      577.0
+
+gpu_stall_icnt2sh:
+                                                                                 count        mean         std  min  25%  50%  75%     max
+clean_names                                                                                                                               
+reduce_kernel<128, 4, …>                                                          98.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+reduce_kernel<512, 4, …>                                                          75.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+softmax_warp_backward                                                             12.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+softmax_warp_forward                                                              12.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+splitKreduce_kernel                                                               60.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0    0.911111   12.223838  0.0  0.0  0.0  0.0   164.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0    2.582512   31.758286  0.0  0.0  0.0  0.0   757.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      116.0  135.129310  436.081575  0.0  0.0  0.0  0.0  2302.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0   78.770270  305.070240  0.0  0.0  0.0  0.0  2280.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0    4.236994   24.638229  0.0  0.0  0.0  0.0   268.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+volta_sgemm_128x128_tn                                                            13.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+volta_sgemm_128x32_nn                                                             36.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+volta_sgemm_128x32_nt                                                             72.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+volta_sgemm_128x32_tn                                                             24.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0    0.000000    0.000000  0.0  0.0  0.0  0.0     0.0
+
+Stall:
+                                                                                 count          mean           std        min         25%        50%          75%         max
+clean_names                                                                                                                                                                  
+reduce_kernel<128, 4, …>                                                          98.0  4.312827e+03  2.948285e+03     2597.0     2675.50     2703.5      2815.50     11064.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0  1.199980e+04  4.336172e+02    11268.0    11733.50    11933.5     12212.75     13351.0
+reduce_kernel<512, 4, …>                                                          75.0  1.242719e+04  3.519793e+02    11609.0    12182.50    12452.0     12672.00     13163.0
+softmax_warp_backward                                                             12.0  1.104036e+05  1.324237e+03   106976.0   110285.50   110938.5    111180.50    111541.0
+softmax_warp_forward                                                              12.0  2.571624e+05  3.108963e+03   250808.0   256579.25   258060.5    259362.25    260292.0
+splitKreduce_kernel                                                               60.0  2.449712e+05  4.127398e+03   238505.0   240330.75   247481.0    248498.00    249493.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  2.475750e+03  3.621276e+00     2472.0     2473.75     2475.0      2476.00      2486.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0  4.571209e+04  3.946411e+04    29696.0    29934.00    30038.0     30185.00    144469.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  5.619404e+04  4.511323e+03    46090.0    54123.75    57853.0     59646.75     61044.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  8.159299e+04  7.494892e+04    29398.0    29957.00    30231.5    188067.75    191336.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  2.230892e+04  1.087581e+02    22047.0    22254.25    22339.0     22381.25     22540.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0  1.146488e+05  1.582626e+05    21717.0    23106.50    29022.0    208978.25    549447.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           183.0  5.339597e+05  2.548855e+06        8.0    32195.00    34190.0     35909.50  17181955.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>           62.0  2.078428e+05  5.008644e+05        8.0        8.00       12.0    158163.00   1973013.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  2.000000e+01  0.000000e+00       20.0       20.00       20.0        20.00        20.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                           53.0  2.675512e+05  6.251268e+05        2.0       12.00       36.0    381871.00   2759409.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  1.820348e+05  2.130714e+05    32236.0    34127.50    35531.0    348023.00    725756.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              313.0  1.820542e+05  4.645589e+05        8.0       36.00     2256.0    150351.00   2320676.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                       24.0  5.389480e+06  8.789774e+06       60.0       65.00      161.5   7720375.75  21952853.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                       23.0  3.458875e+06  6.529840e+06       12.0       12.00       12.0   1205779.50  17126518.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  2.263747e+03  1.214784e+01     2234.0     2255.00     2263.0      2270.50      2297.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  1.494687e+05  8.717657e+02   148196.0   148746.25   149559.5    150027.50    150890.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  4.411084e+04  6.113620e+04     2285.0     2328.00     2344.0    130439.00    132051.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                          48.0  4.259218e+05  1.206643e+06       11.0       11.00       11.0        12.00   4312452.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  6.327469e+05  1.861020e+05   409996.0   501962.00   602341.5    712146.50    950887.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  1.562448e+05  9.450698e+02   154239.0   155761.75   156246.0    156836.75    157642.0
+volta_sgemm_128x128_tn                                                            12.0  9.644798e+06  1.360498e+04  9623711.0  9638560.25  9644978.5   9652921.25   9665262.0
+volta_sgemm_128x32_nn                                                             36.0  2.995103e+06  3.594753e+06   371367.0   374864.50   605622.0   7974829.00   8049775.0
+volta_sgemm_128x32_nt                                                             72.0  4.242178e+06  3.396349e+06   282484.0   602241.00  4090230.0   8157221.50   8252570.0
+volta_sgemm_128x32_tn                                                             24.0  4.400648e+05  1.012329e+05   335714.0   340869.75   438626.5    538986.75    547562.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  7.170100e+06  3.159491e+06  2736128.0  2771659.75  9301536.0   9416914.00   9476642.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  7.753080e+06  3.344901e+06  3314673.0  3356510.50  8644507.5  11236346.75  11412899.0
+
+Stall_W0_Idle:
+                                                                                 count           mean           std       min        25%       50%        75%        max
+clean_names                                                                                                                                                             
+reduce_kernel<128, 4, …>                                                          98.0   15450.979592  1.086949e+04    8827.0    9442.00    9607.0   10063.00    41066.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0    6789.200000  2.519695e+02    6310.0    6592.00    6750.0    6956.75     7381.0
+reduce_kernel<512, 4, …>                                                          75.0    6799.013333  2.283590e+02    6389.0    6614.00    6783.0    6971.50     7301.0
+softmax_warp_backward                                                             12.0  160148.666667  6.554797e+03  153711.0  155463.50  159425.0  162152.00   176168.0
+softmax_warp_forward                                                              12.0   82651.583333  9.485022e+02   80731.0   82350.50   82598.5   83254.25    84212.0
+splitKreduce_kernel                                                               60.0   96687.200000  5.429855e+03   85254.0   93782.00   95843.5   99896.75   110455.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  131251.833333  2.232393e+02  131062.0  131128.50  131142.5  131288.75   131641.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0   79706.862069  1.006060e+04   72370.0   73357.50   76601.0   79066.50   104869.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0   79670.010000  9.981596e+03   73036.0   73754.00   74159.0   80675.00   110898.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0   90133.283784  1.627469e+04   75055.0   77892.75   80004.5  112131.75   115009.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0   78520.580000  1.270343e+03   75525.0   77380.00   78766.5   79303.00    81811.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0   95019.361111  3.165922e+04   75698.0   78319.75   84313.5   97287.25   226134.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           184.0  128062.228261  1.116630e+05    1372.0   92709.50   98711.0  157635.25   810025.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>           61.0   98529.639344  1.399845e+05    1884.0    1901.00    4194.0  266301.00   324860.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0    2481.760000  1.105909e+02    2441.0    2456.00    2460.0    2469.00     3011.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                           50.0  824238.560000  1.390628e+06     882.0    2978.25    6024.5  548607.75  3577931.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  158619.014815  6.978755e+04   96533.0   98516.00  100335.0  225940.50   277512.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              315.0  149666.955556  1.281303e+05    1360.0   14446.50  109415.0  256718.50   756416.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                       24.0  306642.208333  4.602346e+05    7013.0    7042.75   15186.0  547925.50  1278723.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                       23.0   97771.347826  1.413221e+05    4617.0    4635.00    4650.0  276720.50   399869.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  108505.253333  1.121267e+03  106292.0  107645.50  108537.0  109401.50   110794.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  323720.666667  2.914335e+03  318737.0  321417.75  324315.5  326151.00   327485.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  164035.297297  8.089753e+04  106143.0  108799.00  114867.0  233821.00   379789.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                          48.0   57463.166667  1.342413e+05    2218.0    2235.00    2250.0    4598.00   505878.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  204000.583333  1.475346e+04  182683.0  196171.25  201465.0  210525.25   236199.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  166449.166667  3.440353e+03  162149.0  162969.00  167430.5  168167.00   171947.0
+volta_sgemm_128x128_tn                                                            13.0  652620.846154  2.398313e+05  534038.0  571386.00  589054.0  604883.00  1446255.0
+volta_sgemm_128x32_nn                                                             36.0   80135.500000  6.936747e+04   22863.0   26696.50   38815.5  173400.00   181958.0
+volta_sgemm_128x32_nt                                                             72.0   52114.388889  2.973347e+04   18280.0   26102.25   45611.5   74693.50   130220.0
+volta_sgemm_128x32_tn                                                             24.0   42003.083333  5.174331e+03   34101.0   37002.75   43430.0   45734.25    53320.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  169656.861111  9.865109e+04   76861.0   82240.25  124568.5  289918.00   327069.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  167573.555556  7.455772e+04   73030.0   80529.50  169023.0  240344.25   293572.0
+
+Stall_W0_Scoreboard:
+                                                                                 count          mean           std       min        25%       50%         75%          max
+clean_names                                                                                                                                                               
+reduce_kernel<128, 4, …>                                                          98.0  1.062896e+05  8.236797e+04   59477.0   60137.00   61075.0    80724.00     292752.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0  4.231292e+04  4.888280e+02   41456.0   42005.50   42252.0    42555.00      43712.0
+reduce_kernel<512, 4, …>                                                          75.0  4.252423e+04  3.827829e+02   41666.0   42205.00   42526.0    42797.50      43492.0
+softmax_warp_backward                                                             12.0  1.686404e+05  2.600872e+03  164043.0  167075.25  168629.0   170046.50     172967.0
+softmax_warp_forward                                                              12.0  2.571363e+05  1.634350e+03  255081.0  256443.00  257053.5   257740.75     261303.0
+splitKreduce_kernel                                                               60.0  7.211465e+05  1.279461e+05  529932.0  622910.25  638919.5   848893.25     982604.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0  7.206475e+04  6.503303e+01   71994.0   72026.75   72051.5    72066.50      72210.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0  3.091334e+05  1.804861e+05  178754.0  197693.00  198696.0   549162.00     638784.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  2.475557e+05  6.852071e+04  206637.0  207410.00  208245.5   245474.75     441085.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  4.584747e+05  2.021925e+05  165191.0  173808.75  577005.0   595200.75     687567.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  1.383836e+05  6.521001e+03  133040.0  133168.50  134498.5   142278.50     151476.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0  2.359865e+05  1.501737e+05    9698.0  136620.50  189089.0   224786.00     594374.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           184.0  2.906748e+05  2.988831e+05     485.0  174919.25  213661.0   408929.00    1627068.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>           61.0  6.009990e+05  1.859055e+06     646.0     649.00    1500.0   211436.00    7714395.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  1.033240e+03  3.733216e+01    1022.0    1023.00    1026.0     1027.00       1212.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                           53.0  5.956780e+05  2.131492e+06      54.0     203.00     214.0   236094.00    9215042.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  3.468780e+05  1.967709e+05  172604.0  178324.50  257059.0   420652.50     833327.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              314.0  1.012432e+06  6.007918e+06     482.0    4954.50  133116.0   231449.50  102206265.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                       24.0  5.599172e+05  8.571653e+05    3727.0    3742.75    7899.5  1037314.25    2147137.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                       23.0  3.047084e+05  5.051146e+05    1807.0    1831.00    1848.0   452191.00    1252553.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  1.327106e+05  9.696769e+02  130889.0  131968.50  132699.0   133330.50     134930.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0  2.106390e+05  2.956592e+03  206033.0  208764.50  211876.0   212680.50     214141.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0  4.580125e+05  4.765350e+05  132087.0  134358.00  135011.0  1058267.00    1293651.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                          48.0  4.923080e+05  1.470970e+06     888.0     893.00     901.5     1574.50    5299275.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  9.959872e+05  5.836375e+04  914864.0  947198.00  987654.0  1038392.50    1102459.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0  1.501001e+05  2.170229e+03  147444.0  148334.00  149864.0   151152.25     154875.0
+volta_sgemm_128x128_tn                                                            13.0  5.904718e+05  9.977934e+04  311922.0  555968.00  605449.0   644118.00     716668.0
+volta_sgemm_128x32_nn                                                             36.0  1.794160e+05  4.044063e+04  127580.0  152126.75  155581.0   232246.50     240814.0
+volta_sgemm_128x32_nt                                                             72.0  4.988200e+05  1.269178e+05  286902.0  431003.00  509070.0   552945.75     849509.0
+volta_sgemm_128x32_tn                                                             24.0  4.233828e+05  8.193772e+04  321301.0  332018.00  444556.5   500097.25     516350.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0  2.489811e+05  2.698375e+05   24384.0   26907.25   99967.0   582597.25     761394.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  2.369656e+05  1.552634e+05   71092.0   78538.00  200436.0   374516.00     502887.0
+
+max_icnt2mem_latency:
+                                                                                 count          mean           std      min       25%      50%      75%      max
+clean_names                                                                                                                                                     
+reduce_kernel<128, 4, …>                                                          98.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0   2362.000000    486.808096    537.0   1911.00   2618.0   2618.0   2618.0
+reduce_kernel<512, 4, …>                                                          75.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+softmax_warp_backward                                                             12.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+softmax_warp_forward                                                              12.0   2419.083333    365.763574   1645.0   2441.25   2618.0   2618.0   2618.0
+splitKreduce_kernel                                                               60.0  15602.616667  10841.366211   1834.0   2618.00  24379.0  24379.0  24379.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0   2419.083333    365.763574   1645.0   2441.25   2618.0   2618.0   2618.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0   2382.609195    432.346393    537.0   1911.00   2618.0   2618.0   2618.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0  18874.750000   9584.729269    537.0  18938.75  24379.0  24379.0  24379.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0  13394.729730  11061.982075   1645.0   2618.00  13498.5  24379.0  24379.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0   9742.633333  10382.072128   1645.0   2618.00   2618.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0  21745.737864   7152.828198    537.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0  19876.204301   8913.420176    537.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0  24346.558528    560.965484  14679.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0  22428.977778   6267.038840   1911.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0  22757.328818   5745.330117   1645.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      148.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0   2441.250000    319.752781   1911.0   2441.25   2618.0   2618.0   2618.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0   9502.648649  10456.520553    537.0   2618.00   2618.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0  21197.352601   7765.927002    537.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0   2441.250000    319.752781   1911.0   2441.25   2618.0   2618.0   2618.0
+volta_sgemm_128x128_tn                                                            13.0  22705.076923   6035.415485   2618.0  24379.00  24379.0  24379.0  24379.0
+volta_sgemm_128x32_nn                                                             36.0   2419.083333    355.159471   1645.0   2441.25   2618.0   2618.0   2618.0
+volta_sgemm_128x32_nt                                                             72.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+volta_sgemm_128x32_tn                                                             24.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0   2436.972222    318.411099   1834.0   2441.25   2618.0   2618.0   2618.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0  24379.000000      0.000000  24379.0  24379.00  24379.0  24379.0  24379.0
+
+average_mflatency:
+                                                                                 count         mean         std     min      25%     50%      75%     max
+clean_names                                                                                                                                              
+reduce_kernel<128, 4, …>                                                          98.0   495.367347   12.079964   479.0   485.00   492.0   504.00   521.0
+reduce_kernel<512, 1, MeanOps<…> >                                                50.0   444.260000   38.233872   274.0   452.25   456.0   458.00   462.0
+reduce_kernel<512, 4, …>                                                          75.0   495.546667   12.314892   479.0   485.00   492.0   503.00   520.0
+softmax_warp_backward                                                             12.0   495.166667   12.104344   480.0   485.50   493.0   503.00   518.0
+softmax_warp_forward                                                              12.0   440.500000   35.917836   328.0   448.50   452.5   454.25   456.0
+splitKreduce_kernel                                                               60.0   478.133333   26.823634   363.0   458.00   484.0   497.00   522.0
+unrolled_elementwise_kernel<AUnaryFunctor<AddFunctor<float> >, _>                 12.0   441.666667   34.657633   333.0   449.50   453.0   455.00   456.0
+unrolled_elementwise_kernel<AddFunctor<float>, _>                                 87.0   444.494253   35.266386   267.0   451.00   455.0   458.00   461.0
+unrolled_elementwise_kernel<DivFunctor<float>, _>                                100.0   482.470000   33.077031   261.0   474.25   487.0   499.00   521.0
+unrolled_elementwise_kernel<MulFunctor<float>, _>                                 74.0   470.040541   35.427502   323.0   455.00   470.0   492.75   521.0
+unrolled_elementwise_kernel<MulScalarFunctor<float, float>, _>                    50.0   495.480000   12.329225   479.0   485.00   492.0   503.00   520.0
+unrolled_elementwise_kernel<copy_device_to_device(…), _>                         180.0   461.550000   34.800994   322.0   452.00   456.0   484.50   518.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>                           309.0  1235.375405  796.609655   312.0   487.00   519.0  2057.00  2348.0
+vectorized_elementwise_kernel<4, BUnaryFunctor<AddFunctor<float>,_>, _>          186.0  1725.677419  676.830901   267.0  1692.00  1991.0  2199.00  2348.0
+vectorized_elementwise_kernel<4, DivFunctor<float>, _>                            25.0   495.640000   12.482922   479.0   485.00   492.0   503.00   520.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>                          299.0  2031.943144  267.278605   479.0  1884.50  2091.0  2233.00  2348.0
+vectorized_elementwise_kernel<4, MulFunctor<float>, _>                           135.0   492.074074   16.707148   436.0   483.00   491.0   503.00   521.0
+vectorized_elementwise_kernel<4, MulScalarFunctor<float, float>, _>              812.0  1625.502463  720.677415   333.0   514.00  1936.0  2189.00  2348.0
+vectorized_elementwise_kernel<4, addcdiv_cuda_kernel(…), _>                      148.0  2056.621622  200.517270  1667.0  1910.00  2091.0  2233.00  2348.0
+vectorized_elementwise_kernel<4, addcmul_cuda_kernel(…), _>                      148.0  2052.898649  206.045723  1378.0  1907.50  2091.0  2233.00  2348.0
+vectorized_elementwise_kernel<4, neg_kernel_cuda(…), _>                           75.0   495.626667   12.337345   479.0   485.00   492.0   503.50   521.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _>             12.0   446.166667   16.862186   395.0   448.50   452.0   454.00   455.0
+vectorized_elementwise_kernel<4, pow_tensor_scalar_kernel_impl(…), _> (float#3)   37.0   461.216216   41.288373   280.0   454.00   458.0   485.00   521.0
+vectorized_elementwise_kernel<4, sqrt_kernel_cuda(…), _>                         173.0  1820.895954  598.820974   267.0  1778.00  2036.0  2200.00  2348.0
+vectorized_elementwise_kernel<4, tanh_backward_kernel_cuda(…), _>                 12.0   496.416667   12.652404   481.0   486.50   494.0   504.25   520.0
+vectorized_elementwise_kernel<4, tanh_kernel_cuda(…), _>                          12.0   451.166667   10.232154   420.0   452.75   454.5   456.00   457.0
+volta_sgemm_128x128_tn                                                            13.0   491.692308   18.535482   445.0   484.00   491.0   503.00   519.0
+volta_sgemm_128x32_nn                                                             36.0   441.361111   34.597401   323.0   449.75   453.0   455.00   456.0
+volta_sgemm_128x32_nt                                                             72.0   494.972222   11.666700   479.0   485.00   492.5   503.25   519.0
+volta_sgemm_128x32_tn                                                             24.0   495.041667   11.782371   480.0   485.50   492.5   503.00   518.0
+volta_sgemm_64x32_sliced1x4_nn                                                    36.0   447.527778   21.789232   355.0   449.75   453.5   458.00   461.0
+volta_sgemm_64x32_sliced1x4_tn                                                    36.0   496.000000   11.880356   480.0   485.75   493.5   505.00   522.0
+

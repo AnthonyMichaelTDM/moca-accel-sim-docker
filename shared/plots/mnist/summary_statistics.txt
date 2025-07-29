@@ -1,0 +1,494 @@
+gpu_tot_sim_insn:
+                                                               count          mean           std        min         25%        50%         75%         max
+clean_names                                                                                                                                               
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0  6.160000e+02  0.000000e+00      616.0      616.00      616.0       616.0       616.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0  6.330000e+02  0.000000e+00      633.0      633.00      633.0       633.0       633.0
+dot_kernel                                                       2.0  1.306400e+06  0.000000e+00  1306400.0  1306400.00  1306400.0   1306400.0   1306400.0
+gemmk1_kernel                                                    6.0  6.598336e+06  5.207748e+06   312384.0  2153264.00  7675904.0  10774016.0  11806720.0
+gemv2T_kernel_val                                                4.0  2.707456e+06  7.993114e+05  2015232.0  2015232.00  2707456.0   3399680.0   3399680.0
+gemvNSP_kernel                                                   4.0  4.044800e+06  3.797912e+06   755712.0   755712.00  4044800.0   7333888.0   7333888.0
+reduce_1Block_kernel                                             2.0  4.062000e+04  0.000000e+00    40620.0    40620.00    40620.0     40620.0     40620.0
+reduce_kernel<128, 4, …>                                         4.0  2.444800e+04  0.000000e+00    24448.0    24448.00    24448.0     24448.0     24448.0
+reduce_kernel<256, 2, …>                                         2.0  9.810000e+02  0.000000e+00      981.0      981.00      981.0       981.0       981.0
+softmax_warp_backward                                            2.0  5.028000e+03  0.000000e+00     5028.0     5028.00     5028.0      5028.0      5028.0
+softmax_warp_forward                                             2.0  1.061400e+04  0.000000e+00    10614.0    10614.00    10614.0     10614.0     10614.0
+splitKreduce_kernel                                              2.0  5.119800e+04  0.000000e+00    51198.0    51198.00    51198.0     51198.0     51198.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  5.862010e+05  8.684805e+05     1302.0     2688.00    14784.0   1376256.0   2107392.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0  3.141465e+05  5.907753e+05      583.0      630.25     1920.0    260160.0   1505280.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0  2.641333e+03  8.252054e+02     1524.0     1524.00     3200.0      3200.0      3200.0
+
+gpgpu_simulation_time:
+                                                               count       mean       std   min    25%   50%    75%   max
+clean_names                                                                                                              
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0   5.000000  0.000000   5.0   5.00   5.0   5.00   5.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0   5.000000  0.000000   5.0   5.00   5.0   5.00   5.0
+dot_kernel                                                       2.0   6.000000  0.000000   6.0   6.00   6.0   6.00   6.0
+gemmk1_kernel                                                    6.0  10.166667  4.490731   5.0   6.25  10.5  14.00  15.0
+gemv2T_kernel_val                                                4.0  14.250000  2.986079  11.0  12.50  14.0  15.75  18.0
+gemvNSP_kernel                                                   4.0  10.000000  4.618802   6.0   6.00  10.0  14.00  14.0
+reduce_1Block_kernel                                             2.0   5.000000  0.000000   5.0   5.00   5.0   5.00   5.0
+reduce_kernel<128, 4, …>                                         4.0   4.750000  0.500000   4.0   4.75   5.0   5.00   5.0
+reduce_kernel<256, 2, …>                                         2.0   4.500000  0.707107   4.0   4.25   4.5   4.75   5.0
+softmax_warp_backward                                            2.0   4.000000  0.000000   4.0   4.00   4.0   4.00   4.0
+softmax_warp_forward                                             2.0   4.000000  0.000000   4.0   4.00   4.0   4.00   4.0
+splitKreduce_kernel                                              2.0   5.000000  0.000000   5.0   5.00   5.0   5.00   5.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  10.000000  9.260924   4.0   4.00   5.0  13.00  32.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0   5.000000  1.927248   4.0   4.00   4.0   4.75   9.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0   4.166667  0.389249   4.0   4.00   4.0   4.00   5.0
+
+gpu_tot_sim_cycle:
+                                                               count         mean          std     min      25%     50%       75%      max
+clean_names                                                                                                                               
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0  6072.000000     4.242641  6069.0  6070.50  6072.0   6073.50   6075.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0  6481.000000    89.095454  6418.0  6449.50  6481.0   6512.50   6544.0
+dot_kernel                                                       2.0  6052.500000    96.873629  5984.0  6018.25  6052.5   6086.75   6121.0
+gemmk1_kernel                                                    6.0  6995.166667   963.778692  5818.0  6167.75  7236.5   7715.00   7994.0
+gemv2T_kernel_val                                                4.0  9761.250000  1444.680443  8287.0  8834.50  9577.5  10504.25  11603.0
+gemvNSP_kernel                                                   4.0  7517.500000   900.707315  6733.0  6739.75  7515.0   8292.75   8307.0
+reduce_1Block_kernel                                             2.0  6064.500000     0.707107  6064.0  6064.25  6064.5   6064.75   6065.0
+reduce_kernel<128, 4, …>                                         4.0  6160.500000     2.516611  6158.0  6159.50  6160.0   6161.00   6164.0
+reduce_kernel<256, 2, …>                                         2.0  5791.000000    14.142136  5781.0  5786.00  5791.0   5796.00   5801.0
+softmax_warp_backward                                            2.0  5740.000000    28.284271  5720.0  5730.00  5740.0   5750.00   5760.0
+softmax_warp_forward                                             2.0  5959.500000     0.707107  5959.0  5959.25  5959.5   5959.75   5960.0
+splitKreduce_kernel                                              2.0  5980.000000     4.242641  5977.0  5978.50  5980.0   5981.50   5983.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  7049.555556  2417.510417  5467.0  5563.00  5671.0   7773.25  13137.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0  5535.875000   523.755788  5242.0  5248.50  5274.0   5492.75   6592.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0  5534.250000    41.213689  5478.0  5525.00  5527.5   5534.00   5617.0
+
+L2_cache_global_read_hit:
+                                                               count          mean           std     min      25%      50%       75%       max
+clean_names                                                                                                                                   
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      2.000000      0.000000     2.0     2.00      2.0      2.00       2.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      1.500000      0.707107     1.0     1.25      1.5      1.75       2.0
+dot_kernel                                                       2.0    640.000000    452.548340   320.0   480.00    640.0    800.00     960.0
+gemmk1_kernel                                                    6.0   1495.500000   1326.938695    96.0   408.00   1344.0   2529.75    3168.0
+gemv2T_kernel_val                                                4.0  25848.750000  25362.615709  4096.0  5462.50  21423.0  41809.25   56453.0
+gemvNSP_kernel                                                   4.0  17264.000000  19158.791333   672.0   672.00  17264.0  33856.00   33856.0
+reduce_1Block_kernel                                             2.0     24.000000      0.000000    24.0    24.00     24.0     24.00      24.0
+reduce_kernel<128, 4, …>                                         4.0     64.000000      0.000000    64.0    64.00     64.0     64.00      64.0
+reduce_kernel<256, 2, …>                                         2.0      2.000000      0.000000     2.0     2.00      2.0      2.00       2.0
+softmax_warp_backward                                            2.0      1.500000      0.707107     1.0     1.25      1.5      1.75       2.0
+softmax_warp_forward                                             2.0      1.000000      0.000000     1.0     1.00      1.0      1.00       1.0
+splitKreduce_kernel                                              2.0    320.000000      0.000000   320.0   320.00    320.0    320.00     320.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  20700.111111  33627.759419     0.0    19.00    128.0  41063.00  100352.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0      0.000000      0.000000     0.0     0.00      0.0      0.00       0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0     64.833333     53.517768     2.0     3.00     64.0    128.00     128.0
+
+L2_cache_global_read_total_access:
+                                                               count          mean           std      min      25%      50%      75%       max
+clean_names                                                                                                                                   
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      3.000000      0.000000      3.0      3.0      3.0      3.0       3.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      3.000000      0.000000      3.0      3.0      3.0      3.0       3.0
+dot_kernel                                                       2.0    960.000000      0.000000    960.0    960.0    960.0    960.0     960.0
+gemmk1_kernel                                                    6.0   1536.000000   1381.866564     96.0    408.0   1344.0   2712.0    3168.0
+gemv2T_kernel_val                                                4.0  46720.000000  11306.827672  36928.0  36928.0  46720.0  56512.0   56512.0
+gemvNSP_kernel                                                   4.0  17264.000000  19158.791333    672.0    672.0  17264.0  33856.0   33856.0
+reduce_1Block_kernel                                             2.0     30.000000      0.000000     30.0     30.0     30.0     30.0      30.0
+reduce_kernel<128, 4, …>                                         4.0     64.000000      0.000000     64.0     64.0     64.0     64.0      64.0
+reduce_kernel<256, 2, …>                                         2.0      2.000000      0.000000      2.0      2.0      2.0      2.0       2.0
+softmax_warp_backward                                            2.0      4.000000      0.000000      4.0      4.0      4.0      4.0       4.0
+softmax_warp_forward                                             2.0      2.000000      0.000000      2.0      2.0      2.0      2.0       2.0
+splitKreduce_kernel                                              2.0    320.000000      0.000000    320.0    320.0    320.0    320.0     320.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  27904.666667  41363.111983      4.0    128.0    704.0  65536.0  100352.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0     65.000000     53.308706      2.0      4.0     64.0    128.0     128.0
+
+L2_cache_global_write_hit:
+                                                               count          mean           std    min    25%    50%      75%      max
+clean_names                                                                                                                            
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      1.000000      0.000000    1.0    1.0    1.0      1.0      1.0
+dot_kernel                                                       2.0    150.000000     14.142136  140.0  145.0  150.0    155.0    160.0
+gemmk1_kernel                                                    6.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+gemv2T_kernel_val                                                4.0    256.000000      0.000000  256.0  256.0  256.0    256.0    256.0
+gemvNSP_kernel                                                   4.0     81.000000    159.336123    0.0    1.5    2.0     81.5    320.0
+reduce_1Block_kernel                                             2.0     10.000000      0.000000   10.0   10.0   10.0     10.0     10.0
+reduce_kernel<128, 4, …>                                         4.0    252.500000      7.000000  242.0  252.5  256.0    256.0    256.0
+reduce_kernel<256, 2, …>                                         2.0      4.000000      0.000000    4.0    4.0    4.0      4.0      4.0
+softmax_warp_backward                                            2.0      1.000000      0.000000    1.0    1.0    1.0      1.0      1.0
+softmax_warp_forward                                             2.0      1.000000      1.414214    0.0    0.5    1.0      1.5      2.0
+splitKreduce_kernel                                              2.0     64.000000      0.000000   64.0   64.0   64.0     64.0     64.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  13952.333333  20681.555992    2.0   64.0  352.0  32768.0  50176.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0  10464.250000  19696.940921    0.0    1.5   64.0   8672.0  50176.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0     32.333333     33.082083    0.0    0.0   33.0     64.0     64.0
+
+L2_cache_global_write_total_access:
+                                                               count          mean           std    min      25%      50%      75%      max
+clean_names                                                                                                                                
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      1.000000      0.000000    1.0     1.00      1.0      1.0      1.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      3.000000      0.000000    3.0     3.00      3.0      3.0      3.0
+dot_kernel                                                       2.0    160.000000      0.000000  160.0   160.00    160.0    160.0    160.0
+gemmk1_kernel                                                    6.0  27861.333333  22476.838876  640.0  8672.00  32768.0  45824.0  50176.0
+gemv2T_kernel_val                                                4.0    256.000000      0.000000  256.0   256.00    256.0    256.0    256.0
+gemvNSP_kernel                                                   4.0    192.000000    147.801669   64.0    64.00    192.0    320.0    320.0
+reduce_1Block_kernel                                             2.0     10.000000      0.000000   10.0    10.00     10.0     10.0     10.0
+reduce_kernel<128, 4, …>                                         4.0    256.000000      0.000000  256.0   256.00    256.0    256.0    256.0
+reduce_kernel<256, 2, …>                                         2.0      4.000000      0.000000    4.0     4.00      4.0      4.0      4.0
+softmax_warp_backward                                            2.0      2.000000      0.000000    2.0     2.00      2.0      2.0      2.0
+softmax_warp_forward                                             2.0      2.000000      0.000000    2.0     2.00      2.0      2.0      2.0
+splitKreduce_kernel                                              2.0     64.000000      0.000000   64.0    64.00     64.0     64.0     64.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  13952.333333  20681.555992    2.0    64.00    352.0  32768.0  50176.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0  10464.500000  19696.789136    1.0     1.75     64.0   8672.0  50176.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0     43.333333     30.526690    2.0     2.00     64.0     64.0     64.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_R_TOTAL_ACCESS:
+                                                               count          mean           std      min      25%      50%      75%       max
+clean_names                                                                                                                                   
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      3.000000      0.000000      3.0      3.0      3.0      3.0       3.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      3.000000      0.000000      3.0      3.0      3.0      3.0       3.0
+dot_kernel                                                       2.0   1280.000000      0.000000   1280.0   1280.0   1280.0   1280.0    1280.0
+gemmk1_kernel                                                    6.0   1770.666667   1390.534094     96.0    584.0   2048.0   2888.0    3168.0
+gemv2T_kernel_val                                                4.0  46912.000000  11306.827672  37120.0  37120.0  46912.0  56704.0   56704.0
+gemvNSP_kernel                                                   4.0  20880.000000  23186.386811    800.0    800.0  20880.0  40960.0   40960.0
+reduce_1Block_kernel                                             2.0     30.000000      0.000000     30.0     30.0     30.0     30.0      30.0
+reduce_kernel<128, 4, …>                                         4.0     64.000000      0.000000     64.0     64.0     64.0     64.0      64.0
+reduce_kernel<256, 2, …>                                         2.0      2.000000      0.000000      2.0      2.0      2.0      2.0       2.0
+softmax_warp_backward                                            2.0      4.000000      0.000000      4.0      4.0      4.0      4.0       4.0
+softmax_warp_forward                                             2.0      2.000000      0.000000      2.0      2.0      2.0      2.0       2.0
+splitKreduce_kernel                                              2.0    320.000000      0.000000    320.0    320.0    320.0    320.0     320.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  27904.666667  41363.111983      4.0    128.0    704.0  65536.0  100352.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0      0.000000      0.000000      0.0      0.0      0.0      0.0       0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0     86.666667     61.053380      4.0      4.0    128.0    128.0     128.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_R_HIT:
+                                                               count    mean         std   min   25%    50%     75%     max
+clean_names                                                                                                                
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+dot_kernel                                                       2.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+gemmk1_kernel                                                    6.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+gemv2T_kernel_val                                                4.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+gemvNSP_kernel                                                   4.0  513.75  568.760275  16.0  25.0  497.0  985.75  1045.0
+reduce_1Block_kernel                                             2.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+reduce_kernel<128, 4, …>                                         4.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+reduce_kernel<256, 2, …>                                         2.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+softmax_warp_backward                                            2.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+softmax_warp_forward                                             2.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+splitKreduce_kernel                                              2.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0    0.00    0.000000   0.0   0.0    0.0    0.00     0.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_W_HIT:
+                                                               count          mean           std    min    25%    50%      75%      max
+clean_names                                                                                                                            
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      1.000000      0.000000    1.0    1.0    1.0      1.0      1.0
+dot_kernel                                                       2.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+gemmk1_kernel                                                    6.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+gemv2T_kernel_val                                                4.0    256.000000      0.000000  256.0  256.0  256.0    256.0    256.0
+gemvNSP_kernel                                                   4.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+reduce_1Block_kernel                                             2.0     10.000000      0.000000   10.0   10.0   10.0     10.0     10.0
+reduce_kernel<128, 4, …>                                         4.0    192.000000      0.000000  192.0  192.0  192.0    192.0    192.0
+reduce_kernel<256, 2, …>                                         2.0      2.000000      0.000000    2.0    2.0    2.0      2.0      2.0
+softmax_warp_backward                                            2.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+softmax_warp_forward                                             2.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+splitKreduce_kernel                                              2.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  13952.333333  20681.555992    2.0   64.0  352.0  32768.0  50176.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0      0.000000      0.000000    0.0    0.0    0.0      0.0      0.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_W_TOTAL_ACCESS:
+                                                               count          mean           std    min      25%      50%      75%      max
+clean_names                                                                                                                                
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      1.000000      0.000000    1.0     1.00      1.0      1.0      1.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      3.000000      0.000000    3.0     3.00      3.0      3.0      3.0
+dot_kernel                                                       2.0    160.000000      0.000000  160.0   160.00    160.0    160.0    160.0
+gemmk1_kernel                                                    6.0  27861.333333  22476.838876  640.0  8672.00  32768.0  45824.0  50176.0
+gemv2T_kernel_val                                                4.0    256.000000      0.000000  256.0   256.00    256.0    256.0    256.0
+gemvNSP_kernel                                                   4.0    192.000000    147.801669   64.0    64.00    192.0    320.0    320.0
+reduce_1Block_kernel                                             2.0     10.000000      0.000000   10.0    10.00     10.0     10.0     10.0
+reduce_kernel<128, 4, …>                                         4.0    256.000000      0.000000  256.0   256.00    256.0    256.0    256.0
+reduce_kernel<256, 2, …>                                         2.0      4.000000      0.000000    4.0     4.00      4.0      4.0      4.0
+softmax_warp_backward                                            2.0      2.000000      0.000000    2.0     2.00      2.0      2.0      2.0
+softmax_warp_forward                                             2.0      2.000000      0.000000    2.0     2.00      2.0      2.0      2.0
+splitKreduce_kernel                                              2.0     64.000000      0.000000   64.0    64.00     64.0     64.0     64.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  13952.333333  20681.555992    2.0    64.00    352.0  32768.0  50176.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0  10464.500000  19696.789136    1.0     1.75     64.0   8672.0  50176.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0     43.333333     30.526690    2.0     2.00     64.0     64.0     64.0
+
+Total_core_cache_stats_breakdown_GLOBAL_ACC_R_MSHR_HIT:
+                                                               count         mean          std    min    25%     50%      75%     max
+clean_names                                                                                                                          
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+dot_kernel                                                       2.0   320.000000     0.000000  320.0  320.0   320.0   320.00   320.0
+gemmk1_kernel                                                    6.0   234.666667   363.544037    0.0    0.0     0.0   528.00   704.0
+gemv2T_kernel_val                                                4.0   192.000000     0.000000  192.0  192.0   192.0   192.00   192.0
+gemvNSP_kernel                                                   4.0  3102.250000  3459.925276  100.0  109.0  3085.5  6078.75  6138.0
+reduce_1Block_kernel                                             2.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+reduce_kernel<128, 4, …>                                         4.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+reduce_kernel<256, 2, …>                                         2.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+softmax_warp_backward                                            2.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+softmax_warp_forward                                             2.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+splitKreduce_kernel                                              2.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0     0.000000     0.000000    0.0    0.0     0.0     0.00     0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0    21.666667    31.273961    0.0    0.0     1.0    64.00    64.0
+
+gpgpu_n_tot_w_icount:
+                                                               count           mean            std      min      25%       50%       75%       max
+clean_names                                                                                                                                       
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      68.000000       0.000000     68.0     68.0      68.0      68.0      68.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0     184.000000       0.000000    184.0    184.0     184.0     184.0     184.0
+dot_kernel                                                       2.0   58720.000000       0.000000  58720.0  58720.0   58720.0   58720.0   58720.0
+gemmk1_kernel                                                    6.0  235626.666667  186545.846095  11504.0  76468.0  271360.0  385852.0  424016.0
+gemv2T_kernel_val                                                4.0   99104.000000   28710.474186  74240.0  74240.0   99104.0  123968.0  123968.0
+gemvNSP_kernel                                                   4.0  165800.000000  150360.485306  35584.0  35584.0  165800.0  296016.0  296016.0
+reduce_1Block_kernel                                             2.0    2260.000000       0.000000   2260.0   2260.0    2260.0    2260.0    2260.0
+reduce_kernel<128, 4, …>                                         4.0     820.000000       0.000000    820.0    820.0     820.0     820.0     820.0
+reduce_kernel<256, 2, …>                                         2.0     321.000000       0.000000    321.0    321.0     321.0     321.0     321.0
+softmax_warp_backward                                            2.0     219.000000       0.000000    219.0    219.0     219.0     219.0     219.0
+softmax_warp_forward                                             2.0     383.000000       0.000000    383.0    383.0     383.0     383.0     383.0
+splitKreduce_kernel                                              2.0    1904.000000       0.000000   1904.0   1904.0    1904.0    1904.0    1904.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0   20066.000000   29722.944174     60.0     92.0     506.0   47104.0   72128.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0   11128.500000   20921.790083     28.0     28.0      68.0    9214.0   53312.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0      95.666667      18.217541     71.0     71.0     108.0     108.0     108.0
+
+total_dram_reads:
+                                                               count          mean           std  min     25%      50%       75%      max
+clean_names                                                                                                                              
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      1.000000      0.000000  1.0    1.00      1.0      1.00      1.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      1.500000      0.707107  1.0    1.25      1.5      1.75      2.0
+dot_kernel                                                       2.0    320.000000    452.548340  0.0  160.00    320.0    480.00    640.0
+gemmk1_kernel                                                    6.0     10.666667     26.127891  0.0    0.00      0.0      0.00     64.0
+gemv2T_kernel_val                                                4.0  20807.250000  25033.919248  0.0   44.25  16445.5  37208.50  50338.0
+gemvNSP_kernel                                                   4.0      0.000000      0.000000  0.0    0.00      0.0      0.00      0.0
+reduce_1Block_kernel                                             2.0      2.000000      0.000000  2.0    2.00      2.0      2.00      2.0
+reduce_kernel<128, 4, …>                                         4.0      0.000000      0.000000  0.0    0.00      0.0      0.00      0.0
+reduce_kernel<256, 2, …>                                         2.0      0.000000      0.000000  0.0    0.00      0.0      0.00      0.0
+softmax_warp_backward                                            2.0      2.500000      0.707107  2.0    2.25      2.5      2.75      3.0
+softmax_warp_forward                                             2.0      1.000000      0.000000  1.0    1.00      1.0      1.00      1.0
+splitKreduce_kernel                                              2.0      0.000000      0.000000  0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0   7204.555556  17094.636377  0.0    0.00      3.0    112.00  52304.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0      0.000000      0.000000  0.0    0.00      0.0      0.00      0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0      0.166667      0.389249  0.0    0.00      0.0      0.00      1.0
+
+total_dram_writes:
+                                                               count         mean           std  min  25%    50%      75%      max
+clean_names                                                                                                                       
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+dot_kernel                                                       2.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+gemmk1_kernel                                                    6.0  7421.666667  16029.062326  0.0  0.0    0.0  3454.50  39924.0
+gemv2T_kernel_val                                                4.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+gemvNSP_kernel                                                   4.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+reduce_1Block_kernel                                             2.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+reduce_kernel<128, 4, …>                                         4.0  2667.750000   5106.135941  0.0  0.0  174.0  2841.75  10323.0
+reduce_kernel<256, 2, …>                                         2.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+softmax_warp_backward                                            2.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+softmax_warp_forward                                             2.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+splitKreduce_kernel                                              2.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  7191.277778  17081.403964  0.0  0.0    0.0   112.00  52204.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0     0.000000      0.000000  0.0  0.0    0.0     0.00      0.0
+
+gpu_ipc:
+                                                               count        mean         std       min         25%         50%          75%        max
+clean_names                                                                                                                                           
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0    0.101450    0.000071    0.1014    0.101425     0.10145     0.101475     0.1015
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0    0.097650    0.001344    0.0967    0.097175     0.09765     0.098125     0.0986
+dot_kernel                                                       2.0  215.872350    3.455136  213.4292  214.650775   215.87235   217.093925   218.3155
+gemmk1_kernel                                                    6.0  867.762683  659.053990   53.6835  304.627700  1060.73075  1373.718050  1500.7906
+gemv2T_kernel_val                                                4.0  273.753200   50.412560  223.4925  238.258050   268.09000   303.585150   335.3403
+gemvNSP_kernel                                                   4.0  498.016725  445.543849  112.0902  112.202550   497.54820   883.362375   884.8803
+reduce_1Block_kernel                                             2.0    6.697950    0.000778    6.6974    6.697675     6.69795     6.698225     6.6985
+reduce_kernel<128, 4, …>                                         4.0    3.968500    0.001590    3.9663    3.968175     3.96880     3.969125     3.9701
+reduce_kernel<256, 2, …>                                         2.0    0.169400    0.000424    0.1691    0.169250     0.16940     0.169550     0.1697
+softmax_warp_backward                                            2.0    0.875950    0.004313    0.8729    0.874425     0.87595     0.877475     0.8790
+softmax_warp_forward                                             2.0    1.781050    0.000212    1.7809    1.780975     1.78105     1.781125     1.7812
+splitKreduce_kernel                                              2.0    8.561500    0.006081    8.5572    8.559350     8.56150     8.563650     8.5658
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0   61.106044   89.991611    0.2327    0.474000     2.54920   157.410375   231.1497
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0   49.184562   91.447033    0.1111    0.120125     0.36405    42.831225   228.3495
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0    0.477475    0.149625    0.2713    0.278200     0.57820     0.579200     0.5792
+
+gpgpu_simulation_rate_instructions:
+                                                               count           mean           std       min        25%       50%        75%       max
+clean_names                                                                                                                                          
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0  124359.000000  42654.095255   94198.0  109278.50  124359.0  139439.50  154520.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0  138236.000000  43274.935009  107636.0  122936.00  138236.0  153536.00  168836.0
+dot_kernel                                                       2.0  165165.000000  22147.998600  149504.0  157334.50  165165.0  172995.50  180826.0
+gemmk1_kernel                                                    6.0  165997.500000  46728.953054   86340.0  154242.25  174086.0  183531.00  227166.0
+gemv2T_kernel_val                                                4.0  178393.000000  15921.991584  154803.0  175885.50  184949.0  187456.50  188871.0
+gemvNSP_kernel                                                   4.0  131925.500000  31053.361058   87727.0  121898.50  141729.0  151756.00  156517.0
+reduce_1Block_kernel                                             2.0  156396.500000  29741.618323  135366.0  145881.25  156396.5  166911.75  177427.0
+reduce_kernel<128, 4, …>                                         4.0  186100.750000  24501.184004  168297.0  170506.50  177286.0  192880.25  221534.0
+reduce_kernel<256, 2, …>                                         2.0  114652.500000  45166.445648   82715.0   98683.75  114652.5  130621.25  146590.0
+softmax_warp_backward                                            2.0  120931.000000  44724.503910   89306.0  105118.50  120931.0  136743.50  152556.0
+softmax_warp_forward                                             2.0  144479.500000  38997.646089  116904.0  130691.75  144479.5  158267.25  172055.0
+splitKreduce_kernel                                              2.0  141310.500000  18655.598208  128119.0  134714.75  141310.5  147906.25  154502.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  173738.111111  18788.420824  143224.0  160774.75  169204.5  186828.00  208408.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0  155395.625000  22231.291724  101219.0  158643.00  162399.5  165905.25  168784.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0  145119.500000  34236.878303   78611.0  135597.75  152652.5  168397.00  182899.0
+
+gpgpu_simulation_rate_cycles:
+                                                               count         mean         std    min      25%     50%      75%     max
+clean_names                                                                                                                           
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0   993.500000   30.405592  972.0   982.75   993.5  1004.25  1015.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0   966.500000   20.506097  952.0   959.25   966.5   973.75   981.0
+dot_kernel                                                       2.0   882.000000   60.811183  839.0   860.50   882.0   903.50   925.0
+gemmk1_kernel                                                    6.0   996.833333   36.630133  964.0   977.25   984.5  1001.50  1066.0
+gemv2T_kernel_val                                                4.0   806.250000  134.628811  644.0   721.25   831.0   916.00   919.0
+gemvNSP_kernel                                                   4.0  1014.250000   34.912987  986.0   987.50  1005.5  1032.25  1060.0
+reduce_1Block_kernel                                             2.0   903.500000   37.476659  877.0   890.25   903.5   916.75   930.0
+reduce_kernel<128, 4, …>                                         4.0   989.500000   19.824228  967.0   980.50   988.0   997.00  1015.0
+reduce_kernel<256, 2, …>                                         2.0  1036.500000   64.346717  991.0  1013.75  1036.5  1059.25  1082.0
+softmax_warp_backward                                            2.0  1007.500000   41.719300  978.0   992.75  1007.5  1022.25  1037.0
+softmax_warp_forward                                             2.0   949.500000    4.949747  946.0   947.75   949.5   951.25   953.0
+splitKreduce_kernel                                              2.0  1010.500000   27.577164  991.0  1000.75  1010.5  1020.25  1030.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0   934.833333   37.185149  887.0   908.00   929.0   964.50  1000.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0   960.750000   18.013884  945.0   949.50   955.5   964.25  1001.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0   951.416667   90.931001  778.0   920.50   958.5  1010.00  1083.0
+
+gpu_tot_ipc:
+                                                               count        mean        std       min         25%        50%         75%       max
+clean_names                                                                                                                                       
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0  125.826850  46.819732   92.7203  109.273575  125.82685  142.380125  158.9334
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0  143.454350  47.791155  109.6609  126.557625  143.45435  160.351075  177.2478
+dot_kernel                                                       2.0  186.720650  12.298638  178.0242  182.372425  186.72065  191.068875  195.4171
+gemmk1_kernel                                                    6.0  167.750350  50.488712   80.9786  156.275550  175.05755  188.373550  232.5813
+gemv2T_kernel_val                                                4.0  225.814700  44.895539  199.7088  202.414725  205.27495  228.674925  293.0001
+gemvNSP_kernel                                                   4.0  130.881800  34.290692   82.7192  118.381850  141.26755  153.767500  158.2729
+reduce_1Block_kernel                                             2.0  172.454250  25.630429  154.3308  163.392525  172.45425  181.515975  190.5777
+reduce_kernel<128, 4, …>                                         4.0  188.127925  25.379363  168.6789  170.290650  180.15390  197.991175  223.5250
+reduce_kernel<256, 2, …>                                         2.0  112.138700  50.493222   76.4346   94.286650  112.13870  129.990750  147.8428
+softmax_warp_backward                                            2.0  121.004900  49.420400   86.0594  103.532150  121.00490  138.477650  155.9504
+softmax_warp_forward                                             2.0  152.230900  41.864823  122.6280  137.429450  152.23090  167.032350  181.8338
+splitKreduce_kernel                                              2.0  140.060950  22.236882  124.3371  132.199025  140.06095  147.922875  155.7848
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  186.174044  22.203068  143.1367  176.478775  185.90475  200.797875  223.9470
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0  162.041175  25.210867  101.1000  164.436550  169.80290  174.761800  178.5388
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0  155.111233  42.255479   72.5625  139.947425  164.13020  188.403450  198.6735
+
+gpu_stall_dramfull:
+                                                               count          mean           std  min  25%  50%    75%       max
+clean_names                                                                                                                     
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+dot_kernel                                                       2.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+gemmk1_kernel                                                    6.0    929.666667   2277.208964  0.0  0.0  0.0    0.0    5578.0
+gemv2T_kernel_val                                                4.0    867.000000   1734.000000  0.0  0.0  0.0  867.0    3468.0
+gemvNSP_kernel                                                   4.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+reduce_1Block_kernel                                             2.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+reduce_kernel<128, 4, …>                                         4.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+reduce_kernel<256, 2, …>                                         2.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+softmax_warp_backward                                            2.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+softmax_warp_forward                                             2.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+splitKreduce_kernel                                              2.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  30500.833333  86430.618070  0.0  0.0  0.0    0.0  313018.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0      0.000000      0.000000  0.0  0.0  0.0    0.0       0.0
+
+gpu_stall_icnt2sh:
+                                                               count  mean  std  min  25%  50%  75%  max
+clean_names                                                                                             
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+dot_kernel                                                       2.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+gemmk1_kernel                                                    6.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+gemv2T_kernel_val                                                4.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+gemvNSP_kernel                                                   4.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+reduce_1Block_kernel                                             2.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+reduce_kernel<128, 4, …>                                         4.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+reduce_kernel<256, 2, …>                                         2.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+softmax_warp_backward                                            2.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+softmax_warp_forward                                             2.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+splitKreduce_kernel                                              2.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0   0.0  0.0  0.0  0.0  0.0  0.0  0.0
+
+Stall:
+                                                               count           mean            std      min       25%       50%        75%        max
+clean_names                                                                                                                                          
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0       9.000000       0.000000      9.0      9.00       9.0       9.00        9.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0      14.000000       0.000000     14.0     14.00      14.0      14.00       14.0
+dot_kernel                                                       2.0   26942.500000      44.547727  26911.0  26926.75   26942.5   26958.25    26974.0
+gemmk1_kernel                                                    6.0  130086.500000  102144.514251   6936.0  42915.25  150589.0  211093.00   234120.0
+gemv2T_kernel_val                                                4.0  102940.750000   17991.567902  84102.0  89474.25  103394.5  116861.00   120872.0
+gemvNSP_kernel                                                   4.0  150365.250000  137011.913583  31694.0  31721.00  149824.5  268468.75   270118.0
+reduce_1Block_kernel                                             2.0     250.000000       0.000000    250.0    250.00     250.0     250.00      250.0
+reduce_kernel<128, 4, …>                                         4.0     235.500000      41.892720    195.0    201.75     235.5     269.25      276.0
+reduce_kernel<256, 2, …>                                         2.0      36.500000       3.535534     34.0     35.25      36.5      37.75       39.0
+softmax_warp_backward                                            2.0      44.000000       0.000000     44.0     44.00      44.0      44.00       44.0
+softmax_warp_forward                                             2.0      32.000000       0.000000     32.0     32.00      32.0      32.00       32.0
+splitKreduce_kernel                                              2.0     356.500000       0.707107    356.0    356.25     356.5     356.75      357.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  165285.500000  287902.303190      2.0      8.00      44.0  228833.75  1015523.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0   26114.875000   52793.729767      2.0      2.00       8.0   16218.75   144182.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0       6.666667       1.969464      4.0      4.00       8.0       8.00        8.0
+
+Stall_W0_Idle:
+                                                               count           mean            std      min       25%       50%        75%       max
+clean_names                                                                                                                                         
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0    3400.000000      12.727922   3391.0   3395.50    3400.0    3404.50    3409.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0    4631.000000     267.286363   4442.0   4536.50    4631.0    4725.50    4820.0
+dot_kernel                                                       2.0   69487.000000     243.244733  69315.0  69401.00   69487.0   69573.00   69659.0
+gemmk1_kernel                                                    6.0  148332.333333  102867.786333  21652.0  61192.50  181480.5  208612.50  266628.0
+gemv2T_kernel_val                                                4.0  105554.500000   39567.685574  72137.0  72928.25   99024.5  131650.75  152032.0
+gemvNSP_kernel                                                   4.0  112872.250000   93705.010138  31477.0  31844.50  112796.5  193824.25  194419.0
+reduce_1Block_kernel                                             2.0   32299.500000      12.020815  32291.0  32295.25   32299.5   32303.75   32308.0
+reduce_kernel<128, 4, …>                                         4.0    1554.500000      44.253060   1506.0   1522.50    1559.0    1591.00    1594.0
+reduce_kernel<256, 2, …>                                         2.0    5102.500000      74.246212   5050.0   5076.25    5102.5    5128.75    5155.0
+softmax_warp_backward                                            2.0    2006.500000      74.246212   1954.0   1980.25    2006.5    2032.75    2059.0
+softmax_warp_forward                                             2.0    2134.000000       4.242641   2131.0   2132.50    2134.0    2135.50    2137.0
+splitKreduce_kernel                                              2.0    3223.500000      16.263456   3212.0   3217.75    3223.5    3229.25    3235.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0   89234.611111  117630.492415   1547.0   3100.50   17075.0  207434.75  321809.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0   69727.500000  121753.081936    887.0    907.25    1974.5   75434.75  289104.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0    2583.083333     614.341400   1567.0   1977.25    2984.0    2986.00    3020.0
+
+Stall_W0_Scoreboard:
+                                                               count           mean            std       min        25%       50%        75%        max
+clean_names                                                                                                                                            
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0     816.000000       4.242641     813.0     814.50     816.0     817.50      819.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0    1104.000000      89.095454    1041.0    1072.50    1104.0    1135.50     1167.0
+dot_kernel                                                       2.0  102458.500000   10147.689417   95283.0   98870.75  102458.5  106046.25   109634.0
+gemmk1_kernel                                                    6.0   36510.500000   18494.443174   12688.0   21258.75   47373.5   48073.75    50767.0
+gemv2T_kernel_val                                                4.0  830747.750000  280835.150882  551774.0  674927.00  779542.5  935363.25  1212132.0
+gemvNSP_kernel                                                   4.0  135898.500000  131207.077252   22091.0   22359.50  135886.0  249425.00   249731.0
+reduce_1Block_kernel                                             2.0    7766.500000      10.606602    7759.0    7762.75    7766.5    7770.25     7774.0
+reduce_kernel<128, 4, …>                                         4.0    2084.000000       8.831761    2075.0    2077.25    2084.0    2090.75     2093.0
+reduce_kernel<256, 2, …>                                         2.0     858.000000      28.284271     838.0     848.00     858.0     868.00      878.0
+softmax_warp_backward                                            2.0     729.500000      38.890873     702.0     715.75     729.5     743.25      757.0
+softmax_warp_forward                                             2.0    1317.000000       1.414214    1316.0    1316.50    1317.0    1317.50     1318.0
+splitKreduce_kernel                                              2.0   10436.000000       5.656854   10432.0   10434.00   10436.0   10438.00    10440.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  237853.333333  445850.612024     257.0    1254.50    6773.0  316166.00  1685470.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0     390.375000     529.256605      49.0      54.75     139.5     435.25     1397.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0     856.916667     386.912125     270.0     404.75    1100.0    1127.50     1144.0
+
+max_icnt2mem_latency:
+                                                               count         mean          std     min      25%     50%      75%     max
+clean_names                                                                                                                             
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0  1309.500000   120.915260  1224.0  1266.75  1309.5  1352.25  1395.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0  1309.500000   120.915260  1224.0  1266.75  1309.5  1352.25  1395.0
+dot_kernel                                                       2.0  1309.500000   120.915260  1224.0  1266.75  1309.5  1352.25  1395.0
+gemmk1_kernel                                                    6.0  1309.500000    93.660557  1224.0  1224.00  1309.5  1395.00  1395.0
+gemv2T_kernel_val                                                4.0  1309.500000    98.726896  1224.0  1224.00  1309.5  1395.00  1395.0
+gemvNSP_kernel                                                   4.0  1309.500000    98.726896  1224.0  1224.00  1309.5  1395.00  1395.0
+reduce_1Block_kernel                                             2.0  1309.500000   120.915260  1224.0  1266.75  1309.5  1352.25  1395.0
+reduce_kernel<128, 4, …>                                         4.0  1309.500000    98.726896  1224.0  1224.00  1309.5  1395.00  1395.0
+reduce_kernel<256, 2, …>                                         2.0  1309.500000   120.915260  1224.0  1266.75  1309.5  1352.25  1395.0
+softmax_warp_backward                                            2.0  1309.500000   120.915260  1224.0  1266.75  1309.5  1352.25  1395.0
+softmax_warp_forward                                             2.0  1309.500000   120.915260  1224.0  1266.75  1309.5  1352.25  1395.0
+splitKreduce_kernel                                              2.0  1309.500000   120.915260  1224.0  1266.75  1309.5  1352.25  1395.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  2471.277778  1630.378946  1395.0  1395.00  1395.0  3095.00  5269.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0  1373.625000    60.457630  1224.0  1395.00  1395.0  1395.00  1395.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0  1309.500000    89.301838  1224.0  1224.00  1309.5  1395.00  1395.0
+
+average_mflatency:
+                                                               count        mean         std    min     25%    50%     75%    max
+clean_names                                                                                                                      
+cunn_ClassNLLCriterion_updateGradInput_kernel                    2.0  565.000000    2.828427  563.0  564.00  565.0  566.00  567.0
+cunn_ClassNLLCriterion_updateOutput_kernel                       2.0  572.500000   13.435029  563.0  567.75  572.5  577.25  582.0
+dot_kernel                                                       2.0  573.000000   12.727922  564.0  568.50  573.0  577.50  582.0
+gemmk1_kernel                                                    6.0  517.833333   58.962417  423.0  485.25  546.0  557.25  566.0
+gemv2T_kernel_val                                                4.0  578.250000   16.879475  563.0  566.00  575.0  587.25  600.0
+gemvNSP_kernel                                                   4.0  549.250000   23.851974  514.0  545.50  558.5  562.25  566.0
+reduce_1Block_kernel                                             2.0  572.500000   13.435029  563.0  567.75  572.5  577.25  582.0
+reduce_kernel<128, 4, …>                                         4.0  495.750000   60.007638  427.0  454.75  503.5  544.50  549.0
+reduce_kernel<256, 2, …>                                         2.0  562.000000    5.656854  558.0  560.00  562.0  564.00  566.0
+softmax_warp_backward                                            2.0  565.000000    2.828427  563.0  564.00  565.0  566.00  567.0
+softmax_warp_forward                                             2.0  572.500000   13.435029  563.0  567.75  572.5  577.25  582.0
+splitKreduce_kernel                                              2.0  534.500000   30.405592  513.0  523.75  534.5  545.25  556.0
+vectorized_elementwise_kernel<4, AddFunctor<float>, _>          18.0  687.277778  138.831174  543.0  578.50  634.5  768.00  914.0
+vectorized_elementwise_kernel<4, FillFunctor<float>, _>          8.0  568.500000    4.242641  563.0  567.00  567.0  569.00  575.0
+vectorized_elementwise_kernel<4, threshold_kernel_impl<…>, _>   12.0  561.166667   32.984386  464.0  561.75  564.0  570.75  600.0
+
